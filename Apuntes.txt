@@ -47,3 +47,35 @@ Puedes mezclar layout xml con java para aportar dinamismo al layout.
 Siempre 1 activida - 1 layout 
 El layout XML es estático y puedes aportar dinamismo programando en java, pero no se modifica el fichero XML en sí mismo sino que se programan las acciones, por ejemplo cuando el usuario haga tal, pues aparecera otro boton, o algo asi.
 
+---------------------
+
+En Android Studio
+
+Hemos hecho una aplicación que básicamente es un botón que ocupa toda la pantalla 
+y al hacer click sobre él, nos muestra la hora actual.
+Hay dos formas de hacerlo, la "forma fácil" que es la que se usa más para botones
+y la otra forma que hay que aprenderla porque aunque no se use para los botones, sí
+se usa para otros elementos.
+
+Forma fácil, con el onClick en el layout:
+	-Crear el Button en el layout 
+	poner el onClick = "nombreMetodo"
+	-Ir a la actividad correspondiente y crear ese metodo "nombreMetodo" y ahi dentro declaras
+	el boton y haces todo lo que tengas que hacer, ese método será el llamado al hacer click 
+	sobre el boton, no tienes que poner nada fuera.
+
+
+Forma 2, sin el onclick en el layout sino en Java:
+	-Crear el Button en el layout, pero sin el android:onClick
+	-En la actividad correspondiente, DECLARAR (sólo DECLARAR) el boton en la clase,
+	en mi caso en la clase MainActivity
+	-Implementar View.onClickListener
+	-dentro del método onCreate, asignarle al boton declarado una vista obtenida por ID de la 
+	siguiente manera (en mi caso el id es botonHorario) : 
+	btn = findViewById(R.id.botonHorario);
+	-poner el setOnClickListener para que tenga un listener que este pendiente de
+	si le hacen click y enviarle como contexto (this)
+	-El método onClick es obligatorio con la implementación de View.onClickListener y dentro escribir
+	lo que queramos que haga el botón al darle click
+	-en mi caso lo que hacía era llamar al método "actualizar" así que programo el método actualizar.
+	

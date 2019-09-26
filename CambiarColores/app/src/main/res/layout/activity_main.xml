@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <Button
+        android:id="@+id/botonAzul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Azul"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+    <Button
+        android:id="@+id/botonRojo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rojo"
+        app:layout_constraintBottom_toBottomOf="@id/botonAzul"
+        app:layout_constraintLeft_toLeftOf="@id/botonAzul"
+        app:layout_constraintRight_toRightOf="@id/botonAzul"
+        app:layout_constraintTop_toTopOf="@id/botonVerde"
+        />
+    <Button
+        android:id="@+id/botonVerde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verde"
+        app:layout_constraintBottom_toBottomOf="@id/botonRojo"
+        app:layout_constraintLeft_toLeftOf="@id/botonRojo"
+        app:layout_constraintRight_toRightOf="@id/botonRojo"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/botonAmarillo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amarillo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/botonVerde"
+        app:layout_constraintLeft_toLeftOf="@id/botonVerde"
+        app:layout_constraintTop_toTopOf="@id/botonRojo"
+     />
+
+    <Button
+        android:id="@+id/reset"
+        android:text="reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/botonAmarillo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/botonAmarillo"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
