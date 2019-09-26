@@ -1,0 +1,49 @@
+-buscar estructura fichero manifest
+	-se suele tocar para los permisos y las actividades
+Haciendo File > New > Activity, sí se añade automaticamente la actividad al manifest, si haces
+añadir clase java, tienes que añadirla a mano al manifest.
+
+-El apk esta en la vista Project, en la vista Android no sale
+
+-res para resources (recursos)
+	-drawable para imagenes
+	-layout son ficheros xml que definen la disposicion de los elementos de una actividad
+		-1 fichero xml (layout) por cada actividad de la app (pantalla)
+		-hay diferentes tipos de layout (linear layout, constraint layout...)
+		-solo puedes elegir un tipo de layout para la actividad, pero dentro puedes 				dividir en mas layouts, son como <div>.
+		-Constraint layout es el mas moderno y el unico con el que se puede trabajar en 		modo Design y que funcione bien.
+			-mucho mas recomendable el modo texto
+		-para conectar una clase java con layout que le corresponde es con setContentView
+	-values para crear cadenas de caracteres y constantes y luego usarlas desde java (util 		para traducciones), ej defino un margen y luego lo uso en toda la app y si quiero 		cambiarlo solo lo cambio ahi 
+-src: el codigo fuente de la app
+-assets: ficheros externos, más recursos que no se acceden desde R 
+-gen: codigo autogenerado por android studio
+
+----------------------
+
+inner class (una clase dentro de otra)
+solo las podemos usar cuando la clase solo va a ser usada por una unica otra clase. Hay que saber verlo.
+Tienes una clase A, y quieres hacer una clase B que únicamente va a ser usada por la clase A, entonces, puedes decidir meter esa clase B dentro de la clase A (inner class).
+Hay que saber juzgar cuándo es buena idea y cuándo no. Hay veces que lo haces y es una chapuza, o hay veces que lo haces y es por diseño, aporta limpieza a la estructura de clases y etc etc y entonces está bien.
+Una inner class sólo debe ser accedida por la clase en la que se encuentra, si es accedida por otra clase de fuera, está mal diseñada la estructura.
+
+--------------------------------------------------
+La clase R está en (vista Project)
+	-build > generated > not_namespaced_r_class_source>debug > r > ... y por ahí más dentro está, tienes que ir abriendo las carpetitas que serán como el nombre de tu proyecto.
+En mi cason eran:
+	es > iesnervion>avazquez>holaMundo>R.java
+
+-si la clase R no se autogenera, has hecho algo mal. Mira en el XML porque igual se te ha quedao una <etiqueta> sin cerrar.
+-los nombres de imagenes deben ir en minusculas, y no empezar por numeros. Las imagenes y lo que sea. No tildes, etc. Si lo haces, dara fallo en la creación de la clase R.
+Cualquier cosa que hagas mal, igual hace que no se te autogenere la clase R.
+
+La clase R, el nombre viene de Resource.
+
+Sirve para corresponder codigo java con los ficheros de la carpeta res.
+
+----------
+
+Puedes mezclar layout xml con java para aportar dinamismo al layout.
+Siempre 1 activida - 1 layout 
+El layout XML es estático y puedes aportar dinamismo programando en java, pero no se modifica el fichero XML en sí mismo sino que se programan las acciones, por ejemplo cuando el usuario haga tal, pues aparecera otro boton, o algo asi.
+
