@@ -29,7 +29,7 @@ Una inner class sólo debe ser accedida por la clase en la que se encuentra, si 
 
 --------------------------------------------------
 La clase R está en (vista Project)
-	-build > generated > not_namespaced_r_class_source>debug > r > ... y por ahí más dentro está, tienes que ir abriendo las carpetitas que serán como el nombre de tu proyecto.
+	-app > build > generated > not_namespaced_r_class_source>debug > r > ... y por ahí más dentro está, tienes que ir abriendo las carpetitas que serán como el nombre de tu proyecto.
 En mi cason eran:
 	es > iesnervion>avazquez>holaMundo>R.java
 
