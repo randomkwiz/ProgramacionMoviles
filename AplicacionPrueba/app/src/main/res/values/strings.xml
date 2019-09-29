@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AplicacionPrueba</string>
+    <string name="sex">Sexo</string>
+    <string name="firstname">Nombre</string>
+    <string name="lastname">Apellidos</string>
+    <string name="Male">Masculino</string>
+    <string name="Female">Femenino</string>
+    <string name="dog">Perro</string>
+    <string name="cat">Gato</string>
+    <string name="bird">Pájaro</string>
+    <string name="FaveAnimal">Animal(es) favorito(s)</string>
+</resources>

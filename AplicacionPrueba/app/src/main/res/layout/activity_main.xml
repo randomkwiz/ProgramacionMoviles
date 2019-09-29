@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/firstname"
+        android:id="@+id/TextoNombre"
+        />
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#9EAFEF"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/lastname"
+        android:id="@+id/TextoApellido"
+        />
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#9EAFEF"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/sex"
+        android:id="@+id/TextoRadioButtonSex"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioButtonSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Female"
+            android:id="@+id/radioButtonFemale"
+            android:checked="false"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Male"
+            android:id="@+id/radioButtonMale"
+            android:checked="false"
+           />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/FavAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:text="@string/FaveAnimal"
+ />
+
+    <CheckBox
+        android:id="@+id/checkboxBird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bird"
+        />
+
+    <CheckBox
+        android:id="@+id/checkboxCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cat"
+/>
+
+    <CheckBox
+        android:id="@+id/checkboxDog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dog"
+ />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar" />
+
+    <Button
+        android:id="@+id/clean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpiar" />
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      />
+
+
+
+
+
+
+</LinearLayout>
