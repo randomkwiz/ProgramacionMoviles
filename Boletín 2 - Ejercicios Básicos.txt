@@ -1,0 +1,7 @@
+EJERCICIO 1
+
+Diseñar una aplicación que tenga un texto en la parte superior, y a través de cuatro checkboxes se pueda poner el texto en negrita, en tamaño de fuente gigantesco, en tamaño de fuente minúsculo, en color rojo.
+
+EJERCICIO 2
+
+Implementar una pequeña calculadora. Deberá tener dos campos de texto en los que el usuario pueda meter dos números, y a través de radiobuttons el usuario decida la operación a llevar a cabo: suma, resta, multiplicación o división.

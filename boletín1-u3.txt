@@ -1,0 +1,25 @@
+EJERCICIO 1
+
+Haz una aplicación que tome dos valores introducidos por el usuario y que tras pulsar un botón de Suma muestre el resultado de sumar ambos valores.
+
+
+EJERCICIO 2
+
+Haz una aplicación que permita que el usuario introduzca un texto y que disponga de tres botones para cambiar el color del texto a azul, rojo y verde.
+
+
+EJERCICIO 3
+
+Diseña una aplicación que permita que el usuario introduzca un texto y además disponga de dos botones: "Alinear izquierda" y "Alinear derecha", que alineen el texto a la izquierda y a la derecha respectivamente.
+
+EJERCICIO 4
+
+Haz una galería de imágenes básica. Debajo de la imagen mostrada habrá dos botones: "Siguiente" y "Anterior", que al ser pulsados mostrarán respectivamente la imagen siguiente o la anterior.
+
+EJERCICIO 5
+
+Diseña una aplicación que permita que el usuario introduzca un texto, y que debajo del texto mostrado haya dos botones "+" y "-" que permitirán aumentar o disminuir respectivamente el tamaño de letra.
+
+EJERCICIO 6
+
+Crea una aplicación con una imagen que al ser pulsada se cambie por otra. Por ejemplo, una imagen de un altavoz y otra de un altavoz tachado...

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/editTextNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="1234567890"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/appName"
+        ></EditText>
+    <Button
+        android:id="@+id/suma"
+        android:onClick="sumar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
+        android:text="@string/suma"
+        ></Button>
+
+    <Button
+        android:id="@+id/resta"
+        android:onClick="restar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/suma"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
+        android:text="@string/resta"
+        ></Button>
+
+    <Button
+        android:id="@+id/division"
+        android:onClick="dividir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/suma"
+        android:text="@string/division"
+        ></Button>
+
+
+    <Button
+        android:id="@+id/multiplicacion"
+        android:onClick="multiplicar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/division"
+        app:layout_constraintTop_toBottomOf="@id/resta"
+        android:text="@string/multiplicacion"
+        ></Button>
+
+    <Button
+        android:id="@+id/igual"
+        android:onClick="obtenerResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/division"
+        android:text="@string/igual"
+        ></Button>
+
+    <Button
+        android:id="@+id/resto"
+        android:onClick="modulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/igual"
+        app:layout_constraintTop_toBottomOf="@id/multiplicacion"
+        android:text="@string/resto"
+        ></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
