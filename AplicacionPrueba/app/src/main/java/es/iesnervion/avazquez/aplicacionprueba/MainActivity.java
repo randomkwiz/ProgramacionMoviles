@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity
 implements View.OnClickListener
 {
 
-    EditText nombre;
+    //EditText nombre;
     EditText apellidos;
     RadioButton male;
     RadioButton female;
@@ -32,7 +32,7 @@ implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nombre = findViewById(R.id.firstName);
+
 
         apellidos = findViewById(R.id.lastName);
 
@@ -52,13 +52,16 @@ implements View.OnClickListener
     @Override
     public void onClick(View v) {
         String res = "";
+        EditText nombre = findViewById(R.id.firstName);
+        //como la usas aqui la puedes poner aqui, pero en realidad no es muy recomendable
         switch (v.getId()){
             case R.id.submit:
+
                 String selected = radioButtonSelected();
                 firstName = nombre.getText().toString();
                 lastName = apellidos.getText().toString();
 
-                res = "Tu nombre es: " + firstName + "\n"
+                res = " Tu nombre es: " + firstName + "\n"
                         +"Tu apellido es: " + lastName + "\n"
                         +"Tu sexo es: " + selected + "\n"
                         +"Animales favoritos: " + "\n";

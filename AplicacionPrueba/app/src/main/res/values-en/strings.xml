@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">English app</string>
+    <string name="sex">Sex</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last name</string>
+    <string name="Male">Male </string>
+    <string name="Female">Female</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="bird">Bird</string>
+    <string name="FaveAnimal">Fav animal</string>
+</resources>
