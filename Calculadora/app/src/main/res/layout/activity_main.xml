@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
@@ -14,160 +15,173 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/registro"
+        android:layout_width="match_parent"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/appName"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumbers"
+         />
+
     <EditText
         android:id="@+id/editTextNumbers"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="52dp"
         android:digits="1234567890"
         android:inputType="numberDecimal"
+        android:textSize="50dp"
         app:layout_constraintTop_toBottomOf="@id/appName"
-        ></EditText>
+        tools:layout_editor_absoluteX="16dp"></EditText>
 
     <Button
+        android:id="@+id/numeroTres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numeroUno"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
-        android:text="@string/numeroUno"
-        ></Button>
+        android:layout_marginTop="72dp"
+        android:text="@string/numeroTres"
+        app:layout_constraintLeft_toRightOf="@id/numeroDos"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"></Button>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/numeroDos"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
-        app:layout_constraintLeft_toRightOf="@id/numeroUno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:text="@string/numeroDos"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroUno"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"></Button>
 
     <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/numeroTres"
-    app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
-    app:layout_constraintLeft_toRightOf="@id/numeroDos"
-    android:text="@string/numeroTres"
-    ></Button>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/numeroCuatro"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
-        app:layout_constraintLeft_toRightOf="@id/numeroTres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:text="@string/numeroCuatro"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroTres"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"></Button>
 
     <Button
+        android:id="@+id/numeroUno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numeroCinco"
-        app:layout_constraintTop_toBottomOf="@id/numeroUno"
-        android:text="@string/numeroCinco"
-        ></Button>
+        android:layout_marginTop="72dp"
+        android:text="@string/numeroUno"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumbers"
+        tools:layout_editor_absoluteX="23dp"></Button>
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/numeroSeis"
-        app:layout_constraintTop_toBottomOf="@id/numeroDos"
-        app:layout_constraintLeft_toRightOf="@id/numeroCinco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/numeroSeis"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroCinco"
+        app:layout_constraintTop_toBottomOf="@id/numeroDos"></Button>
 
     <Button
+        android:id="@+id/multiplicacion"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/multiplicacion"
+        app:layout_constraintLeft_toRightOf="@id/division"
+        app:layout_constraintTop_toBottomOf="@id/resta"></Button>
+
+    <Button
+        android:id="@+id/limpiar"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:text="@string/limpiar"
+        app:layout_constraintTop_toBottomOf="@id/division"
+        tools:layout_editor_absoluteX="23dp"></Button>
+
+    <Button
         android:id="@+id/numeroSiete"
-        app:layout_constraintTop_toBottomOf="@id/numeroTres"
-        app:layout_constraintLeft_toRightOf="@id/numeroSeis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/numeroSiete"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroSeis"
+        app:layout_constraintTop_toBottomOf="@id/numeroTres"></Button>
 
     <Button
+        android:id="@+id/numeroCinco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numeroOcho"
-        app:layout_constraintTop_toBottomOf="@id/numeroCuatro"
-        app:layout_constraintLeft_toRightOf="@id/numeroSiete"
-        android:text="@string/numeroOcho"
-        ></Button>
+        android:text="@string/numeroCinco"
+        app:layout_constraintTop_toBottomOf="@id/numeroUno"
+        tools:layout_editor_absoluteX="23dp"></Button>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/numeroNueve"
-        app:layout_constraintTop_toBottomOf="@id/numeroCinco"
-        android:text="@string/numeroNueve"
-        ></Button>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/numeroNueve"
+        app:layout_constraintTop_toBottomOf="@id/numeroCinco"
+        tools:layout_editor_absoluteX="23dp"></Button>
+
+    <Button
         android:id="@+id/numeroCero"
-        app:layout_constraintTop_toBottomOf="@id/numeroSeis"
-        app:layout_constraintLeft_toRightOf="@id/numeroNueve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/numeroCero"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroNueve"
+        app:layout_constraintTop_toBottomOf="@id/numeroSeis"></Button>
 
     <Button
         android:id="@+id/suma"
-        android:onClick="sumar"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/numeroSiete"
-        app:layout_constraintLeft_toRightOf="@id/numeroCero"
         android:text="@string/suma"
-        ></Button>
+        app:layout_constraintLeft_toRightOf="@id/numeroCero"
+        app:layout_constraintTop_toBottomOf="@id/numeroSiete"></Button>
 
-      <Button
-          android:id="@+id/resta"
-          android:onClick="restar"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/numeroOcho"
+    <Button
+        android:id="@+id/igual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:text="@string/igual"
+        app:layout_constraintLeft_toRightOf="@id/multiplicacion"
+        app:layout_constraintTop_toBottomOf="@id/suma"></Button>
+
+    <Button
+        android:id="@+id/resto"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resto"
+        app:layout_constraintLeft_toRightOf="@id/igual"
+        app:layout_constraintTop_toBottomOf="@id/resta"></Button>
+
+    <Button
+        android:id="@+id/division"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/division"
+        app:layout_constraintTop_toBottomOf="@id/numeroNueve"
+        tools:layout_editor_absoluteX="23dp"></Button>
+
+    <Button
+        android:id="@+id/resta"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resta"
         app:layout_constraintLeft_toRightOf="@id/suma"
-          android:text="@string/resta"
-          ></Button>
+        app:layout_constraintTop_toBottomOf="@id/numeroOcho"></Button>
 
-      <Button
-          android:id="@+id/division"
-          android:onClick="dividir"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:layout_constraintTop_toBottomOf="@id/numeroNueve"
-          android:text="@string/division"
-          ></Button>
+    <Button
+        android:id="@+id/numeroOcho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numeroOcho"
+        app:layout_constraintLeft_toRightOf="@id/numeroSiete"
+        app:layout_constraintTop_toBottomOf="@id/numeroCuatro"></Button>
 
-
-      <Button
-          android:id="@+id/multiplicacion"
-          android:onClick="multiplicar"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:layout_constraintLeft_toRightOf="@id/division"
-          app:layout_constraintTop_toBottomOf="@id/resta"
-          android:text="@string/multiplicacion"
-          ></Button>
-
-      <Button
-          android:id="@+id/igual"
-          android:onClick="obtenerResultado"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:layout_constraintLeft_toRightOf="@id/multiplicacion"
-          app:layout_constraintTop_toBottomOf="@id/suma"
-          android:text="@string/igual"
-          ></Button>
-
-      <Button
-          android:id="@+id/resto"
-          android:onClick="modulo"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:layout_constraintLeft_toRightOf="@id/igual"
-          app:layout_constraintTop_toBottomOf="@id/resta"
-          android:text="@string/resto"
-          ></Button>
-  -->
 </androidx.constraintlayout.widget.ConstraintLayout>

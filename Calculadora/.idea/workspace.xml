@@ -99,17 +99,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="711a6896" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/es/iesnervion/avazquez/calculadora/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+            <state relative-caret-position="109">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+              <folding>
+                <element signature="e#5040#5041#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,24 +120,26 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="329">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
-                <element signature="e#1232#1251#0" expanded="true" />
-                <element signature="e#1560#1579#0" expanded="true" />
-                <element signature="e#1869#1889#0" expanded="true" />
-                <element signature="e#2195#2217#0" expanded="true" />
-                <element signature="e#2458#2479#0" expanded="true" />
-                <element signature="e#2780#2800#0" expanded="true" />
-                <element signature="e#3103#3124#0" expanded="true" />
-                <element signature="e#3429#3449#0" expanded="true" />
-                <element signature="e#3692#3713#0" expanded="true" />
-                <element signature="e#4016#4036#0" expanded="true" />
-                <element signature="e#4732#4747#0" expanded="true" />
-                <element signature="e#5032#5050#0" expanded="true" />
-                <element signature="e#5410#5434#0" expanded="true" />
-                <element signature="e#5729#5744#0" expanded="true" />
-                <element signature="e#6093#6108#0" expanded="true" />
+                <element signature="e#1652#1672#0" expanded="true" />
+                <element signature="e#2008#2027#0" expanded="true" />
+                <element signature="e#2366#2388#0" expanded="true" />
+                <element signature="e#2725#2744#0" expanded="true" />
+                <element signature="e#3026#3046#0" expanded="true" />
+                <element signature="e#3344#3368#0" expanded="true" />
+                <element signature="e#3684#3701#0" expanded="true" />
+                <element signature="e#3977#3998#0" expanded="true" />
+                <element signature="e#4292#4313#0" expanded="true" />
+                <element signature="e#4590#4611#0" expanded="true" />
+                <element signature="e#4889#4909#0" expanded="true" />
+                <element signature="e#5198#5212#0" expanded="true" />
+                <element signature="e#5533#5548#0" expanded="true" />
+                <element signature="e#5835#5850#0" expanded="true" />
+                <element signature="e#6132#6150#0" expanded="true" />
+                <element signature="e#6424#6439#0" expanded="true" />
+                <element signature="e#6726#6746#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,6 +170,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -199,15 +206,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="711a6896" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-10-02T17:50:54.593Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -298,64 +305,81 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.12781955" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Run" />
-      <window_info anchor="bottom" id="Logcat" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Android Profiler" />
-      <window_info anchor="bottom" id="Debug" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Build" visible="true" weight="0.11744966" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Gradle" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Preview" weight="0.32975295" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.19688842" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Find" />
+      <window_info anchor="bottom" id="Run" order="0" />
+      <window_info anchor="bottom" id="Logcat" order="1" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2911111" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.2488889" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="right" id="Assistant" weight="0.3336887" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.32939914" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10861" column="19" selection-start-line="10861" selection-start-column="19" selection-end-line="10861" selection-end-column="19" />
+          <folding>
+            <element signature="e#447114#447115#0" expanded="true" />
+            <element signature="e#447175#447176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="329">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding>
-            <element signature="e#1232#1251#0" expanded="true" />
-            <element signature="e#1560#1579#0" expanded="true" />
-            <element signature="e#1869#1889#0" expanded="true" />
-            <element signature="e#2195#2217#0" expanded="true" />
-            <element signature="e#2458#2479#0" expanded="true" />
-            <element signature="e#2780#2800#0" expanded="true" />
-            <element signature="e#3103#3124#0" expanded="true" />
-            <element signature="e#3429#3449#0" expanded="true" />
-            <element signature="e#3692#3713#0" expanded="true" />
-            <element signature="e#4016#4036#0" expanded="true" />
-            <element signature="e#4732#4747#0" expanded="true" />
-            <element signature="e#5032#5050#0" expanded="true" />
-            <element signature="e#5410#5434#0" expanded="true" />
-            <element signature="e#5729#5744#0" expanded="true" />
-            <element signature="e#6093#6108#0" expanded="true" />
+            <element signature="e#1652#1672#0" expanded="true" />
+            <element signature="e#2008#2027#0" expanded="true" />
+            <element signature="e#2366#2388#0" expanded="true" />
+            <element signature="e#2725#2744#0" expanded="true" />
+            <element signature="e#3026#3046#0" expanded="true" />
+            <element signature="e#3344#3368#0" expanded="true" />
+            <element signature="e#3684#3701#0" expanded="true" />
+            <element signature="e#3977#3998#0" expanded="true" />
+            <element signature="e#4292#4313#0" expanded="true" />
+            <element signature="e#4590#4611#0" expanded="true" />
+            <element signature="e#4889#4909#0" expanded="true" />
+            <element signature="e#5198#5212#0" expanded="true" />
+            <element signature="e#5533#5548#0" expanded="true" />
+            <element signature="e#5835#5850#0" expanded="true" />
+            <element signature="e#6132#6150#0" expanded="true" />
+            <element signature="e#6424#6439#0" expanded="true" />
+            <element signature="e#6726#6746#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/es/iesnervion/avazquez/calculadora/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+        <state relative-caret-position="109">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="e#5040#5041#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

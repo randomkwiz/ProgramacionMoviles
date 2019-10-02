@@ -17,4 +17,5 @@
     <string name="numeroOcho">8</string>
     <string name="numeroNueve">9</string>
     <string name="numeroCero">0</string>
+    <string name="limpiar">CE</string>
 </resources>
