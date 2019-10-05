@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--
+To provide the proper view for the cells that represent each
+Card object, create a new XML layout file
+*************
+Para dar el aspecto apropiado a cada celda que representa
+cada objeto Carta, creamos un layout nuevo.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cardImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="centerInside"/>
+
+        <ImageView
+            android:id="@+id/cardImgTapada"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/flippedcard" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/cardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">JuegoEncontrarParejas</string>
+    <string name="app_name">Juego Encontrar Parejas</string>
+    <string name="restart">Reiniciar partida</string>
+    <string name="points">Puntos : </string>
+    <string name="start">Empezar partida</string>
+    <string name="card1">Carta 1</string>
+    <string name="card2">Carta 2</string>
+    <string name="card3">Carta 3</string>
+    <string name="card4">Carta 4</string>
+    <string name="card5">Carta 5</string>
+    <string name="card6">Carta 6</string>
+    <string name="card7">Carta 7</string>
+    <string name="card8">Carta 8</string>
+    <string name="card9">Carta 9</string>
+    <string name="card10">Carta 10</string>
+    <string name="card11">Carta 11</string>
+    <string name="card12">Carta 12</string>
+    <string name="card13">Carta 13</string>
+    <string name="card14">Carta 14</string>
+    <string name="card15">Carta 15</string>
+    <string name="card16">Carta 16</string>
 </resources>

@@ -1,0 +1,22 @@
+aplicacion que disponga cartas en una cuadricula 4x4 o asi
+que tengan cada una un valor aleatorio entre los valores posibles
+Puede ser en un array bidimensional
+
+[] [] [] []
+[] [] [] []
+[] [] [] []
+[] [] [] []
+
+
+el usuario 
+levanta una, que se queda levantada
+levanta otra, si es pareja, se quedan ambas levantada
+si no es pareja, tras 1 segundo, se vuelven a tapar 
+las dos, pero NO se "barajan" otra vez
+(si no el juego sería interminable)
+
+así hasta que no quede ninguna carta boca abajo
+
+Eso es lo principal
+
+Luego ya le puedes añadir toda la mierda que quieras
