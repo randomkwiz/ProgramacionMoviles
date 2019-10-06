@@ -53,8 +53,7 @@ como un array o una consulta de bbdd, luego crea una vista para cada elemento.
         final Card card = cards[position];
 
         // 2 -Si la vista es nula, la "infla" con el XML que he creado exclusivo para la
-        // carta. Esto me servirá más adelante para añadir elementos al gridview
-        // y que se pongan igual que los demas
+        // carta. 
         if (view == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(getContext());
             view = layoutInflater.inflate(R.layout.linearlayout_card, null);
