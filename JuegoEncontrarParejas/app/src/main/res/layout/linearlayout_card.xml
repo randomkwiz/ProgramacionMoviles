@@ -2,9 +2,6 @@
 
 
 <!--
-To provide the proper view for the cells that represent each
-Card object, create a new XML layout file
-*************
 Para dar el aspecto apropiado a cada celda que representa
 cada objeto Carta, creamos un layout nuevo.
 -->

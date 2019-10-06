@@ -55,22 +55,25 @@ public class MainActivity extends AppCompatActivity {
         final Intent intent = new Intent(this, AnotherActivity.class);
         textViewPuntuacion = findViewById(R.id.puntuacion);
 
-        //Problema: cada vez que giras la pantalla se ejecuta esto así que
+        //Problema: cada vez que giras la pantalla se ejecuta el onCreate así que
         //se barajan las cartas cada vez aunque las que estén levantadas se mantienen levantadas
         barajarCartas();
 
         //ojitocuidao clase anidada
+        //es para poner un listener en cada item del gridview
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 Card card = cards[position];
+
                 //asi cuando la carta este con su pareja, ya no se pueden volver a girar
                 if(!card.isEncontrada()){
                     card.girarCarta();
                     isPrimeraCarta = !isPrimeraCarta;
-                    // This tells the GridView to redraw itself
-                    // in turn calling your card adapter's getView method again for each cell
+                    // Con esto le indicamos que ha habido cambios y que se actualice
+                    // llama al getView del adapter pa cada item del gridview
                     cardsAdapter.notifyDataSetChanged();
+
                     if (isPrimeraCarta) {
                         primeraCarta = card;
                         //textViewPuntuacion.setText("Puntos: "+String.valueOf(puntuacion));
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        }); //aqui termina la clase anidada
 
 
     }
@@ -109,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // construct a list of cards you've flipped
+        // guardo en una lista las cartas que han sido giradas
         final ArrayList<Integer> cartasGiradas = new ArrayList<>();
         for (Card card : cards) {
             if (card.isFlipped()) {
@@ -117,22 +120,32 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // save that list to outState for later
+        // guardo la lista para luego
+
+        /*
+        * Anotación sobre Bundle outState - ¿Que es?
+        * When the instance state is saved, meaning, your app calls onSaveInstanceState()
+        * because another app came to the foreground or something similar,
+        * that method takes a Bundle object which contains the current state of the app to save.
+        * Any information you want to make sure is saved temporarily can be put into that Bundle
+        * in a Parcelable form. The Bundle parameter taken by onSaveInstanceState()
+        * is called outstate because it's the state going out (being saved, not read).
+        * */
         outState.putIntegerArrayList(imagenesGiradas, cartasGiradas);
     }
 
 
 
-    //To restore the selections when the activity is recreated
+    //Restaura las cartas que estaban levantadas
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        // get our previously saved list of flipped cards
+        // obtenemos la lista guardada
         final ArrayList<Integer> cartasGiradas =
                 savedInstanceState.getIntegerArrayList(imagenesGiradas);
 
-        // look at all of your cards and figure out which are the flipped
+        // miramos las cartas y levantamos las que estuvieran levantadas
         for (int cardName : cartasGiradas) {
             for (Card card : cards) {
                 if (card.getName() == cardName) {
@@ -147,15 +160,11 @@ public class MainActivity extends AppCompatActivity {
     public void barajarCartas (){
         Random rgen = new Random();
         for (int i=0; i<cards.length; i++) {
-
             int randomPosition = rgen.nextInt(cards.length);
-
             Card temp = cards[i];
-
             cards[i] = cards[randomPosition];
             cards[randomPosition] = temp;
         }
-
     }
 
     public void reiniciar(View v){
