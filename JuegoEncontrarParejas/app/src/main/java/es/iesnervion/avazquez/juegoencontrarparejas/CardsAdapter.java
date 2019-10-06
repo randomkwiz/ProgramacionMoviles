@@ -36,7 +36,7 @@ como un array o una consulta de bbdd, luego crea una vista para cada elemento.
         return cards.length;
     }
 
-    //No lo necesitaremos así que por eso ponemos  y null
+    //No lo necesitaremos así que por eso ponemos 0 y null
     @Override
     public Object getItem(int position) {
         return null;
@@ -52,8 +52,8 @@ como un array o una consulta de bbdd, luego crea una vista para cada elemento.
         // 1 -pillamos la carta por la posicion
         final Card card = cards[position];
 
-        // 2 -Si la vista es nula, la "infla" con el XML que he creado exclusivo para la
-        // carta. 
+        // 2 -Si la vista es nula, la "infla" (le dice como ponerse) con el XML que he creado exclusivo para la
+        // carta.
         if (view == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(getContext());
             view = layoutInflater.inflate(R.layout.linearlayout_card, null);
