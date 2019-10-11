@@ -2,7 +2,9 @@ package es.iesnervion.avazquez.contactos.Clases;
 
 import java.util.GregorianCalendar;
 
-public class ContactoImpl {
+import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
+
+public class ContactoImpl implements Contacto {
     private String nombre;
     private String apellidos;
     private GregorianCalendar fechaNacimiento;
@@ -15,6 +17,11 @@ public class ContactoImpl {
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
         this.biografia = biografia;
+    }
+
+    public ContactoImpl(String nombre, String apellidos) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
     }
 
     public ContactoImpl() {
@@ -54,5 +61,13 @@ public class ContactoImpl {
 
     public void setBiografia(String biografia) {
         this.biografia = biografia;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }
