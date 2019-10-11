@@ -20,7 +20,7 @@ public interface Contacto {
 
     public void setBiografia(String biografia);
 
-    public String getFoto();
+    public int getImgResource() ;
 
-    public void setFoto(String foto) ;
+    public void setImgResource(int imgResource) ;
 }

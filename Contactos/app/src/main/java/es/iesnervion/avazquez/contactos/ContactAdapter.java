@@ -1,12 +1,17 @@
 package es.iesnervion.avazquez.contactos;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
 import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
 
@@ -37,6 +42,37 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        //cogemos el contacto seleccionado
+        final ContactoImpl contacto = contactoArrayList.get(position);
+
+        //inflamos el contacto con el layout de contactos
+        if(convertView == null ){
+            final LayoutInflater layoutInflater = LayoutInflater.from(context);
+            convertView = layoutInflater.inflate(R.layout.layout_contacto,null);
+        }
+
+        //creamos referencias
+        //foto contacto
+        final CircleImageView fotoContacto = (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+
+        //nombre
+        final TextView nombreContacto = (TextView)convertView.findViewById(R.id.textoNombre);
+
+        //apellido
+        final TextView apellidoContacto = (TextView)convertView.findViewById(R.id.textoApellidos);
+
+        //fechaNacimiento
+        final TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
+
+
+        //ahora usamos esas referencias pa ponerselas al contacto actual
+
+        fotoContacto.setImageResource(contacto.getImgResource());
+        nombreContacto.setText(contacto.getNombre());
+        apellidoContacto.setText(contacto.getApellidos());
+        fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
+
+
+        return convertView;
     }
 }

@@ -1,6 +1,8 @@
 package es.iesnervion.avazquez.contactos.Clases;
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
+import java.util.SimpleTimeZone;
 
 import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
 
@@ -9,8 +11,15 @@ public class ContactoImpl implements Contacto {
     private String apellidos;
     private GregorianCalendar fechaNacimiento;
     private String biografia;
-    private String foto;
+    private int imgResource;
 
+    public ContactoImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.biografia = biografia;
+        this.imgResource = imgResource;
+    }
 
     public ContactoImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia) {
         this.nombre = nombre;
@@ -22,12 +31,13 @@ public class ContactoImpl implements Contacto {
     public ContactoImpl(String nombre, String apellidos) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.fechaNacimiento = new GregorianCalendar();
     }
 
     public ContactoImpl() {
-        this.nombre = "";
-        this.apellidos = "";
-        this.fechaNacimiento = null;
+        this.nombre = "DefaultName";
+        this.apellidos = "DefaultLastName";
+        this.fechaNacimiento = new GregorianCalendar();
         this.biografia = "";
     }
 
@@ -63,11 +73,24 @@ public class ContactoImpl implements Contacto {
         this.biografia = biografia;
     }
 
-    public String getFoto() {
-        return foto;
+    public int getImgResource() {
+        return imgResource;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setImgResource(int imgResource) {
+        this.imgResource = imgResource;
+    }
+
+
+    //metodo añadido
+
+    public String obtenerFechaNacimientoCorta(){
+        String dateFormatted;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        sdf.setCalendar(getFechaNacimiento());
+        dateFormatted = sdf.format(getFechaNacimiento().getTime());
+
+        return dateFormatted;
+
     }
 }
