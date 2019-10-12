@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Contactos</string>
+    <string name="loreIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo odio.
+        Quisque sodales quis lorem sit amet feugiat.Aenean consequat bibendum est tristique interdum.
+        Ut in metus magna. Nunc dapibus lectus et iaculis bibendum. Ut non aliquam enim. Mauris eu semper lorem.
+        Mauris eu arcu quis mi pretium bibendum vel in ante. Pellentesque ut arcu vel orci cursus facilisis euismod
+        id orci. Nulla ultrices tempus nunc pretium faucibus. Duis sagittis leo arcu, quis facilisis massa
+        hendrerit at. Fusce vel nisl nec magna faucibus scelerisque. Nam sed massa sed neque laoreet
+        pharetra in eget neque. Vivamus dictum fringilla tincidunt.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo odio.
+        Quisque sodales quis lorem sit amet feugiat. Aenean consequat bibendum est tristique interdum.
+        Ut in metus magna. Nunc dapibus lectus et iaculis bibendum. Ut non aliquam enim. Mauris eu semper lorem.
+        Mauris eu arcu quis mi pretium bibendum vel in ante. Pellentesque ut arcu vel orci cursus facilisis euismod
+        id orci. Nulla ultrices tempus nunc pretium faucibus. Duis sagittis leo arcu, quis facilisis massa
+        hendrerit at. Fusce vel nisl nec magna faucibus scelerisque. Nam sed massa sed neque laoreet
+        pharetra in eget neque. Vivamus dictum fringilla tincidunt.
+
+    </string>
+    <string name="add">Añadir</string>
+    <string name="name">Nombre: </string>
+    <string name="surname">Apellido(s): </string>
+    <string name="birthdate">Fecha de nacimiento: </string>
+    <string name="bio">Biografia: </string>
 </resources>

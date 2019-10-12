@@ -48,22 +48,27 @@ public class ContactAdapter extends BaseAdapter {
         //inflamos el contacto con el layout de contactos
         if(convertView == null ){
             final LayoutInflater layoutInflater = LayoutInflater.from(context);
-            convertView = layoutInflater.inflate(R.layout.layout_contacto,null);
+            convertView = layoutInflater.inflate(R.layout.layout_contacto,parent, false);
         }
 
         //creamos referencias
         //foto contacto
-        final CircleImageView fotoContacto = (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+        final CircleImageView fotoContacto =
+                (CircleImageView)convertView.findViewById(R.id.fotoContacto);
 
         //nombre
-        final TextView nombreContacto = (TextView)convertView.findViewById(R.id.textoNombre);
+        final TextView nombreContacto =
+                (TextView)convertView.findViewById(R.id.textoNombre);
 
         //apellido
-        final TextView apellidoContacto = (TextView)convertView.findViewById(R.id.textoApellidos);
+        final TextView apellidoContacto =
+                (TextView)convertView.findViewById(R.id.textoApellidos);
 
         //fechaNacimiento
         final TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
 
+        //bio
+        final TextView bio = (TextView)convertView.findViewById(R.id.txtViewBio);
 
         //ahora usamos esas referencias pa ponerselas al contacto actual
 
@@ -71,6 +76,7 @@ public class ContactAdapter extends BaseAdapter {
         nombreContacto.setText(contacto.getNombre());
         apellidoContacto.setText(contacto.getApellidos());
         fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
+//        bio.setText(contacto.getBiografia());
 
 
         return convertView;
