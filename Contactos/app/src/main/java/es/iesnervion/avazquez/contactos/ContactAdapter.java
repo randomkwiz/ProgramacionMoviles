@@ -68,7 +68,7 @@ public class ContactAdapter extends BaseAdapter {
         final TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
 
         //bio
-        final TextView bio = (TextView)convertView.findViewById(R.id.txtViewBio);
+        //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
 
         //ahora usamos esas referencias pa ponerselas al contacto actual
 
@@ -76,8 +76,17 @@ public class ContactAdapter extends BaseAdapter {
         nombreContacto.setText(contacto.getNombre());
         apellidoContacto.setText(contacto.getApellidos());
         fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
-//        bio.setText(contacto.getBiografia());
 
+
+        //bioContacto.setText(contacto.getBiografia());
+
+        /*ANOTACION:
+        * ME HE TIRADO DOS DIAS PENSANDO EN ESTE FALLO Y NO LO ENTENDIA
+        * Y RESULTA QUE ES LA GILIPOLLEZ MAS GRANDE DE LA HISTORIA
+        * EN EL LAYOUT layout_contacto.xml, NO TENGO EL TEXTVIEW BIO,
+        * ESTABA INTENTANTO LINKARLO CON UN TXTVIEW DE OTRO LAYOUT
+        *  !!!!!!!!!!!!!!!!!!!
+        * */
 
         return convertView;
     }
