@@ -43,39 +43,63 @@ public class ContactAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //cogemos el contacto seleccionado
-        final ContactoImpl contacto = contactoArrayList.get(position);
+         ContactoImpl contacto = contactoArrayList.get(position);
+
+
+        /*Ahora vamos a hacerlo con ViewHolder*/
+        ViewHolder holder ;
+
+
 
         //inflamos el contacto con el layout de contactos
         if(convertView == null ){
-            final LayoutInflater layoutInflater = LayoutInflater.from(context);
+             LayoutInflater layoutInflater = LayoutInflater.from(context);
+             //prueba el getLayoutInflater();
             convertView = layoutInflater.inflate(R.layout.layout_contacto,parent, false);
+
+
+            //creamos referencias
+            //foto contacto
+            CircleImageView fotoContacto =
+                    (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+
+            //nombre
+            TextView nombreContacto =
+                    (TextView)convertView.findViewById(R.id.textoNombre);
+
+            //apellido
+            TextView apellidoContacto =
+                    (TextView)convertView.findViewById(R.id.textoApellidos);
+
+            //fechaNacimiento
+            TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
+
+            //bio
+            //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
+
+
+            //ahora usamos esas referencias pa ponerselas al contacto actual
+
+            fotoContacto.setImageResource(contacto.getImgResource());
+            nombreContacto.setText(contacto.getNombre());
+            apellidoContacto.setText(contacto.getApellidos());
+            fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
+
+            holder = new ViewHolder(fotoContacto, nombreContacto, apellidoContacto, fechaNacimientoContacto);
+
+            convertView.setTag(holder);
+        }else{
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        //creamos referencias
-        //foto contacto
-        final CircleImageView fotoContacto =
-                (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+        holder.getFotoContacto().setImageResource(contacto.getImgResource());
+        holder.getNombreContacto().setText(contacto.getNombre());
+        holder.getApellidosContacto().setText(contacto.getApellidos());
+        holder.getFechaNacimientoContacto().setText(contacto.obtenerFechaNacimientoCorta());
 
-        //nombre
-        final TextView nombreContacto =
-                (TextView)convertView.findViewById(R.id.textoNombre);
 
-        //apellido
-        final TextView apellidoContacto =
-                (TextView)convertView.findViewById(R.id.textoApellidos);
 
-        //fechaNacimiento
-        final TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
 
-        //bio
-        //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
-
-        //ahora usamos esas referencias pa ponerselas al contacto actual
-
-        fotoContacto.setImageResource(contacto.getImgResource());
-        nombreContacto.setText(contacto.getNombre());
-        apellidoContacto.setText(contacto.getApellidos());
-        fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
 
 
         //bioContacto.setText(contacto.getBiografia());

@@ -69,6 +69,7 @@
             app:layout_constraintBottom_toBottomOf="@id/lblSurname"
             ></EditText>
 
+
         <CalendarView
             android:id="@+id/calendario"
             android:layout_width="match_parent"
@@ -78,6 +79,9 @@
             app:layout_constraintTop_toBottomOf="@id/lblFechaNacimiento"
             app:layout_constraintStart_toStartOf="@id/lblFechaNacimiento"
             ></CalendarView>
+
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +90,8 @@
             app:layout_constraintTop_toBottomOf="@id/editSurname"
             app:layout_constraintStart_toStartOf="@id/editSurname"
             ></TextView>
+
+
 
 
 
@@ -109,7 +115,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             app:layout_constraintStart_toStartOf="@id/lblBio"
             app:layout_constraintTop_toBottomOf="@id/lblBio"
             app:layout_constraintEnd_toEndOf="parent"

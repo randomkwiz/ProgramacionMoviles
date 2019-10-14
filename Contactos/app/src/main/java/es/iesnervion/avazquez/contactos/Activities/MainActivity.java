@@ -46,7 +46,7 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
         contactoArrayList.add(new ContactoImpl("Maria Isabel", "Martin Gamarra", new GregorianCalendar(1997, 5, 28), "Esta es mi biografia", R.drawable.femaleimg));
         contactoArrayList.add(new ContactoImpl("Usu", "normal"));
 
-        for(int i =0; i < 5; i++){
+        for(int i =0; i < 50; i++){
             contactoArrayList.add(new ContactoImpl());
         }
 
