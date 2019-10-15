@@ -21,4 +21,6 @@
     <string name="surname">Apellido(s): </string>
     <string name="birthdate">Fecha de nacimiento: </string>
     <string name="bio">Biografia: </string>
+    <string name="isFav">Favorito: </string>
+    <string name="minDate">1/01/1900</string>
 </resources>

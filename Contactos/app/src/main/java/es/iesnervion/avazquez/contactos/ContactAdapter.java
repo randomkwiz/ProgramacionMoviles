@@ -36,6 +36,23 @@ public class ContactAdapter extends BaseAdapter {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        int tipo = 0;   //0 no es fav
+
+        if(contactoArrayList.get(position).isFavorito()){
+            tipo = 1;   //1 si es fav
+        }
+
+        return tipo;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        //empieza a contar en 0
+        return 2;
+    }
+
+    @Override
     public long getItemId(int position) {
         return 0;
     }
@@ -43,74 +60,59 @@ public class ContactAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //cogemos el contacto seleccionado
-         ContactoImpl contacto = contactoArrayList.get(position);
-
-
+        ContactoImpl contacto = contactoArrayList.get(position);
         /*Ahora vamos a hacerlo con ViewHolder*/
         ViewHolder holder ;
 
 
+            if(convertView == null){
+                LayoutInflater layoutInflater = LayoutInflater.from(context);
+                if(getItemViewType(position)==0){
+                    convertView = layoutInflater.inflate(R.layout.layout_contacto,parent, false);
+                }else{
+                    convertView = layoutInflater.inflate(R.layout.layout_contacto_fav,parent, false);
+                }
 
-        //inflamos el contacto con el layout de contactos
-        if(convertView == null ){
-             LayoutInflater layoutInflater = LayoutInflater.from(context);
-             //prueba el getLayoutInflater();
-            convertView = layoutInflater.inflate(R.layout.layout_contacto,parent, false);
+                //creamos referencias
+                //foto contacto
+                CircleImageView fotoContacto =
+                        (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+
+                //nombre
+                TextView nombreContacto =
+                        (TextView)convertView.findViewById(R.id.textoNombre);
+
+                //apellido
+                TextView apellidoContacto =
+                        (TextView)convertView.findViewById(R.id.textoApellidos);
+
+                //fechaNacimiento
+                TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
+
+                //bio
+                //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
 
 
-            //creamos referencias
-            //foto contacto
-            CircleImageView fotoContacto =
-                    (CircleImageView)convertView.findViewById(R.id.fotoContacto);
+                //ahora usamos esas referencias pa ponerselas al contacto actual
 
-            //nombre
-            TextView nombreContacto =
-                    (TextView)convertView.findViewById(R.id.textoNombre);
+                fotoContacto.setImageResource(contacto.getImgResource());
+                nombreContacto.setText(contacto.getNombre());
+                apellidoContacto.setText(contacto.getApellidos());
+                fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
 
-            //apellido
-            TextView apellidoContacto =
-                    (TextView)convertView.findViewById(R.id.textoApellidos);
+                holder = new ViewHolder(fotoContacto, nombreContacto, apellidoContacto, fechaNacimientoContacto);
 
-            //fechaNacimiento
-            TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
-
-            //bio
-            //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
-
-
-            //ahora usamos esas referencias pa ponerselas al contacto actual
-
-            fotoContacto.setImageResource(contacto.getImgResource());
-            nombreContacto.setText(contacto.getNombre());
-            apellidoContacto.setText(contacto.getApellidos());
-            fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
-
-            holder = new ViewHolder(fotoContacto, nombreContacto, apellidoContacto, fechaNacimientoContacto);
-
-            convertView.setTag(holder);
-        }else{
-            holder = (ViewHolder) convertView.getTag();
-        }
+                convertView.setTag(holder);
+            }else{
+                //si no es null, recicla
+                holder = (ViewHolder) convertView.getTag();
+            }
 
         holder.getFotoContacto().setImageResource(contacto.getImgResource());
         holder.getNombreContacto().setText(contacto.getNombre());
         holder.getApellidosContacto().setText(contacto.getApellidos());
         holder.getFechaNacimientoContacto().setText(contacto.obtenerFechaNacimientoCorta());
 
-
-
-
-
-
-        //bioContacto.setText(contacto.getBiografia());
-
-        /*ANOTACION:
-        * ME HE TIRADO DOS DIAS PENSANDO EN ESTE FALLO Y NO LO ENTENDIA
-        * Y RESULTA QUE ES LA GILIPOLLEZ MAS GRANDE DE LA HISTORIA
-        * EN EL LAYOUT layout_contacto.xml, NO TENGO EL TEXTVIEW BIO,
-        * ESTABA INTENTANTO LINKARLO CON UN TXTVIEW DE OTRO LAYOUT
-        *  !!!!!!!!!!!!!!!!!!!
-        * */
 
         return convertView;
     }

@@ -18,6 +18,7 @@ public class ContactoImpl implements Contacto,
     private GregorianCalendar fechaNacimiento = new GregorianCalendar(1900, 0, 1);
     private String biografia = "";
     private int imgResource = R.drawable.imgdefault;
+    private boolean isFavorito = false;
 
     public ContactoImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource) {
         this.nombre = nombre;
@@ -25,6 +26,21 @@ public class ContactoImpl implements Contacto,
         this.fechaNacimiento = fechaNacimiento;
         this.biografia = biografia;
         this.imgResource = imgResource;
+    }
+
+    public ContactoImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource, boolean isFavorito) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.biografia = biografia;
+        this.imgResource = imgResource;
+        this.isFavorito = isFavorito;
+    }
+
+    public ContactoImpl(String nombre, String apellidos, boolean isFavorito) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.isFavorito = isFavorito;
     }
 
     public ContactoImpl() {
@@ -88,6 +104,13 @@ public class ContactoImpl implements Contacto,
         this.imgResource = imgResource;
     }
 
+    public boolean isFavorito() {
+        return isFavorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        isFavorito = favorito;
+    }
 
     //metodo añadido
 

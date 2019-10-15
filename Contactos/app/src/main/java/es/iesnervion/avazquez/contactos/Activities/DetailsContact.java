@@ -23,10 +23,16 @@ public class DetailsContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_contact);
+
         Intent intentRecibido = getIntent();
         //le pido el el valor correspondiente a la clave "contacto"
         ContactoImpl contactoElegido = (ContactoImpl) intentRecibido.getSerializableExtra("contacto");
+        if(contactoElegido.isFavorito()){   //si el contacto que me llega pa mostra sus detalles es fav, le pongo un layout y si no, otro
+            setContentView(R.layout.activity_details_contact_fav);
+        }else{
+            setContentView(R.layout.activity_details_contact);
+        }
+
 
         //hago los vinculos entre el java y el xml
         foto = findViewById(R.id.imgContacto);
