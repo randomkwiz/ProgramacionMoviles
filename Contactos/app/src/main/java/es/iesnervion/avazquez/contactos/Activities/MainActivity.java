@@ -28,6 +28,7 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
 
     ArrayList<ContactoImpl> contactoArrayList;
     CircleImageView addButton ;
+    CircleImageView searchButton ;
     ContactAdapter contactAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
 
         Collections.sort(contactoArrayList);    //lo ordeno segun el compareTo de ContactoImpl
         addButton = findViewById(R.id.addButton);
+        searchButton = findViewById(R.id.searchButton);
 
         ListView listViewContactos = (ListView)findViewById(R.id.listViewContactos);
         contactAdapter = new ContactAdapter(this, contactoArrayList);
@@ -78,9 +80,23 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
     }
 
     public void onClick(View v) {
-        Intent intentAddContact = new Intent(this,AddContact.class );
+        Intent intent;
+        switch (v.getId()){
+            case R.id.addButton:
+                intent = new Intent(this,AddContact.class );
+                startActivity(intent);
+                break;
+            case R.id.searchButton:
+                intent = new Intent(this,Search.class );
+                startActivity(intent);
+                break;
+
+        }
+
+
+
         //clave - valor (la clave es "contacto" y el valor pues es el objeto contacto
        // intentAddContact.putExtra("arrayListContactos", contactoArrayList);
-        startActivity(intentAddContact);
+
     }
 }

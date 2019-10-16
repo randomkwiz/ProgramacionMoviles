@@ -57,6 +57,27 @@ public class ContactAdapter extends BaseAdapter {
         return 0;
     }
 
+
+    /*PSEUDOCODIGO DEL GET VIEW */
+    /*
+    * COGER OBJETO SELECCIONADO
+    * SI EL CONVERT VIEW ES NULL
+    *       SI EL OBJETO VA A SER DE TIPO 1
+    *               INFLALO CON EL LAYOUT TIPO 0
+    *       SINO
+    *               INFLALO CON EL LAYOUT TIPO 1
+    *       FINSI
+    *       CREAR REFERENCIAS
+    *       RELACIONAR REFERENCIAS CON OBJETO ACTUAL
+    *       INSTANCIAR VIEW HOLDER
+    *       RELACIONAR VIEW HOLDER CON LA VISTA
+    * SINO
+    *       COGER REFERENCIAS DE LA VISTA
+    * FIN SI
+    *       ACTUALIZAR LOS ELEMENTOS
+    *
+    * */
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //cogemos el contacto seleccionado
@@ -89,8 +110,6 @@ public class ContactAdapter extends BaseAdapter {
                 //fechaNacimiento
                 TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
 
-                //bio
-                //final TextView bioContacto = (TextView)convertView.findViewById(R.id.txtViewBio); //VER ANOTACION ABAJO
 
 
                 //ahora usamos esas referencias pa ponerselas al contacto actual
@@ -108,6 +127,7 @@ public class ContactAdapter extends BaseAdapter {
                 holder = (ViewHolder) convertView.getTag();
             }
 
+            //ACTUALIZAMOS LOS ELEMENTOS
         holder.getFotoContacto().setImageResource(contacto.getImgResource());
         holder.getNombreContacto().setText(contacto.getNombre());
         holder.getApellidosContacto().setText(contacto.getApellidos());

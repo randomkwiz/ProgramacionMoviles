@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="es.iesnervion.avazquez.contactos">
+    package="es.iesnervion.avazquez.ejerciciolistanba_1">
 
     <dist:module dist:instant="true" />
 
@@ -12,9 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Search"></activity>
-        <activity android:name=".Activities.AddContact" />
-        <activity android:name=".Activities.DetailsContact" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

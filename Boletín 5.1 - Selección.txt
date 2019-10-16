@@ -1,0 +1,10 @@
+EJERCICIO 1
+
+Realizar una lista con los equipos de la NBA, incluyendo su logo en la parte derecha de la fila.
+
+
+EJERCICIO 2
+
+a) Realizar una aplicación que permita al usuario seleccionar equipos de la NBA mediante un AutocompleteTextView y un botón.
+
+b) Hacer que los equipos que el usuario seleccione entren a formar parte de un Spinner. El máximo de equipos que el usuario puede seleccionar es 4, llegado el caso, se inhabilitará la entrada de más datos.

@@ -29,6 +29,17 @@
         android:onClick="onClick"
         android:focusable="true"
         ></de.hdodenhof.circleimageview.CircleImageView>
-
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/searchButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="25dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:focusable="true"
+        ></de.hdodenhof.circleimageview.CircleImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
