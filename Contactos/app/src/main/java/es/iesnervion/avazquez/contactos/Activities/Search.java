@@ -11,11 +11,8 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
-import es.iesnervion.avazquez.contactos.ContactAdapter;
 import es.iesnervion.avazquez.contactos.R;
 
 public class Search extends AppCompatActivity

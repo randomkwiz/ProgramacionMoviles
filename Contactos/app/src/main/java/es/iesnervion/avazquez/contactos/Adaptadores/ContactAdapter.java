@@ -1,4 +1,4 @@
-package es.iesnervion.avazquez.contactos;
+package es.iesnervion.avazquez.contactos.Adaptadores;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,13 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
-import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
+import es.iesnervion.avazquez.contactos.R;
+import es.iesnervion.avazquez.contactos.ViewHolder.ViewHolder;
 
 public class ContactAdapter extends BaseAdapter {
 

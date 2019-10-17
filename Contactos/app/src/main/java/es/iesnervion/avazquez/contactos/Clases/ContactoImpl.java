@@ -137,4 +137,9 @@ public class ContactoImpl implements Contacto,
         }
         return resultado;
     }
+
+    @Override
+    public String toString() {
+        return getNombre()+" "+getApellidos();
+    }
 }

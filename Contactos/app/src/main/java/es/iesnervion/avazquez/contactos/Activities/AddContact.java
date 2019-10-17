@@ -6,19 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import es.iesnervion.avazquez.contactos.Adaptadores.AdaptadorSpinner;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
-import es.iesnervion.avazquez.contactos.ContactAdapter;
-import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
 import es.iesnervion.avazquez.contactos.R;
 
 public class AddContact extends AppCompatActivity
@@ -32,6 +30,7 @@ implements View.OnClickListener
     DatePicker fechaNacimiento;
     ContactoImpl contactoCreado = new ContactoImpl();
     Button addButton;
+    Spinner spinnerContactoEmergencia;
    // ArrayList<ContactoImpl> listaDeContactos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +49,12 @@ implements View.OnClickListener
         fechaNacimiento.setMaxDate(dateNow.getTimeInMillis());  //set max date tiene que estar DESPUES de hacer el link con su XML obviamente
         foto = findViewById(R.id.imgContacto);
         addButton = findViewById(R.id.btnAdd);
+        spinnerContactoEmergencia = findViewById(R.id.spinner_contactos);
         addButton.setOnClickListener(this);
 
 
-
+        AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(this, MainActivity.contactoArrayList);
+        spinnerContactoEmergencia.setAdapter(adaptadorSpinner);
 
 
 

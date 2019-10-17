@@ -25,4 +25,5 @@
     <string name="isFav">Favorito: </string>
     <string name="minDate">1/01/1900</string>
     <string name="choosen">Elegidos:</string>
+    <string name="txtContactoEmergencia">Contacto de emergencia:</string>
 </resources>

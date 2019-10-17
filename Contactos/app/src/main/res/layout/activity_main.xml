@@ -7,12 +7,36 @@
     tools:context=".Activities.MainActivity"
     android:background="#2196F3"
     >
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/searchButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+
+        android:src="@drawable/search"
+        app:layout_constraintTop_toTopOf="@id/autoCompleteMainActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/autoCompleteMainActivity"
+        android:clickable="true"
+        android:focusable="true"
+
+        ></de.hdodenhof.circleimageview.CircleImageView>
+<AutoCompleteTextView
+    android:id="@+id/autoCompleteMainActivity"
+    android:layout_width="match_parent"
+    android:completionThreshold="2"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="29dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:textSize="15dp"
+    ></AutoCompleteTextView>
+
     <ListView
         android:layout_margin="5dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="5dp"
         android:id="@+id/listViewContactos"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ></ListView>
@@ -26,20 +50,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="25dp"
         android:clickable="true"
-        android:onClick="onClick"
+
         android:focusable="true"
         ></de.hdodenhof.circleimageview.CircleImageView>
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/searchButton"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="25dp"
-        android:clickable="true"
-        android:onClick="onClick"
-        android:focusable="true"
-        ></de.hdodenhof.circleimageview.CircleImageView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package es.iesnervion.avazquez.contactos;
+package es.iesnervion.avazquez.contactos.ViewHolder;
 
 import android.widget.TextView;
 

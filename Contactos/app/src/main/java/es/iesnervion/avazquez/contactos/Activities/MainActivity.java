@@ -6,29 +6,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
-import es.iesnervion.avazquez.contactos.ContactAdapter;
-import es.iesnervion.avazquez.contactos.Interfaces.Contacto;
+import es.iesnervion.avazquez.contactos.Adaptadores.ContactAdapter;
 import es.iesnervion.avazquez.contactos.R;
+import es.iesnervion.avazquez.contactos.UtilidadesContactos;
 
 public class MainActivity extends AppCompatActivity
 
-implements AdapterView.OnItemClickListener //para cuando se hace click en un item del listview
+        implements AdapterView.OnItemClickListener, //para cuando se hace click en un item del listview
+        View.OnClickListener
 
 {
 
-
-    ArrayList<ContactoImpl> contactoArrayList;
+//esta puesto static para hacer pruebas
+    //TODO cambiar esto
+    static ArrayList<ContactoImpl> contactoArrayList;
     CircleImageView addButton ;
     CircleImageView searchButton ;
+    AutoCompleteTextView autoCompleteTextView;
     ContactAdapter contactAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +58,18 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
         Collections.sort(contactoArrayList);    //lo ordeno segun el compareTo de ContactoImpl
         addButton = findViewById(R.id.addButton);
         searchButton = findViewById(R.id.searchButton);
+        autoCompleteTextView = findViewById(R.id.autoCompleteMainActivity);
+
+        addButton.setOnClickListener(this);
+        searchButton.setOnClickListener(this);
 
         ListView listViewContactos = (ListView)findViewById(R.id.listViewContactos);
+
+        //Adapters
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, contactoArrayList);
         contactAdapter = new ContactAdapter(this, contactoArrayList);
         listViewContactos.setAdapter(contactAdapter);
-
+        autoCompleteTextView.setAdapter(arrayAdapter);
 
         listViewContactos.setOnItemClickListener(this); //establecemos un listener para cuando se haga click en un item.
             //es exactamente igual que pa los botones
@@ -79,16 +90,25 @@ implements AdapterView.OnItemClickListener //para cuando se hace click en un ite
 
     }
 
+    @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
             case R.id.addButton:
                 intent = new Intent(this,AddContact.class );
+
                 startActivity(intent);
                 break;
             case R.id.searchButton:
-                intent = new Intent(this,Search.class );
-                startActivity(intent);
+                intent = new Intent(this,DetailsContact.class );
+                    ContactoImpl contactoSeleccionado = UtilidadesContactos.encontrarContactoPorNombreYApellidos(contactoArrayList, autoCompleteTextView.getText().toString());
+                    //clave - valor (la clave es "contacto" y el valor pues es el objeto contacto
+                    intent.putExtra("contacto", contactoSeleccionado);
+                    if(contactoArrayList.contains(contactoSeleccionado)){   //solo cambiara de act si el contacto existe
+                        startActivity(intent);
+                    }
+
+
                 break;
 
         }
