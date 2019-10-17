@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<AnimalImpl> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, animalArrayList);
         //AutoTextAdapter autoTextAdapter = new AutoTextAdapter(this, R.layout.fila_spinner,animalArrayList);
 
+
         spinner.setAdapter(spinnerAdapter);
-        autoCompleteTextView.setThreshold(2);
+        autoCompleteTextView.setThreshold(0);
         autoCompleteTextView.setAdapter(arrayAdapter);
 
 
