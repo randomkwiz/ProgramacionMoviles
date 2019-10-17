@@ -48,7 +48,7 @@ public class ContactAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        //empieza a contar en 0
+
         return 2;
     }
 

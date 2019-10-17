@@ -4,9 +4,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:padding="1dp"
-
+    android:background="@drawable/rounded_shape"
 
     >
 
@@ -14,12 +12,10 @@
 <de.hdodenhof.circleimageview.CircleImageView
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:scaleType="centerCrop"
     android:src="@drawable/android"
     android:id="@+id/imagen"
+    app:civ_border_width="0.1dp"
 
-    app:civ_border_width="1dp"
-    android:layout_margin="10dp"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     ></de.hdodenhof.circleimageview.CircleImageView>
@@ -31,7 +27,8 @@
         app:layout_constraintTop_toTopOf="@id/imagen"
         app:layout_constraintBottom_toBottomOf="@id/imagen"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="25dp"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
 
         >
     </TextView>
