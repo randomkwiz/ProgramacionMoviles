@@ -1,11 +1,15 @@
 package es.iesnervion.avazquez.recyclerviewkotlin.Clases
 
 import org.json.JSONObject
+import java.io.Serializable
 
 class Pokemon (id:Int, name: String, tipo1: String, tipo2: String,
                hp:Int, attack:Int, defense:Int, spAttack:Int,
                spDefense:Int, speed:Int, img: Int
-){
+)
+    :Serializable
+
+{
     val id : Int = id
     val name: String = name
     val tipo1: String = tipo1
@@ -16,7 +20,7 @@ class Pokemon (id:Int, name: String, tipo1: String, tipo2: String,
     val spAttack: Int = spAttack
     val spDefense: Int = spDefense
     val speed: Int = speed
-    val img: Int = img
+    var img: Int = img
 
     /*constructor secundario por si el pokemon no tiene segundo tipo*/
 

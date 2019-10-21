@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener
             intent.putExtra("tipo", "movimientos")
             startActivity(intent)
 
-        }else if(position == 2){
+        }else {
             intent.putExtra("tipo", "items")
             startActivity(intent)
 

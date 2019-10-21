@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/image_details_pokemon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        ></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/number"
+        android:textSize="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf="@id/image_details_pokemon"
+        app:layout_constraintEnd_toStartOf="@id/id_details_pokemon"
+        app:layout_constraintTop_toTopOf="@id/id_details_pokemon"
+        app:layout_constraintBottom_toBottomOf="@id/id_details_pokemon"
+        ></TextView>
+    <TextView
+        android:id="@+id/id_details_pokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="25dp"
+
+        app:layout_constraintEnd_toEndOf="@id/image_details_pokemon"
+        app:layout_constraintTop_toBottomOf="@id/image_details_pokemon"
+        ></TextView>
+<TextView
+    android:id="@+id/nombre_pokemon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:textSize="35dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/id_details_pokemon"
+    ></TextView>
+
+    <TextView
+        android:id="@+id/tipo_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="35dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintStart_toStartOf="@id/nombre_pokemon"
+        app:layout_constraintEnd_toStartOf="@id/tipo_2"
+        app:layout_constraintTop_toBottomOf="@id/nombre_pokemon"
+        ></TextView>
+    <TextView
+        android:id="@+id/tipo_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="35dp"
+        app:layout_constraintStart_toEndOf="@id/tipo_1"
+        app:layout_constraintEnd_toEndOf="@id/nombre_pokemon"
+        app:layout_constraintTop_toBottomOf="@id/nombre_pokemon"
+        ></TextView>
+
+
+
+    <TextView
+        android:id="@+id/stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stats"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipo_1"
+        ></TextView>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/stats"
+    android:layout_marginStart="15dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_hp_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text= "@string/hp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_hp"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_hp"
+        android:textSize="15dp"
+
+
+        app:layout_constraintStart_toEndOf="@id/stats_hp_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_attack_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text="@string/attack"
+        app:layout_constraintTop_toBottomOf="@id/stats_hp_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_attack_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_attack"
+        android:textSize="15dp"
+
+        app:layout_constraintTop_toBottomOf="@id/stats_hp"
+        app:layout_constraintStart_toEndOf="@id/stats_attack_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_defense_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text="@string/defense"
+        app:layout_constraintTop_toBottomOf="@id/stats_attack_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_defense_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_defense"
+        android:textSize="15dp"
+
+        app:layout_constraintTop_toBottomOf="@id/stats_attack"
+        app:layout_constraintStart_toEndOf="@id/stats_defense_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_spAttack_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text="@string/spattack"
+        app:layout_constraintTop_toBottomOf="@id/stats_defense_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_spAttack_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_spAttack"
+        android:textSize="15dp"
+
+        app:layout_constraintTop_toBottomOf="@id/stats_defense"
+        app:layout_constraintStart_toEndOf="@id/stats_spAttack_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_spDefense_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text="@string/spdefense"
+        app:layout_constraintTop_toBottomOf="@id/stats_spAttack_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_spDefense"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_spDefense"
+        android:textSize="15dp"
+
+        app:layout_constraintTop_toBottomOf="@id/stats_spAttack"
+        app:layout_constraintStart_toEndOf="@id/stats_spDefense_label"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_speed_label"
+        android:layout_marginEnd="15dp"
+        android:textSize="15dp"
+        android:text="@string/speed"
+        app:layout_constraintTop_toBottomOf="@id/stats_spDefense_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stats_speed"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats_speed"
+        android:textSize="15dp"
+
+        app:layout_constraintTop_toBottomOf="@id/stats_spDefense"
+        app:layout_constraintStart_toEndOf="@id/stats_speed_label"
+        >
+
+    </TextView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

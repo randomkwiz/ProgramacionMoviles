@@ -11,7 +11,9 @@ import es.iesnervion.avazquez.recyclerviewkotlin.Clases.Pokemon
 import es.iesnervion.avazquez.recyclerviewkotlin.R
 import kotlinx.android.synthetic.main.layout_row_lista.view.*
 
-class PokemonAdapter(items:ArrayList<Pokemon>, context: Context): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter(items:ArrayList<Pokemon>,
+                     private val clickListener: (Pokemon) -> Unit,
+                     context: Context): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     var items:ArrayList<Pokemon> = items
     var context:Context = context
@@ -37,7 +39,13 @@ class PokemonAdapter(items:ArrayList<Pokemon>, context: Context): RecyclerView.A
         holder.foto.setImageResource(elementoActual.img)
         holder.nombre.text = elementoActual.name
 
+
+
+        holder.bind(items[position], clickListener)
+
     }
+
+
 
 
 
@@ -48,7 +56,11 @@ class PokemonAdapter(items:ArrayList<Pokemon>, context: Context): RecyclerView.A
         var foto: ImageView = vista.img
         var nombre: TextView = vista.nombre
 
+        fun bind(pokemon: Pokemon, clickListener: (Pokemon) -> Unit) {
+            itemView.nombre.text = pokemon.name
 
+            itemView.setOnClickListener { clickListener(pokemon)}
+        }
 
     }
 }

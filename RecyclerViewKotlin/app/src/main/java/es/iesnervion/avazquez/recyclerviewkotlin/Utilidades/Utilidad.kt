@@ -1,13 +1,13 @@
 package es.iesnervion.avazquez.recyclerviewkotlin.Utilidades
 
 import android.content.Context
+import es.iesnervion.avazquez.recyclerviewkotlin.Clases.Movimiento
 import es.iesnervion.avazquez.recyclerviewkotlin.Clases.Pokemon
-import es.iesnervion.avazquez.recyclerviewkotlin.R
+
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.File
+
 import java.io.InputStream
-import java.nio.charset.Charset
 
 class Utilidad {
 
@@ -22,21 +22,16 @@ class Utilidad {
         var objetoJSON: JSONObject
 
         var arrayJSON: JSONArray = JSONArray(cadenaJson)
-/*
-        for(pokemon in arrayJSON) {
-            listaPokemon.add(
-                Pokemon(arrayJSON.getJSONObject(pokemon), R.drawable.img_pkmn_001)
-            )
-        }
 
- */
-
+        var cadenaImagen: String = "img_pkmn_"
+        var idImagen: Int
+        var nuevoPokemon: Pokemon
         for(i in 0 until arrayJSON.length()){
             var itemArray = arrayJSON[i].toString()
 
             objetoJSON = JSONObject(itemArray)
-
-            var nuevoPokemon: Pokemon = Pokemon(objetoJSON, R.drawable.prod)
+            idImagen = contexto.resources.getIdentifier(cadenaImagen+(i+1), "drawable","es.iesnervion.avazquez.recyclerviewkotlin" )
+            nuevoPokemon = Pokemon(objetoJSON, idImagen )
             listaPokemon.add(nuevoPokemon)
 
         }
@@ -53,16 +48,54 @@ class Utilidad {
         var cadenaJson: String? = readJSONFromAsset(contexto, "items.json")
 
         var listaItems: ArrayList<String> = ArrayList()
+        var objetoJSON: JSONObject
+
+        var arrayJSON: JSONArray = JSONArray(cadenaJson)
+
+
+        for(i in 1 until arrayJSON.length()){   //empieza en 1 porque en el archivo de los items, el primero es "ningun objeto" xD
+            var itemArray = arrayJSON[i].toString()
+
+            objetoJSON = JSONObject(itemArray)
+
+            var objetoItem: JSONObject = objetoJSON.getJSONObject("name")
+
+            var nombreItem = objetoItem.get("english").toString()
+
+
+            listaItems.add(nombreItem)
+
+        }
+
 
         return listaItems
     }
 
 
-    fun crearArrayListTodosLosMovimientos(contexto: Context): ArrayList<String> {
+    fun crearArrayListTodosLosMovimientos(contexto: Context): ArrayList<Movimiento> {
 
-        var cadenaJson: String? = readJSONFromAsset(contexto, "moves.json")
+        var cadenaJson: String = readJSONFromAsset(contexto, "moves.json")!!
 
-        var listaMovimientos: ArrayList<String> = ArrayList()
+
+
+        var listaMovimientos: ArrayList<Movimiento> = ArrayList()
+        var objetoJSON: JSONObject
+
+        var arrayJSON = JSONArray(cadenaJson)
+        var movimiento: Movimiento
+
+        for(i in 0 until arrayJSON.length()){
+            var itemArray = arrayJSON[i].toString()
+
+
+
+            objetoJSON = JSONObject(itemArray)
+            movimiento= Movimiento(objetoJSON)
+
+            listaMovimientos.add(movimiento)
+
+        }
+
 
         return listaMovimientos
     }
