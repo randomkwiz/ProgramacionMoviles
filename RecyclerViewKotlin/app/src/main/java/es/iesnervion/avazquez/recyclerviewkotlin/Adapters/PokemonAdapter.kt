@@ -16,6 +16,7 @@ class PokemonAdapter(items:ArrayList<Pokemon>, context: Context): RecyclerView.A
     var items:ArrayList<Pokemon> = items
     var context:Context = context
     var viewHolder:ViewHolder? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonAdapter.ViewHolder {
         val vista = LayoutInflater.from(context).inflate(R.layout.layout_row_lista, parent, false)
         viewHolder = ViewHolder(vista)
@@ -43,9 +44,10 @@ class PokemonAdapter(items:ArrayList<Pokemon>, context: Context): RecyclerView.A
     /*Voy a hacer el View Holder aqui, de forma interna*/
 
     class ViewHolder(vista: View): RecyclerView.ViewHolder(vista){
-        var vista = vista
+        //var vista = vista
         var foto: ImageView = vista.img
         var nombre: TextView = vista.nombre
+
 
 
     }

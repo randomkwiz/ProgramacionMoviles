@@ -31,7 +31,7 @@ class Pokemon (id:Int, name: String, tipo1: String, tipo2: String,
             this(objetoJSON.getInt("id"),
                 objetoJSON.getJSONObject("name").getString("english"),
                 objetoJSON.getJSONArray("type")[0].toString(),
-                objetoJSON.getJSONArray("type")[1].toString(),
+               //arreglar esto, que ahora mismo solo pilla un tipo
                 objetoJSON.getJSONObject("base").getInt("HP"),
                 objetoJSON.getJSONObject("base").getInt("Attack"),
                 objetoJSON.getJSONObject("base").getInt("Defense"),
@@ -40,6 +40,7 @@ class Pokemon (id:Int, name: String, tipo1: String, tipo2: String,
                 objetoJSON.getJSONObject("base").getInt("Speed"),
                 img
             )
+
 
 
 }

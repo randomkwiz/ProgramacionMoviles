@@ -28,7 +28,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener
         val intent = Intent(this, Lista::class.java)
 
         if(position == 0) {
+            intent.putExtra("tipo", "pokemon")
             startActivity(intent)
+        }else if(position == 1){
+            intent.putExtra("tipo", "movimientos")
+            startActivity(intent)
+
+        }else if(position == 2){
+            intent.putExtra("tipo", "items")
+            startActivity(intent)
+
         }
 
     }
