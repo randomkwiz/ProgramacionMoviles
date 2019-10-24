@@ -6,6 +6,7 @@ import es.iesnervion.avazquez.recyclerviewkotlin.Clases.Pokemon
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.BufferedReader
 
 import java.io.InputStream
 
@@ -15,23 +16,31 @@ class Utilidad {
     fun crearArrayListTodosLosPokemon(contexto: Context): ArrayList<Pokemon> {
 
 
+        //saco el json
         var cadenaJson: String? = readJSONFromAsset(contexto, "pokedex.json")
-
 
         var listaPokemon: ArrayList<Pokemon> = ArrayList()
         var objetoJSON: JSONObject
 
-        var arrayJSON: JSONArray = JSONArray(cadenaJson)
+        //saco el array del json
+        var arrayJSON = JSONArray(cadenaJson)
 
-        var cadenaImagen: String = "img_pkmn_"
+        var cadenaImagen = "img_pkmn_"
         var idImagen: Int
         var nuevoPokemon: Pokemon
         for(i in 0 until arrayJSON.length()){
-            var itemArray = arrayJSON[i].toString()
 
-            objetoJSON = JSONObject(itemArray)
+            var itemArray = arrayJSON[i].toString() //saco el elemento del array (en forma de cadena)
+
+            objetoJSON = JSONObject(itemArray)      //saco el objeto de la cadena json previamente separada
+
+            //formo el nombre correcto de la imagen y extraigo su ID
             idImagen = contexto.resources.getIdentifier(cadenaImagen+(i+1), "drawable","es.iesnervion.avazquez.recyclerviewkotlin" )
+
+            //creo el nuevo pokemon con su imagen y su objeto json
             nuevoPokemon = Pokemon(objetoJSON, idImagen )
+
+            //lo añado a la lista
             listaPokemon.add(nuevoPokemon)
 
         }
@@ -75,24 +84,20 @@ class Utilidad {
     fun crearArrayListTodosLosMovimientos(contexto: Context): ArrayList<Movimiento> {
 
         var cadenaJson: String = readJSONFromAsset(contexto, "moves.json")!!
-
-
-
         var listaMovimientos: ArrayList<Movimiento> = ArrayList()
         var objetoJSON: JSONObject
 
-        var arrayJSON = JSONArray(cadenaJson)
+
+        var arrayJSON = JSONArray(cadenaJson)   //extraigo el array principal del JSON
         var movimiento: Movimiento
 
         for(i in 0 until arrayJSON.length()){
-            var itemArray = arrayJSON[i].toString()
 
+            var itemArray = arrayJSON[i].toString() //extraigo el elemento del array
+            objetoJSON = JSONObject(itemArray)      //le saco el objeto al elemento
+            movimiento= Movimiento(objetoJSON)      //instancio el movimiento con ese objeto
 
-
-            objetoJSON = JSONObject(itemArray)
-            movimiento= Movimiento(objetoJSON)
-
-            listaMovimientos.add(movimiento)
+            listaMovimientos.add(movimiento)        //lo añado a la lista
 
         }
 
@@ -101,14 +106,29 @@ class Utilidad {
     }
 
 
+    /*
+    * Signatura: fun readJSONFromAsset(contexto: Context, filename:String): String?
+    * Comentario: Extrae el contenido de un fichero localizado en assets y lo devuelve como cadena
+    * Precondiciones: El archivo debe estar en la carpeta Assets
+    * Entradas: Contexto, nombre del fichero
+    * Salidas: cadena con el contenido del fichero
+    * Postcondiciones: Asociado al nombre devuelve una cadena con el contenido del fichero pasado como parametro de entrada
+    * */
+
     fun readJSONFromAsset(contexto: Context, filename:String): String? {
         var json: String? = null
         try {
+
             val  inputStream: InputStream = contexto.assets.open(filename)
-            json = inputStream.bufferedReader().use{it.readText()}
+            json = inputStream.
+                        bufferedReader()
+                        .use(BufferedReader::readText)
+                    //kotlin te permite hacer esto pa leer rapido y fasi de un archivo
+
+
+
         } catch (ex: Exception) {
             ex.printStackTrace()
-            return null
         }
         return json
     }

@@ -18,9 +18,12 @@ class PokemonDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_details_pokemon)
 
+        //Recogemos el pokemon elegido
         var pokemon: Pokemon = intent.getSerializableExtra("pokemonElegido") as Pokemon
 
 
+
+        //enlazamos las variables con los elementos del XML
 
         var fotoPokemon: ImageView = findViewById(R.id.image_details_pokemon)
         var idPokemon: TextView = findViewById(R.id.id_details_pokemon)
@@ -33,6 +36,9 @@ class PokemonDetails : AppCompatActivity() {
         var spAttack: TextView = findViewById(R.id.stats_spAttack)
         var spDefense: TextView = findViewById(R.id.stats_spDefense)
         var speed: TextView = findViewById(R.id.stats_speed)
+
+
+        //Enlazamos datos del pokemon elegido
 
         fotoPokemon.setImageResource(pokemon.img)
         idPokemon.text = pokemon.id.toString()

@@ -3,11 +3,13 @@ package es.iesnervion.avazquez.recyclerviewkotlin.Clases
 import org.json.JSONObject
 import java.io.Serializable
 
+
+
 class Pokemon (id:Int, name: String, tipo1: String, tipo2: String,
                hp:Int, attack:Int, defense:Int, spAttack:Int,
                spDefense:Int, speed:Int, img: Int
 )
-    :Serializable
+    :Serializable  //tiene que ser serializable pa poder hacer lo del json
 
 {
     val id : Int = id

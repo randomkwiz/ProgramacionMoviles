@@ -14,11 +14,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener
 {
 
     private val elementos:Array<String> = arrayOf("Pokemon", "Movimientos", "Items")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val lista: ListView = findViewById(R.id.listviewMenuPrincipal)
         val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1, elementos)
+
         lista.adapter = arrayAdapter
 
         lista.onItemClickListener = this

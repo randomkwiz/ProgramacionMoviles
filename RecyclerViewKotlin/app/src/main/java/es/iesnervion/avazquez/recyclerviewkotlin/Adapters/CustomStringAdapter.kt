@@ -16,6 +16,7 @@ class CustomStringAdapter (items:ArrayList<String>, context: Context): RecyclerV
     var context: Context = context
     var viewHolder:ViewHolder? = null
 
+    //devuelve el view holder con el layout indicado
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomStringAdapter.ViewHolder {
         val vista = LayoutInflater.from(context).inflate(R.layout.layout_row_lista, parent, false)
 
@@ -29,6 +30,7 @@ class CustomStringAdapter (items:ArrayList<String>, context: Context): RecyclerV
         return this.items.count()
     }
 
+    //bindea elementos del holder con los del elemento que toque
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         var elementoActual: String = items[position]

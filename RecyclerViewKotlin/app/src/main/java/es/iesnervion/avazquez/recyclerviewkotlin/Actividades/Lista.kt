@@ -2,9 +2,6 @@ package es.iesnervion.avazquez.recyclerviewkotlin.Actividades
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,16 +21,29 @@ class Lista : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista)
-        var recyclerView: RecyclerView = findViewById(R.id.listaActividadLista)
         var utilidad: Utilidad = Utilidad()
         var intent: Intent = intent
         var opcion = intent.getStringExtra("tipo") !!
-
+        var recyclerView: RecyclerView = findViewById(R.id.listaActividadLista)
         var layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+
+        /*Sobre el LayoutManager:
+        * Para usar RecyclerView tienes que definir un adaptador con un LayoutManager.
+        * El adaptador acercará el modelo de datos para ser mostrados y el
+        * LayoutManager será el responsable de posicionar cada ítem dentro
+        * del RecyclerView y de decidir cuándo reciclar las
+        * vistas de items que ya no son visibles.
+        * */
+
+
+
         if (opcion.equals("pokemon") ){
 
             listaPokemon = utilidad.crearArrayListTodosLosPokemon(this)
+
+            //le tengo que pasar tambien el metodo que actuara cuando clicken en un pokemon
             var adaptador = PokemonAdapter(listaPokemon, {pokemon -> pokemonItemClicked(pokemon)}, this)
+
             recyclerView.layoutManager = layoutManager  //indica como se van a ver los elementos
             recyclerView.adapter = adaptador
 
@@ -43,9 +53,6 @@ class Lista : AppCompatActivity()
 
             var listaMovimientos: ArrayList<Movimiento> = utilidad.crearArrayListTodosLosMovimientos(this)
 
-
-
-            //Tiene que ser un adapter personalizado porque uso recycler view, no puedo usar el Array Adapter
             var adaptador = MovimientosAdapter(this,listaMovimientos)
             recyclerView.layoutManager = layoutManager  //indica como se van a ver los elementos
             recyclerView.adapter = adaptador
@@ -54,7 +61,7 @@ class Lista : AppCompatActivity()
 
             var listaItems: ArrayList<String> = utilidad.crearArrayListTodosLosItems(this)
 
-
+            //Aunque solo vaya a mostrar strings, al ser RecyclerView no me deja usar ArrayAdapter
            var adaptador = CustomStringAdapter(listaItems, this)
             recyclerView.layoutManager = layoutManager
             recyclerView.adapter = adaptador
@@ -65,7 +72,8 @@ class Lista : AppCompatActivity()
 
     }
 
-    /*tienes que implementarte tu las cosillas xd*/
+    /*tienes que implementarte tu las cosillas porque no existe el OnItemClickListener con RecyclerView
+        */
     private fun pokemonItemClicked(pokemon: Pokemon) {
         var intent: Intent = Intent(this, PokemonDetails::class.java)
 
