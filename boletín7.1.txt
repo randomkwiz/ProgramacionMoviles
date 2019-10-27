@@ -1,0 +1,34 @@
+EJERCICIO 1
+
+Realizar una actividad desde la que el usuario pueda elegir lanzar otras actividades que se hayan hecho a lo largo del curso (galería de imágenes, calculadora, etc...)
+
+
+EJERCICIO 2
+
+Modificar la actividad de la lista de los equipos de la NBA de forma que desde una actividad principal, se llame a la lista de equipos para que el usuario elija uno. 
+El equipo elegido se mostrará en la actividad principal.
+
+EJERCICIO 3
+
+Diseñar una aplicación que lance la aplicación de la cámara de los dispositivos Android, y cuando el usuario haga una foto 
+ésta se muestre en la actividad principal de la aplicación.
+
+EJERCICIO 4
+
+Crear una actividad que en un Spinner muestre al usuario una serie de localizaciones 
+geográficas (p.ej: Sevilla, Londres, New York...). Cuando el usuario elija una localización, 
+se deberá lanzar una aplicación (p.ej Google Maps) capaz de visualizar en un mapa dicha localización.
+
+EJERCICIO 5
+
+Diseñar una aplicación que permita al usuario crear y visualizar una galería de imágenes hecha con ViewPager.
+
+Se debe poder configurar la galería (determinar el número de imágenes que contendrá, 
+cuáles serán esas imágenes, etc...). Las imágenes se deberán poder escoger de la galería de 
+imágenes del dispositivo. Opcionalmente, se puede dar la opción de que el usuario haga una 
+foto para añadirla a la galería.
+
+EJERCICIO 6
+
+Crear una aplicación que permita al usuario escribir un email y mandarlo a través de 
+la aplicación de correo del dispositivo.

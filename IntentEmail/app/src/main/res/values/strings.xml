@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IntentEmail</string>
+    <string name="lblEmailDestinatario">E-mail destinatario:</string>
+    <string name="lblSubject">Asunto: </string>
+    <string name="lblMensaje">Mensaje: </string>
+    <string name="submit">Enviar</string>
+</resources>
