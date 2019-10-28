@@ -1,6 +1,7 @@
 package es.iesnervion.avazquez.intentemail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity
     Intent correoIntent;
     ImageView adjuntar;
     ImageView imagenAdjunta;
-
     Uri uriImagen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,23 +63,29 @@ public class MainActivity extends AppCompatActivity
                 correoIntent.putExtra(Intent.EXTRA_TEXT, correo.getMsj());
 
                 //TODO esto no funciona
+      /*
                 if(uriImagen != null){
-                    correoIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(uriImagen.getPath())));
-                }
 
+
+                    correoIntent.putExtra(Intent.EXTRA_STREAM,
+                            FileProvider.getUriForFile
+                                    (this, this.getApplicationContext().getPackageName() + ".fileprovider",
+                                            new File(uriImagen.getPath()))
+                            );
+                }
+*/
                 //pa que me salgan solo clientes de correo
                 correoIntent.setType("message/rfc822");
                 startActivity(Intent.createChooser(correoIntent, "Elige un cliente de correo: "));
                 break;
             case R.id.btnAttachFile:
-                //TODO esto no coge la imagen ni a la de tres he probado de todo
+
                 intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
-                intent.setType("image/*");
+                intent.setType("image/");
 
-                startActivityForResult(intent, RESULT_OK);
-
+                startActivityForResult(intent,1);
 
                 break;
 
@@ -89,12 +95,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
 
-            imagenAdjunta.setImageURI(selectedImage);
+        if (resultCode == RESULT_OK ) {
+
+            uriImagen = data.getData();
+            imagenAdjunta = findViewById(R.id.imgAttached);
+            imagenAdjunta.setImageURI(uriImagen);
         }
 
 
