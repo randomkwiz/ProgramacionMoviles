@@ -53,8 +53,8 @@ implements View.OnClickListener
         addButton.setOnClickListener(this);
 
 
-        AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(this, MainActivity.contactoArrayList);
-        spinnerContactoEmergencia.setAdapter(adaptadorSpinner);
+        //AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(this, );
+        //spinnerContactoEmergencia.setAdapter(adaptadorSpinner);
 
 
 

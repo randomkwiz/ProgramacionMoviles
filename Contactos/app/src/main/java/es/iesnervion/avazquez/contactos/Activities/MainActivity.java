@@ -1,6 +1,7 @@
 package es.iesnervion.avazquez.contactos.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.GregorianCalendar;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
 import es.iesnervion.avazquez.contactos.Adaptadores.ContactAdapter;
+import es.iesnervion.avazquez.contactos.ViewModel.MainViewModel;
 import es.iesnervion.avazquez.contactos.R;
 import es.iesnervion.avazquez.contactos.UtilidadesContactos;
 
@@ -27,53 +25,44 @@ public class MainActivity extends AppCompatActivity
 
 {
 
-//esta puesto static para hacer pruebas
-    //TODO cambiar esto
-    static ArrayList<ContactoImpl> contactoArrayList;
     CircleImageView addButton ;
     CircleImageView searchButton ;
     AutoCompleteTextView autoCompleteTextView;
     ContactAdapter contactAdapter;
+    MainViewModel mainViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        contactoArrayList = new ArrayList<ContactoImpl>();
-        contactoArrayList.add(new ContactoImpl("Angela","Vazquez Dominguez", new GregorianCalendar(1997, 6, 23), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Nzhdeh", "Yeghiazaryan", new GregorianCalendar(1990, 3, 15), "Esta es mi bio", R.drawable.maleimg, true));
-        contactoArrayList.add(new ContactoImpl("Pepito", "Perez Perez", new GregorianCalendar(1995, 2, 19), "Esta es mi biografia", R.drawable.redhairmale, true));
-        contactoArrayList.add(new ContactoImpl("Angel", "Luna Duran", new GregorianCalendar(1992, 1, 12), "Esta es mi biografia", R.drawable.maleimg, true));
-        contactoArrayList.add(new ContactoImpl("Miguel Angel", "Longa Garcia", true));
-        contactoArrayList.add(new ContactoImpl("Joaquines", "Bello Hidalgo", true));
-        contactoArrayList.add(new ContactoImpl("Ariana", "Bello Hidalgo", new GregorianCalendar(1993, 12, 25), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Manuel", "Limon", new GregorianCalendar(1990, 5, 29), "Esta es mi biografia", R.drawable.maleimg, true));
-        contactoArrayList.add(new ContactoImpl("Maria Isabel", "Martin Gamarra", new GregorianCalendar(1997, 5, 28), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Usu", "normal"));
 
-        for(int i =0; i < 5; i++){
-            contactoArrayList.add(new ContactoImpl());
-        }
+        //ViewModel
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        Collections.sort(contactoArrayList);    //lo ordeno segun el compareTo de ContactoImpl
+
         addButton = findViewById(R.id.addButton);
         searchButton = findViewById(R.id.searchButton);
         autoCompleteTextView = findViewById(R.id.autoCompleteMainActivity);
 
+        //Listeners
         addButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
 
+        //ListView
         ListView listViewContactos = (ListView)findViewById(R.id.listViewContactos);
 
         //Adapters
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, contactoArrayList);
-        contactAdapter = new ContactAdapter(this, contactoArrayList);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_dropdown_item_1line,
+                mainViewModel.getContactoArrayList());
+        contactAdapter = new ContactAdapter(this, mainViewModel.getContactoArrayList());
         listViewContactos.setAdapter(contactAdapter);
         autoCompleteTextView.setAdapter(arrayAdapter);
 
-        listViewContactos.setOnItemClickListener(this); //establecemos un listener para cuando se haga click en un item.
+        listViewContactos.setOnItemClickListener(this); //establecemos un listener
+        // para cuando se haga click en un item.
             //es exactamente igual que pa los botones
-        contactAdapter.notifyDataSetChanged();
+        //contactAdapter.notifyDataSetChanged();
 
     }
 
@@ -81,7 +70,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this,DetailsContact.class );
-        ContactoImpl contactoSeleccionado = contactoArrayList.get(position);
+        ContactoImpl contactoSeleccionado = mainViewModel.getContactoArrayList().get(position);
         //clave - valor (la clave es "contacto" y el valor pues es el objeto contacto
         intent.putExtra("contacto", contactoSeleccionado);
 
@@ -101,10 +90,14 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.searchButton:
                 intent = new Intent(this,DetailsContact.class );
-                    ContactoImpl contactoSeleccionado = UtilidadesContactos.encontrarContactoPorNombreYApellidos(contactoArrayList, autoCompleteTextView.getText().toString());
+                    ContactoImpl contactoSeleccionado = UtilidadesContactos.
+                            encontrarContactoPorNombreYApellidos
+                                    (mainViewModel.getContactoArrayList(),
+                                            autoCompleteTextView.getText().toString());
                     //clave - valor (la clave es "contacto" y el valor pues es el objeto contacto
                     intent.putExtra("contacto", contactoSeleccionado);
-                    if(contactoArrayList.contains(contactoSeleccionado)){   //solo cambiara de act si el contacto existe
+                    if(mainViewModel.getContactoArrayList()
+                            .contains(contactoSeleccionado)){   //solo cambiara de act si el contacto existe
                         startActivity(intent);
                     }
 
