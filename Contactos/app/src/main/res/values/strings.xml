@@ -1,29 +1,11 @@
 <resources>
-    <string name="app_name">Contactos</string>
-    <string name="loreIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo odio.
-        Quisque sodales quis lorem sit amet feugiat.Aenean consequat bibendum est tristique interdum.
-        Ut in metus magna. Nunc dapibus lectus et iaculis bibendum. Ut non aliquam enim. Mauris eu semper lorem.
-        Mauris eu arcu quis mi pretium bibendum vel in ante. Pellentesque ut arcu vel orci cursus facilisis euismod
-        id orci. Nulla ultrices tempus nunc pretium faucibus. Duis sagittis leo arcu, quis facilisis massa
-        hendrerit at. Fusce vel nisl nec magna faucibus scelerisque. Nam sed massa sed neque laoreet
-        pharetra in eget neque. Vivamus dictum fringilla tincidunt.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo odio.
-        Quisque sodales quis lorem sit amet feugiat. Aenean consequat bibendum est tristique interdum.
-        Ut in metus magna. Nunc dapibus lectus et iaculis bibendum. Ut non aliquam enim. Mauris eu semper lorem.
-        Mauris eu arcu quis mi pretium bibendum vel in ante. Pellentesque ut arcu vel orci cursus facilisis euismod
-        id orci. Nulla ultrices tempus nunc pretium faucibus. Duis sagittis leo arcu, quis facilisis massa
-        hendrerit at. Fusce vel nisl nec magna faucibus scelerisque. Nam sed massa sed neque laoreet
-        pharetra in eget neque. Vivamus dictum fringilla tincidunt.
-
-    </string>
-    <string name="add">Añadir</string>
-    <string name="search">Introduce el nombre o apellido del contacto: </string>
-    <string name="name">Nombre: </string>
-    <string name="surname">Apellido(s): </string>
-    <string name="birthdate">Fecha de nacimiento: </string>
-    <string name="bio">Biografia: </string>
-    <string name="isFav">Favorito: </string>
+    <string name="app_name">Contacts</string>
+    <string name="add">Add</string>
+    <string name="name">Name: </string>
+    <string name="surname">Surname(s): </string>
+    <string name="birthdate">Birth date: </string>
+    <string name="bio">Biography: </string>
+    <string name="isFav">Fave: </string>
     <string name="minDate">1/01/1900</string>
-    <string name="choosen">Elegidos:</string>
-    <string name="txtContactoEmergencia">Contacto de emergencia:</string>
+    <string name="txtContactoEmergencia">Emergency Contact:</string>
 </resources>

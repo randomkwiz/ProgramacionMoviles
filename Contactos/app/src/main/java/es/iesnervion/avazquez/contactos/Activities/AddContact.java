@@ -1,6 +1,7 @@
 package es.iesnervion.avazquez.contactos.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.contactos.Adaptadores.AdaptadorSpinner;
 import es.iesnervion.avazquez.contactos.Clases.ContactoImpl;
 import es.iesnervion.avazquez.contactos.R;
+import es.iesnervion.avazquez.contactos.ViewModel.AddContactViewModel;
 
 public class AddContact extends AppCompatActivity
 implements View.OnClickListener
@@ -31,30 +33,30 @@ implements View.OnClickListener
     ContactoImpl contactoCreado = new ContactoImpl();
     Button addButton;
     Spinner spinnerContactoEmergencia;
-   // ArrayList<ContactoImpl> listaDeContactos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        GregorianCalendar dateNow = new GregorianCalendar();    //me servira para definir la fecha maxima
+
+        AddContactViewModel viewModel = ViewModelProviders.of(this).get(AddContactViewModel.class);
         setContentView(R.layout.layout_add_contact);
 
         //listaDeContactos = (ArrayList<ContactoImpl>) getIntent().getSerializableExtra("arrayListContactos");
-
 
         nombre = findViewById(R.id.editName);
         apellidos = findViewById(R.id.editSurname);
         bio = findViewById(R.id.editBio);
         fechaNacimiento = findViewById(R.id.calendario);    //link con su xml
-        fechaNacimiento.setMaxDate(dateNow.getTimeInMillis());  //set max date tiene que estar DESPUES de hacer el link con su XML obviamente
+        fechaNacimiento.setMaxDate(viewModel.getDateNow().getTimeInMillis());  //set max date tiene que estar DESPUES de hacer el link con su XML obviamente
         foto = findViewById(R.id.imgContacto);
         addButton = findViewById(R.id.btnAdd);
         spinnerContactoEmergencia = findViewById(R.id.spinner_contactos);
         addButton.setOnClickListener(this);
 
 
-        //AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(this, );
-        //spinnerContactoEmergencia.setAdapter(adaptadorSpinner);
+        AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(this, viewModel.getContactoArrayList());
+        spinnerContactoEmergencia.setAdapter(adaptadorSpinner);
 
 
 

@@ -26,19 +26,22 @@ public class UtilidadesContactos {
     public static ArrayList<ContactoImpl> rellenarListaContactos(){
         ArrayList<ContactoImpl> contactoArrayList = new ArrayList<>();
         contactoArrayList.add(new ContactoImpl("Angela","Vazquez Dominguez", new GregorianCalendar(1997, 6, 23), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Nzhdeh", "Yeghiazaryan", new GregorianCalendar(1990, 3, 15), "Esta es mi bio", R.drawable.maleimg, true));
-        contactoArrayList.add(new ContactoImpl("Pepito", "Perez Perez", new GregorianCalendar(1995, 2, 19), "Esta es mi biografia", R.drawable.redhairmale, true));
-        contactoArrayList.add(new ContactoImpl("Angel", "Luna Duran", new GregorianCalendar(1992, 1, 12), "Esta es mi biografia", R.drawable.maleimg, true));
-        contactoArrayList.add(new ContactoImpl("Miguel Angel", "Longa Garcia", true));
-        contactoArrayList.add(new ContactoImpl("Joaquines", "Bello Hidalgo", true));
-        contactoArrayList.add(new ContactoImpl("Ariana", "Bello Hidalgo", new GregorianCalendar(1993, 12, 25), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Manuel", "Limon", new GregorianCalendar(1990, 5, 29), "Esta es mi biografia", R.drawable.maleimg, true));
+        contactoArrayList.add(new ContactoImpl("Նժդեհ", "Եղիազարյան", new GregorianCalendar(1990, 3, 15), "Սա իմ կենսագրությունն է", R.drawable.maleimg, true));
+        contactoArrayList.add(new ContactoImpl("Pepito", "Perez Perez", new GregorianCalendar(1995, 2, 19), "Esta es mi biografia", R.drawable.redhairmale, false));
         contactoArrayList.add(new ContactoImpl("Maria Isabel", "Martin Gamarra", new GregorianCalendar(1997, 5, 28), "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactoArrayList.add(new ContactoImpl("Usu", "normal"));
+        contactoArrayList.add(new ContactoImpl("Iván", "Moreno Romero", new GregorianCalendar(1996, 3, 4), "Esta es mi biografia", R.drawable.maleimg, true));
+        contactoArrayList.add(new ContactoImpl("Gonzalo", "Gómez Alba", new GregorianCalendar(1997, 7, 15), "Esta es mi biografia", R.drawable.maleimg, true));
+        contactoArrayList.add(new ContactoImpl("Angel", "Luna Duran", new GregorianCalendar(1992, 1, 12), "Esta es mi biografia", R.drawable.maleimg, true));
+        contactoArrayList.add(new ContactoImpl("Miguel Angel", "Longa Garcia", false));
+        contactoArrayList.add(new ContactoImpl("Joaquines", "Bello Hidalgo", false));
+        contactoArrayList.add(new ContactoImpl("Ariana", "Bello Hidalgo", new GregorianCalendar(1993, 12, 25), "Esta es mi biografia", R.drawable.femaleimg, false));
+        contactoArrayList.add(new ContactoImpl("Manuel", "Limon", new GregorianCalendar(1990, 5, 29), "Esta es mi biografia", R.drawable.maleimg, false));
 
-        for(int i =0; i < 5; i++){
-            contactoArrayList.add(new ContactoImpl());
+
+        for(int i =0; i < 5000; i++){
+            contactoArrayList.add(new ContactoImpl("Usu", "normal"));
         }
+        //Collections.sort(contactoArrayList);
         return contactoArrayList;
     }
 

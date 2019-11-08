@@ -23,7 +23,7 @@ public class DetailsContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//mirar parcelable
+        //mirar parcelable
         Intent intentRecibido = getIntent();
         //le pido el el valor correspondiente a la clave "contacto"
         ContactoImpl contactoElegido = (ContactoImpl) intentRecibido.getSerializableExtra("contacto");

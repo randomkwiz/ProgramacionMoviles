@@ -88,7 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
-                        android:text="@string/loreIpsum"
+
                         android:gravity="start"
                         android:padding="5dp"
                         android:id="@+id/txtViewBio"
