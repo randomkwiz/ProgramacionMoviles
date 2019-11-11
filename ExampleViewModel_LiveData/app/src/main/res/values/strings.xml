@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ExampleViewModel_LiveData</string>
+    <string name="add">Add</string>
+    <string name="java">Java</string>
+</resources>
