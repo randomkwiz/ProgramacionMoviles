@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ListaViewHolder.iml" filepath="$PROJECT_DIR$/ListaViewHolder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ListaViewHolder-app.iml" filepath="$PROJECT_DIR$/app/ListaViewHolder-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProgramacionMoviles-ListaViewHolder.iml" filepath="$PROJECT_DIR$/ProgramacionMoviles-ListaViewHolder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
