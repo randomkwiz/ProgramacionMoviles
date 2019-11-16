@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import es.iesnervion.avazquez.juegocasillasynumeros.Clases.Tablero;
 import es.iesnervion.avazquez.juegocasillasynumeros.R;
 import es.iesnervion.avazquez.juegocasillasynumeros.ViewModel.TableroViewModel;
 
@@ -25,32 +26,26 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         ConstraintLayout layout = findViewById(R.id.layout);
         TableroViewModel viewModel = new TableroViewModel (getApplication(), layout, lado);
         layout = viewModel.getLayout();
-
-        colocarListeners(layout, lado, viewModel.getMapeo());
-
-
+        colocarListeners(layout, viewModel.getTablero(), viewModel.getMapeo());
     }
 
 
 
-    public void colocarListeners(ConstraintLayout layout, int lado, SparseIntArray mapeo){
-        int contador = 0;
-        for (int iRow = 0; iRow < lado; iRow++) {
-            for (int iCol = 0; iCol < lado; iCol++) {
+    public void colocarListeners(ConstraintLayout layout, Tablero tablero, SparseIntArray mapeo){
+        for (int iRow = 0; iRow < tablero.getLado(); iRow++) {
+            for (int iCol = 0; iCol < tablero.getLado(); iCol++) {
 
-                contador ++;
-                if(contador <= lado ){
-                    //es la linea de las casillas horizontales
-
-                }else if( (contador-1) % lado == 0){ //er gitaneo weno pa que me pille la primera casilla de cada fila
-                    //es la linea de las casillas verticales
-
-                }else{
-                    //casillas jugables
-                    int idABuscar = mapeo.get(contador);
-                    ImageView view = findViewById(idABuscar);
+                if(tablero.getCasillas()[iRow][iCol].isJugable() )
+                {
+                    //Poner Listener
+                    View view = layout.getViewById(tablero.getCasillas()[iRow][iCol].getId());
                     view.setOnClickListener(this);
+
                 }
+
+
+
+
 
             }
         }
@@ -62,13 +57,18 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         ImageView casilla = (ImageView) v;
 
+        //TODO no se como hacer esta parte orientada a objetos ya que solo recibo la vista
+        //si quisiera hacerlo OO necesitaria la posicion y es un jaleo
+
         if((int)casilla.getTag() == R.drawable.selecteditem){
                 casilla.setImageResource(R.drawable.nonselecteditem);
-                casilla.setTag(null);
+                casilla.setTag(R.drawable.nonselecteditem);
         }else{
             casilla.setImageResource(R.drawable.selecteditem);
             casilla.setTag(R.drawable.selecteditem);
         }
+
+
 
     }
 }

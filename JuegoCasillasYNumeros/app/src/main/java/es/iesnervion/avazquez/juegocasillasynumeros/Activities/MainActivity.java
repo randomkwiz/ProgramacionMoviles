@@ -2,16 +2,10 @@ package es.iesnervion.avazquez.juegocasillasynumeros.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.Normalizer;
-import java.util.HashMap;
-import java.util.Map;
 
 import es.iesnervion.avazquez.juegocasillasynumeros.R;
 
