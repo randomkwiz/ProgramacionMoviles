@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">JuegoCasillasYNumeros</string>
+    <string name="app_name">Puntokus</string>
     <string name="easy">EASY</string>
-    <string name="normal">Normal</string>
+    <string name="normal">NORMAL</string>
     <string name="hard">HARD</string>
     <string name="sick">SICK</string>
     <string name="evaluate">Evaluate</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Restart</string>
 </resources>

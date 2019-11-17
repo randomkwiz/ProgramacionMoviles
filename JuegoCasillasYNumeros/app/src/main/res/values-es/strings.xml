@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Puntokus</string>
+    <string name="easy">FÁCIL</string>
+    <string name="normal">NORMAL</string>
+    <string name="hard">DIFÍCIL</string>
+    <string name="sick">ENFERMIZO</string>
+    <string name="evaluate">Comprobar</string>
+    <string name="refresh">Reiniciar</string>
+</resources>

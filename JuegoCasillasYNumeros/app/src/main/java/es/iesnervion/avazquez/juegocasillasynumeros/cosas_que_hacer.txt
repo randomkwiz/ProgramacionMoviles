@@ -1,0 +1,11 @@
+Cosas que tienes que hacer aun:
+-Mejorar la estructura de clases
+        -Haz la clase abstracta Casilla y que de ahi hereden CasillaJugable y CasillaNoJugable
+                aunque quizas no es buena idea dado que seria mas lioso crear el tablero pero bueno
+                dale una vueltecita
+
+        -Importante: Haz bien el ViewModel porque eso peta al rotar y muy normal no es
+        -Pon los métodos donde toca ponerlos
+        -Haz el refresh
+        -Pon de alguna manera el tablero / el layout en un LiveData para que cambies los numeros y
+            cambie solo

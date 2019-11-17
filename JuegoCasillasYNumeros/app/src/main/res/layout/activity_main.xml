@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="20dp"
+        android:background="#00E676"
         android:textSize="20dp"
 
         android:text="@string/easy"
@@ -27,6 +28,7 @@
         android:textSize="20dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#C6FF00"
 
         android:text="@string/normal"
         app:layout_constraintTop_toBottomOf="@+id/view1"
@@ -39,7 +41,7 @@
         android:id="@+id/view3"
         android:padding="20dp"
         android:textSize="20dp"
-
+        android:background="#FF6D00"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/hard"
@@ -51,7 +53,7 @@
 
     <Button
         android:id="@+id/view4"
-
+        android:background="#D50000"
         android:padding="20dp"
         android:textSize="20dp"
         android:layout_width="0dp"

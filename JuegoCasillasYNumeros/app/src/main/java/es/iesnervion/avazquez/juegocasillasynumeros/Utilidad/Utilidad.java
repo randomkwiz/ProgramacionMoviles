@@ -1,6 +1,5 @@
 package es.iesnervion.avazquez.juegocasillasynumeros.Utilidad;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.SparseIntArray;
@@ -11,11 +10,7 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.lifecycle.ViewModel;
 
-import java.util.Random;
-
-import es.iesnervion.avazquez.juegocasillasynumeros.Activities.TableroActivity;
 import es.iesnervion.avazquez.juegocasillasynumeros.Clases.Casilla;
 import es.iesnervion.avazquez.juegocasillasynumeros.Clases.Tablero;
 import es.iesnervion.avazquez.juegocasillasynumeros.R;
@@ -24,6 +19,11 @@ import es.iesnervion.avazquez.juegocasillasynumeros.R;
 
 public class Utilidad {
 
+    /*
+    * Comentario: establece el tablero con la cantidad de casillas necesarias
+    * y del tipo correcto (TextView o ImageView)
+    * Entradas/Salida: ConstraintLayout, tablero
+    * */
     public void establecerTablero(ConstraintLayout layout, Context context, SparseIntArray mapeo, Tablero tablero){
 
         //lo he tenido que poner como view porque van a ser ImageView o TextView dependiendo de donde esten
