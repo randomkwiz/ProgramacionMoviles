@@ -4,4 +4,6 @@
     <string name="normal">Normal</string>
     <string name="hard">HARD</string>
     <string name="sick">SICK</string>
+    <string name="evaluate">Evaluate</string>
+    <string name="refresh">Refresh</string>
 </resources>

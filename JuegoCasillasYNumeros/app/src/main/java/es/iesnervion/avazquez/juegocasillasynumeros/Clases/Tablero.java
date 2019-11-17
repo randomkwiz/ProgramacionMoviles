@@ -2,8 +2,9 @@ package es.iesnervion.avazquez.juegocasillasynumeros.Clases;
 
 public class Tablero {
     private int lado;
-    Casilla[][] casillas;
-    int[] marcasHorizontales;
+    private Casilla[][] casillas;
+    private int[] marcasHorizontales;
+    private int[] marcasVerticales;     //no es estrictamente necesario pero me resulta mas comodo
 
     //asi hago los maximosVerticales una propiedad derivada, ya que solo tendria que sumar los
     //puntos colocados para los maximos horizontales
@@ -22,6 +23,9 @@ public class Tablero {
                 //colocar maximos horizontales
         //colocar maximos verticales
 
+        marcasHorizontales = new int[lado-1];
+        marcasVerticales = new int[lado-1];
+
     }
 
     public int getLado() {
@@ -36,8 +40,15 @@ public class Tablero {
         return marcasHorizontales;
     }
 
-    public int[] getMarcasVerticales(){
-        //TODO esto
-        return null;
+    public void setMarcasHorizontales(int[] marcasHorizontales) {
+        this.marcasHorizontales = marcasHorizontales;
+    }
+
+    public int[] getMarcasVerticales() {
+        return marcasVerticales;
+    }
+
+    public void setMarcasVerticales(int[] marcasVerticales) {
+        this.marcasVerticales = marcasVerticales;
     }
 }

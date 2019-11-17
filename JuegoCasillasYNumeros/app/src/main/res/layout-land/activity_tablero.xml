@@ -27,8 +27,8 @@
         android:id="@+id/evaluateBtn"
         android:text="@string/evaluate"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/gridFrame"
+        app:layout_constraintBottom_toBottomOf="@id/gridFrame"
+        app:layout_constraintStart_toEndOf="@id/gridFrame"
         ></Button>
 
     <Button
@@ -37,7 +37,7 @@
         android:id="@+id/refreshBtn"
 
         android:text="@string/refresh"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/gridFrame"
         app:layout_constraintStart_toEndOf="@id/evaluateBtn"
         ></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
