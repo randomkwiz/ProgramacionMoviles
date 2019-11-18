@@ -13,20 +13,21 @@ import es.iesnervion.avazquez.juegocasillasynumeros.ViewModel.TableroViewModel;
 public class MyViewModelFactory implements ViewModelProvider.Factory {
 
     private Application mApplication;
-    private ConstraintLayout layout;
+
     private int lado;
-    private View gridFrame;
-    public MyViewModelFactory(Application mApplication, ConstraintLayout layout, int lado, View gridFrame) {
+
+
+    public MyViewModelFactory(Application mApplication,  int lado) {
         this.mApplication = mApplication;
-        this.layout = layout;
+
         this.lado = lado;
-        this.gridFrame = gridFrame;
+
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
 
-        return (T) new TableroViewModel(mApplication, layout, lado, gridFrame);
+        return (T) new TableroViewModel(mApplication, lado);
     }
 }

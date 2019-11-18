@@ -2,6 +2,7 @@ package es.iesnervion.avazquez.juegocasillasynumeros.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.SparseIntArray;
 import android.view.Gravity;
@@ -28,6 +29,7 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
     TableroViewModel viewModel;
     Button evaluateBtn;
     Button refreshBtn;
+    ConstraintLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,18 +42,13 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         evaluateBtn = findViewById(R.id.evaluateBtn);
         refreshBtn = findViewById(R.id.refreshBtn);
 
-        View gridFrame = findViewById(R.id.gridFrame);
-
         //He tenido que hacer mi propio VM Factory pa pode pasarle parametros al VM
-        viewModel = ViewModelProviders.of(this, new MyViewModelFactory(this.getApplication(),layout, lado, gridFrame)).
+        viewModel = ViewModelProviders.of(this, new MyViewModelFactory(this.getApplication(), lado)).
                 get(TableroViewModel.class);
 
-        int cantidadDeHijos = viewModel.getLayout().getChildCount();    //pal debugger
 
-
-
-        //establecerTablero(viewModel.getLayout(),this,viewModel.getMapeo(),viewModel.getTablero());
-        colocarListeners(viewModel.getLayout(), viewModel.getTablero(), viewModel.getMapeo());
+        establecerTablero(layout,this,viewModel.getMapeo(),viewModel.getTablero());
+        colocarListeners(layout, viewModel.getTablero(), viewModel.getMapeo());
         evaluateBtn.setOnClickListener(this);
         refreshBtn.setOnClickListener(this);
 
@@ -83,26 +80,25 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
             //TODO no se como hacer esta parte orientada a objetos ya que solo recibo la vista
             //si quisiera hacerlo OO necesitaria la posicion y es un jaleo
 
-            if((int)casilla.getTag() == R.drawable.selecteditem){
+            if(objetoCasilla.getImgSrc() == R.drawable.selecteditem){
                 casilla.setImageResource(R.drawable.nonselecteditem);
                 casilla.setTag(R.drawable.nonselecteditem);
 
-
-                //TODO haz un metodo que te devuelva la casilla por la ID y asi
-                //tienes toda esta parte arreglada
                 objetoCasilla.setMarcada(false);
+                objetoCasilla.setImgSrc(R.drawable.nonselecteditem);
 
             }else{
                 casilla.setImageResource(R.drawable.selecteditem);
                 casilla.setTag(R.drawable.selecteditem);
                 objetoCasilla.setMarcada(true);
+                objetoCasilla.setImgSrc(R.drawable.selecteditem);
             }
         }else if(v instanceof Button){
             switch (v.getId()){
                 case R.id.evaluateBtn:
                     Toast mensaje;
                     Utilidad utilidad = new Utilidad();
-                    if(utilidad.comprobarSiLaSolucionEsCorrecta(viewModel.getLayout(), viewModel.getTablero())){
+                    if(utilidad.comprobarSiLaSolucionEsCorrecta(viewModel.getTablero())){
                         mensaje = Toast.makeText(getApplicationContext(),"¡BIEN!", Toast.LENGTH_SHORT);
                     }else{
                         mensaje = Toast.makeText(getApplicationContext(),"DALE UNA VUELTECITA BRO", Toast.LENGTH_SHORT);
@@ -110,10 +106,25 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
                     mensaje.show();
                     break;
                 case R.id.refreshBtn:
+                    /*
+                    utilidad = new Utilidad();
+                    //establezco cuales son las casillas jugables
+                    utilidad.establecerCasillasJugablesTablero(viewModel.getTablero());
+                    //pone las marcas (esto el usuario no lo ve, es mi forma de hacer los numeritos)
+                    utilidad.establecerMarcasEnTablero(viewModel.getTablero());
+                    //se cuentan los numeritos xD
+                    utilidad.establecerNumeroDeMarcasHorizontalesYVerticales(viewModel.getTablero());
+
+                    establecerTablero(layout,this, viewModel.getMapeo(), viewModel.getTablero());
+                    */
+
+
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Has pulsado Refresh", Toast.LENGTH_SHORT);
                     toast1.show();
+
+
                     break;
             }
         }
@@ -128,8 +139,11 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         ConstraintLayout.LayoutParams lp;
         int id ;
         int contador = 0;
+        int contadorCol = 0;
+        int contadorRow = 0;
         int idArray[][] = new int[tablero.getLado()][tablero.getLado()];    //lo necesito abajo
         ConstraintSet cs = new ConstraintSet();
+
         // Add our views to the ConstraintLayout.
         for (int iRow = 0; iRow < tablero.getLado(); iRow++) {
             for (int iCol = 0; iCol < tablero.getLado(); iCol++) {
@@ -145,36 +159,61 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
                 tablero.getCasillas()[iRow][iCol].setId(id);
                 idArray[iRow][iCol] = id;   //lo necesito abajo
 
-                if(contador <= tablero.getLado() ){
-                    view = new TextView(context);
-                    ((TextView) view).setText(("H"));
-                    //TODO colocar maximos horizontales y verticales
-                    ((TextView) view).setGravity(Gravity.CENTER);
-                    //Estas casillas son donde se ponen los numeros
-                    tablero.getCasillas()[iRow][iCol].setJugable(false);
 
-                }else if( (contador-1) % tablero.getLado() == 0){ //er gitaneo weno pa que me pille la primera casilla de cada fila
-                    view = new TextView(context);
-                    ((TextView)view).setText(("V"));
-                    ((TextView) view).setGravity(Gravity.CENTER);
-                    //Estas casillas son donde se ponen los numeros
-                    tablero.getCasillas()[iRow][iCol].setJugable(false);
+                if(iRow != 0 || iCol != 0)
+                {
+                    if(contador <= tablero.getLado() ){
+                        view = new TextView(context);
+                        //((TextView) view).setText(("H"));
+
+                        ((TextView)view).setText(String.valueOf(tablero.getMarcasHorizontales()[contadorCol]));
+                        contadorCol++;
+                        ((TextView) view).setGravity(Gravity.CENTER);
+                        ((TextView) view).setTextColor(Color.BLACK);
+
+                        //Estas casillas son donde se ponen los numeros
+                        tablero.getCasillas()[iRow][iCol].setJugable(false);
+
+                    }else if( (contador-1) % tablero.getLado() == 0){ //er gitaneo weno pa que me pille la primera casilla de cada fila
+                        view = new TextView(context);
+                        //((TextView)view).setText(("V"));
+
+                        ((TextView)view).setText(String.valueOf(tablero.getMarcasVerticales()[contadorRow]));
+                        contadorRow++;
+
+                        ((TextView) view).setGravity(Gravity.CENTER);
+                        ((TextView) view).setTextColor(Color.BLACK);
+                        //Estas casillas son donde se ponen los numeros
+                        tablero.getCasillas()[iRow][iCol].setJugable(false);
+                    }else{
+                        view = new ImageView(context);
+                        view.setPaddingRelative(10,10,10,10);
+                        //Esta parte la querria hacer sin esto, solo usando los atributos isMarcada
+                        //-> Ver metodo onClick para saber por que no lo hice asi
+
+                        ((ImageView)view).setImageResource(tablero.getCasillas()[iRow][iCol].getImgSrc());
+
+
+
+                        //view.setTag(R.drawable.nonselecteditem);
+
+                        //Estas casillas son donde se ponen las marcas
+                        tablero.getCasillas()[iRow][iCol].setJugable(true);
+
+                    }
+                    view.setId(id);
+                    view.setBackgroundResource(R.drawable.border_shape);
+
+                    layout.addView(view, lp);
                 }else{
-                    view = new ImageView(context);
-                    view.setPaddingRelative(10,10,10,10);
-                    //Esta parte la querria hacer sin esto, solo usando los atributos isMarcada
-                    //-> Ver metodo onClick para saber por que no lo hice asi
-                    ((ImageView)view).setImageResource(R.drawable.nonselecteditem);
-                    view.setTag(R.drawable.nonselecteditem);
+                    view = new View(context);
+                    view.setId(id);
+                    view.setBackgroundResource(R.drawable.border_shape);
 
-                    //Estas casillas son donde se ponen las marcas
-                    tablero.getCasillas()[iRow][iCol].setJugable(true);
-
+                    layout.addView(view, lp);
                 }
-                view.setId(id);
-                view.setBackgroundResource(R.drawable.border_shape);
 
-                layout.addView(view, lp);
+
             }
         }
 
