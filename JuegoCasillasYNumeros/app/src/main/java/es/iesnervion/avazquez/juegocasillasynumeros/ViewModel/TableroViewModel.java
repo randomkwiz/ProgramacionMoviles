@@ -55,5 +55,4 @@ public class TableroViewModel extends ViewModel {
         return tablero;
     }
 
-
 }

@@ -1,5 +1,6 @@
 package es.iesnervion.avazquez.juegocasillasynumeros.Activities;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -29,19 +30,21 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
     TableroViewModel viewModel;
     Button evaluateBtn;
     Button refreshBtn;
+    Button newGameBtn;
     ConstraintLayout layout;
+    int lado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tablero);
 
         Intent mIntent = getIntent();
-        int lado = mIntent.getIntExtra("lado",0);
+        lado = mIntent.getIntExtra("lado",0);
 
-        ConstraintLayout layout = findViewById(R.id.layout);
+        layout = findViewById(R.id.layout);
         evaluateBtn = findViewById(R.id.evaluateBtn);
         refreshBtn = findViewById(R.id.refreshBtn);
-
+        newGameBtn = findViewById(R.id.newGameBtn);
         //He tenido que hacer mi propio VM Factory pa pode pasarle parametros al VM
         viewModel = ViewModelProviders.of(this, new MyViewModelFactory(this.getApplication(), lado)).
                 get(TableroViewModel.class);
@@ -51,6 +54,7 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         colocarListeners(layout, viewModel.getTablero(), viewModel.getMapeo());
         evaluateBtn.setOnClickListener(this);
         refreshBtn.setOnClickListener(this);
+        newGameBtn.setOnClickListener(this);
 
     }
 
@@ -76,9 +80,10 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         if(v instanceof ImageView){
             ImageView casilla = (ImageView) v;
             Utilidad utilidad = new Utilidad();
+
+            //Obtengo el objeto casilla correspondiente a la vista pulsada
             Casilla objetoCasilla = utilidad.obtenerCasillaPorID(viewModel.getTablero(),v.getId());
-            //TODO no se como hacer esta parte orientada a objetos ya que solo recibo la vista
-            //si quisiera hacerlo OO necesitaria la posicion y es un jaleo
+
 
             if(objetoCasilla.getImgSrc() == R.drawable.selecteditem){
                 casilla.setImageResource(R.drawable.nonselecteditem);
@@ -94,44 +99,40 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
                 objetoCasilla.setImgSrc(R.drawable.selecteditem);
             }
         }else if(v instanceof Button){
+            Utilidad utilidad = new Utilidad();
             switch (v.getId()){
                 case R.id.evaluateBtn:
-                    Toast mensaje;
-                    Utilidad utilidad = new Utilidad();
                     if(utilidad.comprobarSiLaSolucionEsCorrecta(viewModel.getTablero())){
-                        mensaje = Toast.makeText(getApplicationContext(),"¡BIEN!", Toast.LENGTH_SHORT);
+                        utilidad.mostrarToast(getString((R.string.isCorrect)), this);
                     }else{
-                        mensaje = Toast.makeText(getApplicationContext(),"DALE UNA VUELTECITA BRO", Toast.LENGTH_SHORT);
+                        utilidad.mostrarToast(getString((R.string.isWrong)), this);
                     }
-                    mensaje.show();
+
                     break;
                 case R.id.refreshBtn:
-                    /*
-                    utilidad = new Utilidad();
-                    //establezco cuales son las casillas jugables
-                    utilidad.establecerCasillasJugablesTablero(viewModel.getTablero());
-                    //pone las marcas (esto el usuario no lo ve, es mi forma de hacer los numeritos)
-                    utilidad.establecerMarcasEnTablero(viewModel.getTablero());
-                    //se cuentan los numeritos xD
-                    utilidad.establecerNumeroDeMarcasHorizontalesYVerticales(viewModel.getTablero());
 
-                    establecerTablero(layout,this, viewModel.getMapeo(), viewModel.getTablero());
-                    */
-
-
-                    Toast toast1 =
-                            Toast.makeText(getApplicationContext(),
-                                    "Has pulsado Refresh", Toast.LENGTH_SHORT);
-                    toast1.show();
+                    utilidad.limpiarPuntosNegrosVisualesDeLaVista(viewModel.getTablero(), layout);
+                    utilidad.mostrarToast(getString(R.string.refresh), this);
 
 
                     break;
+                case R.id.newGameBtn:
+                    utilidad.partidaNueva(viewModel.getTablero(), layout);
+                    utilidad.mostrarToast(getString(R.string.newGame), this);
+                    break;
+
             }
         }
 
 
     }
 
+
+    /*Este método lo que hace es establecer el tablero en el XML
+    * O sea pinta las casillas con los numeritos correspondientes
+    * y la marca negra si la casilla la tiene o no (esto sirve
+    * para cuando cambia la configuracion)
+    * */
     public void establecerTablero(ConstraintLayout layout, Context context, SparseIntArray mapeo, Tablero tablero){
 
         //lo he tenido que poner como view porque van a ser ImageView o TextView dependiendo de donde esten
@@ -141,7 +142,7 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
         int contador = 0;
         int contadorCol = 0;
         int contadorRow = 0;
-        int idArray[][] = new int[tablero.getLado()][tablero.getLado()];    //lo necesito abajo
+        int[][] idArray = new int[tablero.getLado()][tablero.getLado()];    //lo necesito abajo
         ConstraintSet cs = new ConstraintSet();
 
         // Add our views to the ConstraintLayout.
