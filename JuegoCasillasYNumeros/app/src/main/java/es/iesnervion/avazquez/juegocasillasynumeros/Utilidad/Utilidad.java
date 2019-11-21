@@ -150,7 +150,6 @@ public class Utilidad {
      *   actuales del objeto tablero.
      * */
     public void cambiarValoresEnLaVista(ConstraintLayout layout, Tablero tablero) {
-        //TODO haz esto
 
 
         View view;
