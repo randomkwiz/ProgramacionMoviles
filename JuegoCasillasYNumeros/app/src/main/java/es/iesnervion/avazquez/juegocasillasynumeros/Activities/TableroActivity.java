@@ -1,7 +1,9 @@
 package es.iesnervion.avazquez.juegocasillasynumeros.Activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -100,6 +102,7 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
             }
         }else if(v instanceof Button){
             Utilidad utilidad = new Utilidad();
+            AlertDialog.Builder builder;
             switch (v.getId()){
                 case R.id.evaluateBtn:
                     if(utilidad.comprobarSiLaSolucionEsCorrecta(viewModel.getTablero())){
@@ -111,14 +114,46 @@ public class TableroActivity extends AppCompatActivity implements View.OnClickLi
                     break;
                 case R.id.refreshBtn:
 
-                    utilidad.limpiarPuntosNegrosVisualesDeLaVista(viewModel.getTablero(), layout);
-                    utilidad.mostrarToast(getString(R.string.refresh), this);
+                    builder = new AlertDialog.Builder(this);
+
+                    builder.setMessage(R.string.dialog_clean)
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // Clean !
+                                    Utilidad util = new Utilidad();
+                                    util.limpiarPuntosNegrosVisualesDeLaVista(viewModel.getTablero(), layout);
+                                    util.mostrarToast(getString(R.string.refresh), getApplicationContext());
+                                }
+                            })
+                            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // User cancelled the dialog
+                                }
+                            });
+
+
 
 
                     break;
                 case R.id.newGameBtn:
-                    utilidad.partidaNueva(viewModel.getTablero(), layout);
-                    utilidad.mostrarToast(getString(R.string.newGame), this);
+
+
+                    builder = new AlertDialog.Builder(this);
+                    builder.setMessage(R.string.dialog_newGame)
+                            .setPositiveButton(R.string.dialog_newGame_start, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // Start new game!
+                                    Utilidad util = new Utilidad();
+                                    util.partidaNueva(viewModel.getTablero(), layout);
+                                    util.mostrarToast(getString(R.string.newGame), getApplicationContext());
+
+                                }
+                            })
+                            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // User cancelled the dialog
+                                }
+                            });
                     break;
 
             }
