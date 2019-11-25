@@ -1,15 +1,11 @@
 package es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.viewModel;
 
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Random;
 
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.R;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
@@ -61,24 +57,28 @@ public class SharedVM extends ViewModel {
         contactList.add(new ContactImpl("Pepito", "Perez Perez",
                 new GregorianCalendar(1995, 2, 19),
                 "Esta es mi biografia", R.drawable.redhairmale, false));
-        contactList.add(new ContactImpl("Maria Isabel", "Martin Gamarra",
+        contactList.add(new ContactImpl("Maria", "Martin",
                 new GregorianCalendar(1997, 5, 28),
                 "Esta es mi biografia", R.drawable.femaleimg, true));
-        contactList.add(new ContactImpl("Iván", "Moreno Romero",
+        contactList.add(new ContactImpl("Iván", "Pérez",
                 new GregorianCalendar(1996, 3, 4),
                 "Esta es mi biografia", R.drawable.maleimg, true));
-        contactList.add(new ContactImpl("Gonzalo", "Gómez Alba",
+        contactList.add(new ContactImpl("Gonzalo", "Leira Martínez",
                 new GregorianCalendar(1997, 7, 15),
                 "Esta es mi biografia", R.drawable.maleimg, true));
-        contactList.add(new ContactImpl("Angel", "Luna Duran",
+        contactList.add(new ContactImpl("Angel", "Romero Gómez",
                 new GregorianCalendar(1992, 1, 12),
                 "Esta es mi biografia", R.drawable.maleimg, true));
-        contactList.add(new ContactImpl("Miguel Angel", "Longa Garcia", false));
-        contactList.add(new ContactImpl("Joaquines", "Bello Hidalgo", false));
-        contactList.add(new ContactImpl("Ariana", "Bello Hidalgo", new GregorianCalendar(1993, 12, 25), "Esta es mi biografia", R.drawable.femaleimg, false));
-        contactList.add(new ContactImpl("Manuel", "Limon", new GregorianCalendar(1990, 5, 29), "Esta es mi biografia", R.drawable.maleimg, false));
+        contactList.add(new ContactImpl("Miguel Angel", "García Hidalgo", false));
+        contactList.add(new ContactImpl("Joaquines", "López Casablanca", false));
+        contactList.add(new ContactImpl("Ariana", "Ramoneda Delgado", new GregorianCalendar(1993, 12, 25), "Esta es mi biografia", R.drawable.femaleimg, false));
+        contactList.add(new ContactImpl("Manuel", "Romera Flores", new GregorianCalendar(1990, 5, 29), "Esta es mi biografia", R.drawable.maleimg, true));
 
 
+        for(int i = 0; i < 50000 ; i ++){
+            contactList.add(new ContactImpl("Usuario", "Por defecto"));
+
+        }
         //long seed = System.nanoTime();
         //Collections.shuffle(contactList, new Random(seed));
 
