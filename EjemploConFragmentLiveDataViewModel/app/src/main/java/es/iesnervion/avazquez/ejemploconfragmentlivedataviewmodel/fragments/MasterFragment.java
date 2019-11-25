@@ -41,8 +41,8 @@ implements AdapterView.OnItemClickListener
         listView = view.findViewById(R.id.listViewContactos);
 
         //Adapter
-        final ContactAdapter contactAdapter = new ContactAdapter(getContext(), viewModel.getContactList().getValue());
-
+        final ContactAdapter contactAdapter = new ContactAdapter(getActivity().getBaseContext(), viewModel.getContactList().getValue());
+        listView.setAdapter(contactAdapter);
 
         //El observer de la lista
         final Observer<ArrayList<ContactImpl>> listContactObserver = new Observer<ArrayList<ContactImpl>>() {
@@ -66,9 +66,12 @@ implements AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //Cuando un elemento se clicka, pongo ese elemento como
         //contacto seleccionado en el view model
-
+        ContactImpl contactoSeleccionado = null;
         //Cojo el contacto seleccionado
-        ContactImpl contactoSeleccionado = viewModel.getContactList().getValue().get(position);
+        if(position >= 0){
+            contactoSeleccionado = viewModel.getContactList().getValue().get(position);
+        }
+
 
         //Le digo al view model que este es el contacto seleccionado
         viewModel.setContactoSeleccionado(contactoSeleccionado);

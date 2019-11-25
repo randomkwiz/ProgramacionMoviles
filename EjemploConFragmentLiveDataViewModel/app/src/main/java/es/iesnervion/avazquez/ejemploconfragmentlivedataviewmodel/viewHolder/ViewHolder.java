@@ -1,5 +1,6 @@
 package es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.viewHolder;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -10,12 +11,14 @@ public class ViewHolder {
     TextView nombreContacto;
     TextView apellidosContacto;
     TextView fechaNacimientoContacto;
+    ImageView isFavorito;
 
-    public ViewHolder(CircleImageView fotoContacto, TextView nombreContacto, TextView apellidosContacto, TextView fechaNacimientoContacto) {
+    public ViewHolder(CircleImageView fotoContacto, TextView nombreContacto, TextView apellidosContacto, TextView fechaNacimientoContacto, ImageView isFavorito) {
         this.fotoContacto = fotoContacto;
         this.nombreContacto = nombreContacto;
         this.apellidosContacto = apellidosContacto;
         this.fechaNacimientoContacto = fechaNacimientoContacto;
+        this.isFavorito = isFavorito;
     }
 
     public CircleImageView getFotoContacto() {
@@ -32,5 +35,9 @@ public class ViewHolder {
 
     public TextView getFechaNacimientoContacto() {
         return fechaNacimientoContacto;
+    }
+
+    public ImageView getIsFavorito() {
+        return isFavorito;
     }
 }

@@ -50,18 +50,21 @@ public class DetailFragment extends Fragment {
         bio = view.findViewById(R.id.txtViewBio);
         isFavorito = view.findViewById(R.id.faveIcon);
 
-        if(viewModel.getContactoSeleccionado().getValue().isFavorito()){
-            isFavorito.setVisibility(View.VISIBLE);
-        }else{
-            isFavorito.setVisibility(View.GONE);
+        if(viewModel.getContactoSeleccionado().getValue() != null){
+            if(viewModel.getContactoSeleccionado().getValue().isFavorito()){
+                isFavorito.setVisibility(View.VISIBLE);
+            }else{
+                isFavorito.setVisibility(View.GONE);
+            }
+
+            //Actualizar la UI
+            //le pongo al xml los datos del objeto en cuestion
+            foto.setImageResource(viewModel.getContactoSeleccionado().getValue().getImgResource());
+            nombreCompleto.setText(viewModel.getContactoSeleccionado().getValue().getNombre() +" " +viewModel.getContactoSeleccionado().getValue().getApellidos());
+            fechaNacimiento.setText(viewModel.getContactoSeleccionado().getValue().obtenerFechaNacimientoCorta());
+            bio.setText(viewModel.getContactoSeleccionado().getValue().getBiografia());
         }
 
-        //Actualizar la UI
-        //le pongo al xml los datos del objeto en cuestion
-        foto.setImageResource(viewModel.getContactoSeleccionado().getValue().getImgResource());
-        nombreCompleto.setText(viewModel.getContactoSeleccionado().getValue().getNombre() +" " +viewModel.getContactoSeleccionado().getValue().getApellidos());
-        fechaNacimiento.setText(viewModel.getContactoSeleccionado().getValue().obtenerFechaNacimientoCorta());
-        bio.setText(viewModel.getContactoSeleccionado().getValue().getBiografia());
 
 
         /*El observer*/
@@ -70,16 +73,27 @@ public class DetailFragment extends Fragment {
             public void onChanged(ContactImpl contact) {
                 //Actualizar la UI
                 //le pongo al xml los datos del objeto en cuestion
-                foto.setImageResource(viewModel.getContactoSeleccionado().getValue().getImgResource());
-                nombreCompleto.setText(viewModel.getContactoSeleccionado().getValue().getNombre() +" " +viewModel.getContactoSeleccionado().getValue().getApellidos());
-                fechaNacimiento.setText(viewModel.getContactoSeleccionado().getValue().obtenerFechaNacimientoCorta());
-                bio.setText(viewModel.getContactoSeleccionado().getValue().getBiografia());
+                if(viewModel.getContactoSeleccionado().getValue() != null){
+
+
+                        if(viewModel.getContactoSeleccionado().getValue().isFavorito()){
+                            isFavorito.setVisibility(View.VISIBLE);
+                        }else {
+                            isFavorito.setVisibility(View.GONE);
+                        }
+
+                    foto.setImageResource(viewModel.getContactoSeleccionado().getValue().getImgResource());
+                    nombreCompleto.setText(viewModel.getContactoSeleccionado().getValue().getNombre() +" " +viewModel.getContactoSeleccionado().getValue().getApellidos());
+                    fechaNacimiento.setText(viewModel.getContactoSeleccionado().getValue().obtenerFechaNacimientoCorta());
+                    bio.setText(viewModel.getContactoSeleccionado().getValue().getBiografia());
+                }
+
 
 
             }
         };
 
-        //Observo el LiveData con ese observer que acabo de crear
+            //Observo el LiveData con ese observer que acabo de crear
         viewModel.getContactoSeleccionado().observe(this, contactObserver);
 
 

@@ -1,6 +1,8 @@
 package es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,7 @@ public class ContactAdapter extends BaseAdapter {
         ContactImpl contacto = contactoArrayList.get(position);
         /*Ahora vamos a hacerlo con ViewHolder*/
         ViewHolder holder ;
-
+        //int orientacion = context.getResources().getConfiguration().orientation;
 
             if(convertView == null){
                 LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -61,39 +63,30 @@ public class ContactAdapter extends BaseAdapter {
                 CircleImageView fotoContacto =
                         (CircleImageView)convertView.findViewById(R.id.fotoContacto);
 
-                //estrellita de favorito
-                ImageView isFavorito = (ImageView) convertView.findViewById(R.id.faveIcon);
-
-                if(contacto.isFavorito()){
-                    isFavorito.setVisibility(View.VISIBLE);
-                }else{
-                    isFavorito.setVisibility(View.GONE);
-                }
 
                 //nombre
                 TextView nombreContacto =
                         (TextView)convertView.findViewById(R.id.textoNombre);
 
+                //estrella is Favorito
+                ImageView isFavorito = (ImageView)convertView.findViewById(R.id.faveIcon);
+
                 //apellido
                 TextView apellidoContacto =
-                        (TextView)convertView.findViewById(R.id.textoApellidos);
+                            (TextView)convertView.findViewById(R.id.textoApellidos);
 
                 //fechaNacimiento
                 TextView fechaNacimientoContacto = (TextView)convertView.findViewById(R.id.textoFechaNacimiento);
 
-
-
                 //ahora usamos esas referencias pa ponerselas al contacto actual
-
+                apellidoContacto.setText(contacto.getApellidos());
                 fotoContacto.setImageResource(contacto.getImgResource());
                 nombreContacto.setText(contacto.getNombre());
-                apellidoContacto.setText(contacto.getApellidos());
                 fechaNacimientoContacto.setText(contacto.obtenerFechaNacimientoCorta());
                 //Con isFavorito no hace falta porque siempre es la misma imagen (la estrella)
                 //solo cambiamos su visibilidad
 
-
-                holder = new ViewHolder(fotoContacto, nombreContacto, apellidoContacto, fechaNacimientoContacto);
+                holder = new ViewHolder(fotoContacto, nombreContacto, apellidoContacto, fechaNacimientoContacto, isFavorito);
 
                 convertView.setTag(holder);
             }else{
@@ -107,7 +100,11 @@ public class ContactAdapter extends BaseAdapter {
         holder.getApellidosContacto().setText(contacto.getApellidos());
         holder.getFechaNacimientoContacto().setText(contacto.obtenerFechaNacimientoCorta());
 
-
+        if(contacto.isFavorito()){
+            holder.getIsFavorito().setVisibility(View.VISIBLE);
+        }else{
+            holder.getIsFavorito().setVisibility(View.GONE);
+        }
         return convertView;
     }
 }

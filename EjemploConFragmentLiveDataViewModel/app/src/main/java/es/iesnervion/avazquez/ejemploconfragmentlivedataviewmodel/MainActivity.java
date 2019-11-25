@@ -38,24 +38,30 @@ public class MainActivity extends AppCompatActivity {
         details = new DetailFragment();
 
         FragmentManager fm = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fm.beginTransaction();
-
-
-
-
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
         orientacion = getResources().getConfiguration().orientation;
+
+
         if(orientacion == Configuration.ORIENTATION_PORTRAIT){
 
             //Si estoy en modo portrait solo tengo un hueco pa un fragment
             //y su id es "fragment" en el XML
-            fragmentTransaction.replace(R.id.fragment, master);
+            fragmentTransaction.replace(R.id.fragment, master).addToBackStack(null);
 
 
             /*El observer*/
             final Observer<ContactImpl> contactObserver = new Observer<ContactImpl>() {
                 @Override
                 public void onChanged(ContactImpl contact) {
-                    fragmentTransaction.replace(R.id.fragment, details);
+
+                    /*Esto no funcionaba con un solo Fragment transaction, tengo que crear
+                    * un Fragment transaction nuevo cada vez que me meto en el on click / on change
+                    * lo malo de esto es que creo que getSupportFragmentManager esta deprecated ??
+                    * nose, preguntar a miguelahe
+                    * */
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();    //esto esta deprecated ??
+
+                    ft.replace(R.id.fragment, details).addToBackStack(null).commit();
 
                 }
             };
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        fragmentTransaction.addToBackStack(null).commit();
+        fragmentTransaction.commit();
 
     }
 }
