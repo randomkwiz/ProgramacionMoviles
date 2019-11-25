@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.DetailFragment;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.MasterFragment;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.interfaces.Contact;
@@ -31,23 +36,49 @@ public class MainActivity extends AppCompatActivity {
 
         master = new MasterFragment();
         details = new DetailFragment();
+
         FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        final FragmentTransaction fragmentTransaction = fm.beginTransaction();
+
+
+
 
         orientacion = getResources().getConfiguration().orientation;
         if(orientacion == Configuration.ORIENTATION_PORTRAIT){
-            fragmentTransaction.replace(R.id.masterFragment, master);
+
+            //Si estoy en modo portrait solo tengo un hueco pa un fragment
+            //y su id es "fragment" en el XML
+            fragmentTransaction.replace(R.id.fragment, master);
+
+
+            /*El observer*/
+            final Observer<ContactImpl> contactObserver = new Observer<ContactImpl>() {
+                @Override
+                public void onChanged(ContactImpl contact) {
+                    fragmentTransaction.replace(R.id.fragment, details);
+
+                }
+            };
+
+            //Observo el LiveData con ese observer que acabo de crear
+            viewModel.getContactoSeleccionado().observe(this, contactObserver);
+
 
             /*Aqui hay que hacer que al clickar en un contacto cambie el fragment*/
 
 
         }else if(orientacion == Configuration.ORIENTATION_LANDSCAPE){
+            //Si estoy en modo landscape tengo dos huecos, masterFragment y
+            //detailsFragment
+
             fragmentTransaction.replace(R.id.masterFragment, master);
+
             fragmentTransaction.replace(R.id.detailsFragment, details);
 
 
         }
 
+        fragmentTransaction.addToBackStack(null).commit();
 
     }
 }

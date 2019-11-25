@@ -10,7 +10,10 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import java.util.ArrayList;
 
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.R;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.adapter.ContactAdapter;
@@ -23,18 +26,36 @@ implements AdapterView.OnItemClickListener
 
     SharedVM viewModel;
     ListView listView;
+
+
+    public MasterFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.masterlayout, container, false);
-
-        viewModel = ViewModelProviders.of(this).get(SharedVM.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(SharedVM.class);
+        
         //ListView
         listView = view.findViewById(R.id.listViewContactos);
 
         //Adapter
-        ContactAdapter contactAdapter = new ContactAdapter(getContext(), viewModel.getContactList().getValue());
-        listView.setAdapter(contactAdapter);
+        final ContactAdapter contactAdapter = new ContactAdapter(getContext(), viewModel.getContactList().getValue());
+
+
+        //El observer de la lista
+        final Observer<ArrayList<ContactImpl>> listContactObserver = new Observer<ArrayList<ContactImpl>>() {
+            @Override
+            public void onChanged(ArrayList<ContactImpl> listContact) {
+                //Actualizar la UI
+                listView.setAdapter(contactAdapter);
+            }
+        };
+
+        //Observo el LiveData con ese observer que acabo de crear
+        viewModel.getContactList().observe(this, listContactObserver);
+
 
         listView.setOnItemClickListener(this);
 

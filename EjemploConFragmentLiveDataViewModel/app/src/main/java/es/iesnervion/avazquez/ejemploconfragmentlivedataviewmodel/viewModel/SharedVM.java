@@ -46,6 +46,10 @@ public class SharedVM extends ViewModel {
         return listaContactos;
     }
 
+    public void setListaContactos(ArrayList<ContactImpl> listaContactos) {
+        this.listaContactos.setValue(listaContactos);
+    }
+
     private void cargarListaContactos() {
         ArrayList<ContactImpl> contactList = new ArrayList<>();
         contactList.add(new ContactImpl("Angela","Vazquez Dominguez", new GregorianCalendar(1997, 6, 23), "Esta es mi biografia", R.drawable.femaleimg, true));

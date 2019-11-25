@@ -1,5 +1,7 @@
 package es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities;
 
+import androidx.annotation.Nullable;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
@@ -160,5 +162,15 @@ public class ContactImpl implements Contact,
     @Override
     public String toString() {
         return getNombre()+" "+getApellidos();
+    }
+
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        boolean isEqual = false;
+
+
+
+        return isEqual;
     }
 }
