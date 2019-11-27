@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
             //Si estoy en modo portrait solo tengo un hueco pa un fragment
             //y su id es "fragment" en el XML
-            fragmentTransaction.replace(R.id.fragment, master).addToBackStack(null);
+            fragmentTransaction.replace(R.id.fragment, master);
+
+            //Aqui no debo poner .addToBackStack porque si lo pongo en el primer fragment, al darle para atras
+            //como que se queda el layout base de la actividad
 
 
             /*El observer*/
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     * lo malo de esto es que creo que getSupportFragmentManager esta deprecated ??
                     * nose, preguntar a miguelahe
                     * */
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();    //esto esta deprecated ??
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                     ft.replace(R.id.fragment, details).addToBackStack(null).commit();
 
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             viewModel.getContactoSeleccionado().observe(this, contactObserver);
 
 
-            /*Aqui hay que hacer que al clickar en un contacto cambie el fragment*/
+
 
 
         }else if(orientacion == Configuration.ORIENTATION_LANDSCAPE){

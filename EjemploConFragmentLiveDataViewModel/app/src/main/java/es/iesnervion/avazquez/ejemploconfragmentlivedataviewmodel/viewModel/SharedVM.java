@@ -15,6 +15,7 @@ public class SharedVM extends ViewModel {
     private MutableLiveData<ArrayList<ContactImpl>> listaContactos ;
     private MutableLiveData<ContactImpl> contactoSeleccionado;
 
+    //Constructor
     public SharedVM() {
         this.listaContactos = new MutableLiveData<>();
         cargarListaContactos();
@@ -22,6 +23,7 @@ public class SharedVM extends ViewModel {
         this.contactoSeleccionado = new MutableLiveData<>();
     }
 
+    //getters y setters
     public LiveData<ContactImpl>getContactoSeleccionado(){
         if(this.contactoSeleccionado == null){
             this.contactoSeleccionado = new MutableLiveData<>();
@@ -46,6 +48,7 @@ public class SharedVM extends ViewModel {
         this.listaContactos.setValue(listaContactos);
     }
 
+    //Metodo añadido
     private void cargarListaContactos() {
         ArrayList<ContactImpl> contactList = new ArrayList<>();
         contactList.add(new ContactImpl("Angela","Vazquez Dominguez",
