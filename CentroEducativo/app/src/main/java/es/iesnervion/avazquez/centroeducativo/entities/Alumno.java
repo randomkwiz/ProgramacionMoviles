@@ -9,6 +9,10 @@ public class Alumno extends Persona {
         super();
     }
 
+    public Alumno(String nombre) {
+        super(nombre);
+    }
+
     public Alumno(int curso, char grupo, String nivel) {
         this.curso = curso;
         this.grupo = grupo;
