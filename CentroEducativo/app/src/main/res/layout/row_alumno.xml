@@ -6,6 +6,8 @@
 
     <TextView
         android:id="@+id/nombreAlumno"
+        android:textSize="30sp"
+        android:text="Alumno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

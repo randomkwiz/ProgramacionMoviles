@@ -6,19 +6,23 @@
 
     <ImageView
         android:id="@+id/imagenProfesor"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/professor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
         android:id="@+id/nombreProfesor"
-
+        android:text="Profesor"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/imagenProfesor"
         app:layout_constraintTop_toTopOf="@id/imagenProfesor"
         />
     <TextView
+        android:textSize="25sp"
+        android:text="Asignatura"
         android:id="@+id/asignaturaProfesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
