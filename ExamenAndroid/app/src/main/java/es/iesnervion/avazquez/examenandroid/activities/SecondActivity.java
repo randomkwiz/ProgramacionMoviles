@@ -75,7 +75,10 @@ public class SecondActivity extends AppCompatActivity implements
             @Override
             public void onChanged(ArrayList<ProductoInformatico> list) {
                 //Actualizar la UI
-                lista.setAdapter(productosAdapter);
+                lista.invalidate(); //Se tiene que poner esto
+                ProductosAdapter productosAdapter2 = new ProductosAdapter(getApplicationContext(),
+                        listaElementos);
+                lista.setAdapter(productosAdapter2);
 
             }
         };
