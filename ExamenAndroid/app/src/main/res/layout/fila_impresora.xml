@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/impresora_selector_fondo"
+    >
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/imgDisponibilidadImpr"
+        android:src="@color/colorAccent"/>
+
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:id="@+id/imgImpr"
+        android:src="@color/colorAccent"/>
+
+
+    <TextView
+        android:id="@+id/TVnombreImpr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="80"
+        android:textColor="@drawable/impresora_list_item_text_selector"
+/>
+    <TextView
+        android:id="@+id/TVtipoImpr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="20"
+        android:textColor="@drawable/impresora_list_item_text_selector"/>
+
+</LinearLayout>

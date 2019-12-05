@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ordenador_selector_fondo">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/imgDisponibilidadOrd"
+        android:src="@color/colorPrimary"/>
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:id="@+id/imgOrd"
+        android:src="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/TVnombreOrd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="100"
+        android:textColor="@drawable/ordenador_list_item_text_selector"/>
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:id="@+id/imgCPU"
+        android:src="@color/colorPrimary"/>
+
+</LinearLayout>

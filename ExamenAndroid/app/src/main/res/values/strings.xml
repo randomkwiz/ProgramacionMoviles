@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Examen5dic2019</string>
+    <string name="disponibilidad">Disponibilidad</string>
+    <string name="enStock">En stock</string>
+    <string name="agotado">Agotado</string>
+    <string name="guardarNombre">Guardar Cambio de Nombre</string>
+    <string name="btnAnterior">Anterior</string>
+    <string name="btnSiguiente">Siguiente</string>
+    <string name="todasCPU">Todos</string>
+    <string name="intel">Intel</string>
+    <string name="amd">AMD</string>
+    <string name="enviar">Enviar</string>
+</resources>

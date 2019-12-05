@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        //this.lista.add("prueba");
+        this.lista.add("prueba");
         //this.lista.set(0, "CAMBIO WAPO");
         viewModel.setLista(lista);
     }

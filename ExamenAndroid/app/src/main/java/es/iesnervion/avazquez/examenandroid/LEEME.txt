@@ -1,0 +1,16 @@
+No funciona la actualización gráfica de la lista.
+Cuando en el spinner indicas impresoras/portátiles, la lista
+del viewmodel sí cambia pero no se actualiza la vista.
+Pero como la lista del viewModel sí cambia, no puedes seleccionar un elemento
+superior al actual de la lista.
+Ejemplo, si tenemos 4 productos, dos pc y dos impresoras y filtras
+por impresora,
+si intentas seleccionar el elemento 3, saltará nullpointerexception ya que
+la lista lógica tiene solo dos elementos, pero visualmente se ven 4.
+Por eso, los elementos abajo en los detalles sí se ven bien (veras dos portátiles o dos
+impresoras) pero en la lista no habran cambiado.
+
+
+Debido a esto tampoco funciona el cambio de nombre ni de stock.
+
+Cuando le das a anterior/siguiente, el sombreado de la lista no cambia.

@@ -44,17 +44,6 @@ implements AdapterView.OnItemClickListener
         final ContactAdapter contactAdapter = new ContactAdapter(getActivity().getBaseContext(), viewModel.getContactList().getValue());
         listView.setAdapter(contactAdapter);
 
-        //El observer de la lista
-        final Observer<ArrayList<ContactImpl>> listContactObserver = new Observer<ArrayList<ContactImpl>>() {
-            @Override
-            public void onChanged(ArrayList<ContactImpl> listContact) {
-                //Actualizar la UI
-                listView.setAdapter(contactAdapter);
-            }
-        };
-
-        //Observo el LiveData con ese observer que acabo de crear
-        viewModel.getContactList().observe(this, listContactObserver);
 
 
         listView.setOnItemClickListener(this);
