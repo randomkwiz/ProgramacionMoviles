@@ -1,6 +1,9 @@
 package es.iesnervion.avazquez.ejemplokotlinretrofit2.activities
 
 import android.os.Bundle
+import android.widget.AbsListView
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -22,20 +25,25 @@ class MainActivity : AppCompatActivity() {
     lateinit var texto : TextView
     lateinit var mensaje : String
     lateinit var perroCallback : PerroCallback
+
+    lateinit var listView: ListView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        texto = findViewById(R.id.txt)
+        listView = findViewById(R.id.listViewRazas)
+        val listaRazas = arrayListOf<String>("akita","husky","labrador","malamute")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaRazas)
+        listView.adapter = adapter
         retrofit =
         Retrofit.Builder()
-            .baseUrl("https://dog.ceo/api/breeds/")
+            .baseUrl("https://dog.ceo/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         perroInterface = retrofit.create(PerroInterface::class.java)
         perroCallback = PerroCallback()
 
-        perroInterface.getListadoRazasExistentes().enqueue(perroCallback)
+        //perroInterface.getListadoRazasExistentes().enqueue(perroCallback)
 
 
 

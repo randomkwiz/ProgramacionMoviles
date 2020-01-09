@@ -19,7 +19,9 @@ class PerroCallback : Callback<Perrete> {
         var perro : Perrete?
         perro = response?.body()
         val TAG_LOGS = "estoEsElJSON"
+
         if(response.isSuccessful){
+
             if(perro != null){
                 Log.i(TAG_LOGS, Gson().toJson(perro))
             }else{
