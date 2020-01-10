@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SharedPreferencesPiedraPapelTijeras</string>
+    <string name="play">¡A jugar!</string>
+    <string name="btnReset">Reiniciar</string>
+</resources>

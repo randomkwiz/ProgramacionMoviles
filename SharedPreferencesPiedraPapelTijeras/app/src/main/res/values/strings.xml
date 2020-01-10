@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SharedPreferencesPiedraPapelTijeras</string>
-    <string name="play">¡A jugar!</string>
+    <string name="play">Lets play!</string>
+    <string name="btnReset">Reset</string>
 </resources>
