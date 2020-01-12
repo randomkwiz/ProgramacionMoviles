@@ -47,6 +47,9 @@ dependencies {
 
     //Cardview - pa ver bonitas las fotos
     implementation "com.android.support:cardview-v7:$cardView_version"
+
+    //recycler view - pa no tener que usar el card view
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
