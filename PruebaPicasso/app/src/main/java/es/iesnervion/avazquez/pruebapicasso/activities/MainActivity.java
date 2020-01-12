@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         final Observer<String> razaObserver = new Observer<String>() {
             @Override
             public void onChanged(String razaElegida) {
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment, listadoImagenes).addToBackStack(null).commit();
+                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+                ft2.replace(R.id.fragment, listadoImagenes).addToBackStack(null).commit();
 
             }
         };

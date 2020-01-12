@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import es.iesnervion.avazquez.pruebapicasso.R;
 import es.iesnervion.avazquez.pruebapicasso.viewModel.SharedViewModel;
@@ -31,6 +33,18 @@ public class BreedListFragment extends Fragment implements AdapterView.OnItemCli
         razasPerro.add("malamute");
         razasPerro.add("husky");
         razasPerro.add("labrador");
+        razasPerro.add("beagle");
+        razasPerro.add("boxer");
+        razasPerro.add("bulldog");
+        razasPerro.add("chihuahua");
+        razasPerro.add("corgi");
+        razasPerro.add("dalmatian");
+        razasPerro.add("doberman");
+        razasPerro.add("hound");
+        razasPerro.add("kelpie");
+        razasPerro.add("pitbull");
+
+        Collections.sort(razasPerro);
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
         listView = view.findViewById(R.id.listViewRazas);
         ArrayAdapter<String> adapter =

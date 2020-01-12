@@ -23,6 +23,11 @@ public class ImageListFragment extends Fragment {
 
     SharedViewModel viewModel;
     ListView listView;
+
+
+    public ImageListFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,13 +36,13 @@ public class ImageListFragment extends Fragment {
 
         listView = view.findViewById(R.id.listViewImagenes);
 
-        ArrayList<String> listaURLs = new ArrayList<>();
-        listaURLs.add("https://images.dog.ceo/breeds/hound-afghan/n02088094_2822.jpg");
-        listaURLs.add("https://images.dog.ceo/breeds/hound-afghan/n02088094_294.jpg");
+        ArrayList<String> listaURLs = viewModel.getListaURLs().getValue();
+        if(listaURLs == null){
+            listaURLs = new ArrayList<>();
+            listaURLs.add("https://love2dev.com/img/error-message-laptop-1920x1297.jpg");
+        }
 
-        //final ImageAdapter adapter = new ImageAdapter(viewModel.getListaURLs(), getActivity().getBaseContext());
-        final ImageAdapter adapter = new ImageAdapter(listaURLs, getActivity().getBaseContext());
-
+        ImageAdapter adapter = new ImageAdapter(listaURLs, getActivity().getBaseContext());
         listView.setAdapter(adapter);
         return view;
     }
