@@ -44,20 +44,33 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*El observer*/
-        final Observer<String> razaObserver = new Observer<String>() {
+        final Observer<Boolean> isCargadaObserver = new Observer<Boolean>() {
             @Override
-            public void onChanged(String razaElegida) {
+            public void onChanged(Boolean isCargada) {
                 FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-                ft2.replace(R.id.fragment, listadoImagenes).addToBackStack(null).commit();
+                if(viewModel.isCargada().getValue()){
+                    ft2.replace(R.id.fragment, listadoImagenes).addToBackStack(null).commit();
+                    viewModel.setIsCargada(false);
+                }
+
 
             }
         };
-
         //Observo el LiveData con ese observer que acabo de crear
-        viewModel.getRazaElegida().observe(this, razaObserver);
+        viewModel.isCargada().observe(this, isCargadaObserver);
 
 
-
+//        /*El observer*/
+//        final Observer<String> razaObserver = new Observer<String>() {
+//            @Override
+//            public void onChanged(String razaElegida) {
+//                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+//                ft2.replace(R.id.fragment, listadoImagenes).addToBackStack(null).commit();
+//
+//            }
+//        };
+//        //Observo el LiveData con ese observer que acabo de crear
+//        viewModel.getRazaElegida().observe(this, razaObserver);
 
     }
 }

@@ -1,5 +1,6 @@
 package es.iesnervion.avazquez.pruebapicasso.viewModel;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import es.iesnervion.avazquez.pruebapicasso.R;
 import es.iesnervion.avazquez.pruebapicasso.RespuestaAPI;
 import es.iesnervion.avazquez.pruebapicasso.interfaces.APIInterface;
 import retrofit2.Call;
@@ -18,11 +20,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SharedViewModel extends ViewModel {
     private MutableLiveData<ArrayList<String>> listaURLs;
     private MutableLiveData<String> razaElegida;
+    private MutableLiveData<Boolean> isCargada;
 
     //Constructor
     public SharedViewModel() {
         this.listaURLs = new MutableLiveData<>();
         this.razaElegida = new MutableLiveData<>();
+        this.isCargada = new MutableLiveData<>();
     }
 
     //getters y setters
@@ -33,8 +37,21 @@ public class SharedViewModel extends ViewModel {
         return this.razaElegida;
     }
 
+    public LiveData<Boolean> isCargada(){
+        if(this.isCargada == null){
+            this.isCargada = new MutableLiveData<>();
+        }
+        return this.isCargada;
+    }
+
+    public void setIsCargada(boolean isCargada){
+        //this.isCargada.setValue(isCargada);
+        this.isCargada.postValue(isCargada);
+    }
+
     public void setRazaElegida(String razaElegida){
         this.razaElegida.setValue(razaElegida);
+        cargarListaURLs();
 
     }
 
@@ -44,7 +61,7 @@ public class SharedViewModel extends ViewModel {
         //no puedes poner el cargarListaURLs aqui porque listaURLs no sera null. Si acaso
             //tendrias que poner si listaURLs.value es null
         }
-        cargarListaURLs();
+//        cargarListaURLs();
         return this.listaURLs;
     }
 
@@ -77,6 +94,9 @@ public class SharedViewModel extends ViewModel {
 
                     if(response.isSuccessful()){
                         setListaURLs((ArrayList<String>) response.body().getLista());
+                        //TODO haz aqui el cambio de fragment
+                        setIsCargada(true);
+
                     }else{
                         ArrayList img = new ArrayList();
                         img.add("https://love2dev.com/img/error-message-laptop-1920x1297.jpg");
