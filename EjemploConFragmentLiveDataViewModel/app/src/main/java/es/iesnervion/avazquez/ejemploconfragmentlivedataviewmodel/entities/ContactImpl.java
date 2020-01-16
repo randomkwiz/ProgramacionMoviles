@@ -1,35 +1,37 @@
 package es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities;
 
 import androidx.annotation.Nullable;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
+import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.Converters;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.R;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.interfaces.Contact;
 
-
+@Entity(tableName = "Contactos")
 public class ContactImpl implements Contact,
-        Comparable,
-        Serializable    //esto es pa pasar un obj a otra actividad, para hacer el MasterFragment/Details
+        Comparable
+
 
 {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+
     private String nombre;
     private String apellidos ;
+
+    @TypeConverters({Converters.class})
     private GregorianCalendar fechaNacimiento ;
     private String biografia ;
     private int imgResource ;
     private boolean isFavorito ;
-
-    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.biografia = biografia;
-        this.imgResource = imgResource;
-        this.isFavorito = false;
-    }
 
     public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource, boolean isFavorito) {
         this.nombre = nombre;
@@ -40,15 +42,35 @@ public class ContactImpl implements Contact,
         this.isFavorito = isFavorito;
     }
 
-    public ContactImpl(String nombre, String apellidos, boolean isFavorito) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = new GregorianCalendar(1900,0,1);
-        this.biografia = "";
-        this.imgResource = R.drawable.imgdefault;
-        this.isFavorito = isFavorito;
-    }
 
+    //    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.biografia = biografia;
+//        this.imgResource = imgResource;
+//        this.isFavorito = false;
+//    }
+//
+//    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, String biografia, int imgResource, boolean isFavorito) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.biografia = biografia;
+//        this.imgResource = imgResource;
+//        this.isFavorito = isFavorito;
+//    }
+//
+//    public ContactImpl(String nombre, String apellidos, boolean isFavorito) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = new GregorianCalendar(1900,0,1);
+//        this.biografia = "";
+//        this.imgResource = R.drawable.imgdefault;
+//        this.isFavorito = isFavorito;
+//    }
+//
+    @Ignore
     public ContactImpl() {
         this.nombre = "";
         this.apellidos = "";
@@ -57,32 +79,41 @@ public class ContactImpl implements Contact,
         this.imgResource = R.drawable.imgdefault;
         this.isFavorito = false;
     }
+//
+//    public ContactImpl(String nombre, String apellidos) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = new GregorianCalendar(1900,0,1);
+//        this.biografia = "";
+//        this.imgResource = R.drawable.imgdefault;
+//        this.isFavorito = false;
+//    }
+//
+//    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.biografia = "";
+//        this.imgResource = R.drawable.imgdefault;
+//        this.isFavorito = false;
+//    }
 
-    public ContactImpl(String nombre, String apellidos) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = new GregorianCalendar(1900,0,1);
-        this.biografia = "";
-        this.imgResource = R.drawable.imgdefault;
-        this.isFavorito = false;
+//    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, int imgResource) {
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.biografia = "";
+//        this.imgResource = imgResource;
+//        this.isFavorito = false;
+//    }
+
+
+    public int getId() {
+        return id;
     }
 
-    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.biografia = "";
-        this.imgResource = R.drawable.imgdefault;
-        this.isFavorito = false;
-    }
-
-    public ContactImpl(String nombre, String apellidos, GregorianCalendar fechaNacimiento, int imgResource) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.biografia = "";
-        this.imgResource = imgResource;
-        this.isFavorito = false;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

@@ -12,6 +12,8 @@ import android.os.Bundle;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.AddContactFragment;

@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -16,6 +18,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.AppDatabase;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.R;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.adapter.ContactAdapter;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
@@ -29,7 +33,8 @@ implements AdapterView.OnItemClickListener,
     SharedVM viewModel;
     ListView listView;
     ImageButton btnAddContact;
-
+    ImageButton searchButton ;
+    AutoCompleteTextView autoCompleteTextView;
     public MasterFragment() {
     }
 
@@ -42,16 +47,43 @@ implements AdapterView.OnItemClickListener,
         //ListView
         listView = view.findViewById(R.id.listViewContactos);
 
-        //btn
+        searchButton = view.findViewById(R.id.searchButton);
+        autoCompleteTextView = view.findViewById(R.id.autoCompleteMainActivity);
+
         btnAddContact = view.findViewById(R.id.addBtn);
         //Adapter
         final ContactAdapter contactAdapter = new ContactAdapter(getActivity().getBaseContext(), viewModel.getContactList().getValue());
         listView.setAdapter(contactAdapter);
-
-
-
         listView.setOnItemClickListener(this);
         btnAddContact.setOnClickListener(this);
+        searchButton.setOnClickListener(this);
+
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getBaseContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                viewModel.getContactList().getValue());
+
+        autoCompleteTextView.setAdapter(arrayAdapter);
+
+
+        /*El observer*/
+        final Observer<ArrayList<ContactImpl>> listObserver = new Observer<ArrayList<ContactImpl>>() {
+            @Override
+            public void onChanged(ArrayList<ContactImpl> contacts) {
+                listView.invalidate();
+                ContactAdapter contactAdapter1 = new ContactAdapter(getActivity().getBaseContext(), viewModel.getContactList().getValue());
+                listView.setAdapter(contactAdapter1);
+
+                   // contactAdapter.notifyDataSetChanged(); //-> con esto se actualiza al cambiar de fragment
+
+
+            }
+        };
+
+        //Observo el LiveData con ese observer que acabo de crear
+        viewModel.getContactList().observe(this, listObserver);
+
+
 
         return view;
     }
@@ -74,8 +106,37 @@ implements AdapterView.OnItemClickListener,
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.addBtn){
-            viewModel.setIsAddBtnPressed(true);
+
+        switch (v.getId()){
+            case R.id.addBtn:
+                viewModel.setIsAddBtnPressed(true);
+                break;
+            case R.id.searchButton:
+
+                ContactImpl contactoSeleccionado = AppDatabase.getDatabase(getActivity().getBaseContext()).contactDAO()
+                        .obtenerContactoPorNombre(autoCompleteTextView.getText().toString());
+
+//                if(viewModel.getContactList().getValue().contains(contactoSeleccionado)){
+//                    viewModel.setContactoSeleccionado(contactoSeleccionado);
+//                }
+                //Eso no funciona porque no es la misma referencia
+
+                boolean encontrado = false;
+                int index = 0;
+                if(contactoSeleccionado != null){
+                    for(int i = 0; i < viewModel.getContactList().getValue().size() && !encontrado; i ++){
+
+                        if(viewModel.getContactList().getValue().get(i).getId() == contactoSeleccionado.getId()){
+                            encontrado = true;
+                            index = i;
+                        }
+                    }
+
+                    viewModel.setContactoSeleccionado(viewModel.getContactList().getValue().get(index));
+                }
+
+
+                break;
 
         }
     }
