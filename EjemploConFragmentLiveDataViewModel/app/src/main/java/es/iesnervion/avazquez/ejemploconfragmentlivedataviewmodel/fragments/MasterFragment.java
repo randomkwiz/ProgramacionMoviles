@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -21,12 +22,13 @@ import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.Conta
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.viewModel.SharedVM;
 
 public class MasterFragment extends Fragment
-implements AdapterView.OnItemClickListener
+implements AdapterView.OnItemClickListener,
+        View.OnClickListener
 {
 
     SharedVM viewModel;
     ListView listView;
-
+    ImageButton btnAddContact;
 
     public MasterFragment() {
     }
@@ -40,6 +42,8 @@ implements AdapterView.OnItemClickListener
         //ListView
         listView = view.findViewById(R.id.listViewContactos);
 
+        //btn
+        btnAddContact = view.findViewById(R.id.addBtn);
         //Adapter
         final ContactAdapter contactAdapter = new ContactAdapter(getActivity().getBaseContext(), viewModel.getContactList().getValue());
         listView.setAdapter(contactAdapter);
@@ -47,6 +51,7 @@ implements AdapterView.OnItemClickListener
 
 
         listView.setOnItemClickListener(this);
+        btnAddContact.setOnClickListener(this);
 
         return view;
     }
@@ -65,5 +70,13 @@ implements AdapterView.OnItemClickListener
         //Le digo al view model que este es el contacto seleccionado
         viewModel.setContactoSeleccionado(contactoSeleccionado);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.addBtn){
+            viewModel.setIsAddBtnPressed(true);
+
+        }
     }
 }

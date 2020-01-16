@@ -14,6 +14,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
+import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.AddContactFragment;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.DetailFragment;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.fragments.MasterFragment;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.interfaces.Contact;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment master;
     Fragment details;
+    Fragment add;
     SharedVM viewModel;
     int orientacion;
     @Override
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         master = new MasterFragment();
         details = new DetailFragment();
+        add = new AddContactFragment();
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
@@ -76,13 +79,47 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        }else if(orientacion == Configuration.ORIENTATION_LANDSCAPE){
+            /*El observer para el fragment de añadir*/
+            final Observer<Boolean> isBtnAddPressedObserver = new Observer<Boolean>() {
+                @Override
+                public void onChanged(Boolean isPressed) {
+                    if(viewModel.isAddBtnPressed().getValue()) {
+                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.fragment, add).addToBackStack(null).commit();
+                        viewModel.setIsAddBtnPressed(false);
+                    }
+                }
+            };
+
+            //Observo el LiveData con ese observer que acabo de crear
+            viewModel.isAddBtnPressed().observe(this, isBtnAddPressedObserver);
+
+
+
+        }else if(orientacion == Configuration.ORIENTATION_LANDSCAPE){   //MODO GIRAO
             //Si estoy en modo landscape tengo dos huecos, masterFragment y
             //detailsFragment
 
             fragmentTransaction.replace(R.id.masterFragment, master);
 
             fragmentTransaction.replace(R.id.detailsFragment, details);
+
+
+
+            /*El observer para el fragment de añadir*/
+            final Observer<Boolean> isBtnAddPressedObserver = new Observer<Boolean>() {
+                @Override
+                public void onChanged(Boolean isPressed) {
+                    if(viewModel.isAddBtnPressed().getValue()) {
+                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.detailsFragment, add).addToBackStack(null).commit();
+                        viewModel.setIsAddBtnPressed(false);
+                    }
+                }
+            };
+
+            //Observo el LiveData con ese observer que acabo de crear
+            viewModel.isAddBtnPressed().observe(this, isBtnAddPressedObserver);
 
 
         }

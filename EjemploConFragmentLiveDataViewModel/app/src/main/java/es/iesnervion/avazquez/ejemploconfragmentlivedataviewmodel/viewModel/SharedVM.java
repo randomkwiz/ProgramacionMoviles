@@ -16,6 +16,7 @@ public class SharedVM extends ViewModel {
     private MutableLiveData<ContactImpl> contactoSeleccionado;
     private MutableLiveData<ContactImpl> contactoCreado;
     private GregorianCalendar fechaActual;
+    private MutableLiveData<Boolean> isAddBtnPressed;
 
     //Constructor
     public SharedVM() {
@@ -25,10 +26,23 @@ public class SharedVM extends ViewModel {
         this.contactoSeleccionado = new MutableLiveData<>();
         this.contactoCreado = new MutableLiveData<>();
         this.fechaActual = new GregorianCalendar();
+        this.isAddBtnPressed = new MutableLiveData<>();
+        this.isAddBtnPressed.setValue(false);
 
     }
 
     //getters y setters
+
+    public LiveData<Boolean> isAddBtnPressed(){
+        if(this.isAddBtnPressed == null){
+            this.isAddBtnPressed = new MutableLiveData<>();
+        }
+        return this.isAddBtnPressed;
+    }
+    public void setIsAddBtnPressed(Boolean isAddBtnPressed){
+        this.isAddBtnPressed.setValue(isAddBtnPressed);
+    }
+
 
     public LiveData<ContactImpl>getContactoCreado(){
         if(this.contactoCreado == null){
@@ -38,6 +52,11 @@ public class SharedVM extends ViewModel {
     }
     public void setContactoCreado(ContactImpl contactoCreado){
         this.contactoCreado.setValue(contactoCreado);
+    }
+
+
+    public GregorianCalendar getFechaActual(){
+        return this.fechaActual;
     }
 
 

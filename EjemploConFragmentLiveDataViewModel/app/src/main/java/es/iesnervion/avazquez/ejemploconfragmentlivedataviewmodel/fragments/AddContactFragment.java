@@ -14,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.GregorianCalendar;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.R;
 import es.iesnervion.avazquez.ejemploconfragmentlivedataviewmodel.entities.ContactImpl;
@@ -29,6 +31,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
     EditText bio;
     CircleImageView foto;
     DatePicker fechaNacimiento;
+    GregorianCalendar fechaNacimientoEnGC;
     ContactImpl contactoCreado = new ContactImpl();
     Button addButton;
     Spinner spinnerContactoEmergencia;
@@ -47,30 +50,31 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
         apellidos = view.findViewById(R.id.editSurname);
         bio = view.findViewById(R.id.editBio);
         fechaNacimiento = view.findViewById(R.id.calendario);    //link con su xml
-        fechaNacimiento.setMaxDate(viewModel.getDateNow().getTimeInMillis());  //set max date tiene que estar DESPUES de hacer el link con su XML obviamente
+        fechaNacimiento.setMaxDate(viewModel.getFechaActual().getTimeInMillis());  //set max date tiene que estar DESPUES de hacer el link con su XML obviamente
+
+
         foto = view.findViewById(R.id.imgContacto);
         addButton = view.findViewById(R.id.btnAdd);
         spinnerContactoEmergencia = view.findViewById(R.id.spinner_contactos);
         addButton.setOnClickListener(this);
 
 
-
-
-        // Inflate the layout for this fragment
         return view;
     }
 
     @Override
     public void onClick(View view) {
 
+        fechaNacimientoEnGC = new GregorianCalendar(fechaNacimiento.getYear(), fechaNacimiento.getMonth(), fechaNacimiento.getDayOfMonth());
+
         contactoCreado.setNombre(nombre.getText().toString());
         contactoCreado.setApellidos(apellidos.getText().toString());
         contactoCreado.setBiografia(bio.getText().toString());
         contactoCreado.setImgResource(R.drawable.imgdefault);
-        /*Haz la parte del calendario*/
-        //contacto.setFechaNacimiento(fechaNacimiento.);
+        contactoCreado.setFechaNacimiento(fechaNacimientoEnGC);
 
-        //listaDeContactos.add(contactoCreado);
+        //Insertar en la BBDD
+
 
     }
 }
