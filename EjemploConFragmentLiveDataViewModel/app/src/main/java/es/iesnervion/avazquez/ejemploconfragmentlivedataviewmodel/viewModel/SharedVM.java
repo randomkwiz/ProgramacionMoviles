@@ -14,6 +14,8 @@ public class SharedVM extends ViewModel {
 
     private MutableLiveData<ArrayList<ContactImpl>> listaContactos ;
     private MutableLiveData<ContactImpl> contactoSeleccionado;
+    private MutableLiveData<ContactImpl> contactoCreado;
+    private GregorianCalendar fechaActual;
 
     //Constructor
     public SharedVM() {
@@ -21,9 +23,24 @@ public class SharedVM extends ViewModel {
         cargarListaContactos();
 
         this.contactoSeleccionado = new MutableLiveData<>();
+        this.contactoCreado = new MutableLiveData<>();
+        this.fechaActual = new GregorianCalendar();
+
     }
 
     //getters y setters
+
+    public LiveData<ContactImpl>getContactoCreado(){
+        if(this.contactoCreado == null){
+            this.contactoCreado = new MutableLiveData<>();
+        }
+        return this.contactoCreado;
+    }
+    public void setContactoCreado(ContactImpl contactoCreado){
+        this.contactoCreado.setValue(contactoCreado);
+    }
+
+
     public LiveData<ContactImpl>getContactoSeleccionado(){
         if(this.contactoSeleccionado == null){
             this.contactoSeleccionado = new MutableLiveData<>();

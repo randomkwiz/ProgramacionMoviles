@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#2196F3"
+    tools:context=".fragments.AddContactFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/roundedrectangleshape"
+        android:layout_margin="20dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/lblName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_marginBottom="25dp"
+                android:textSize="15dp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/lblFechaNacimiento"
+                ></TextView>
+
+
+
+            <TextView
+                android:id="@+id/lblSurname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/surname"
+                android:textSize="15dp"
+                android:gravity="end"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintTop_toBottomOf="@id/lblName"
+                app:layout_constraintStart_toStartOf="parent"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/lblFechaNacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/birthdate"
+                android:textSize="15dp"
+                android:gravity="end"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtViewIsFavorito"
+                app:layout_constraintEnd_toEndOf="@id/lblName"
+                ></TextView>
+
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="150dp"
+                android:text=""
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/lblName"
+                app:layout_constraintBottom_toBottomOf="@id/lblName"
+                app:layout_constraintTop_toTopOf="@id/lblName"
+                ></EditText>
+
+            <EditText
+                android:id="@+id/editSurname"
+                android:layout_width="150dp"
+                android:text=""
+                app:layout_constraintTop_toTopOf="@id/lblSurname"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/lblSurname"
+                app:layout_constraintBottom_toBottomOf="@id/lblSurname"
+                ></EditText>
+
+            <TextView
+                android:id="@+id/txtViewIsFavorito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/isFav"
+                android:textSize="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintEnd_toEndOf="@id/lblFechaNacimiento"
+                app:layout_constraintTop_toBottomOf="@id/lblSurname"
+                ></TextView>
+            <CheckBox
+
+                android:id="@+id/checkboxIsFavorito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/txtViewIsFavorito"
+                app:layout_constraintStart_toStartOf = "@id/editName"
+                app:layout_constraintBottom_toBottomOf="@id/txtViewIsFavorito"
+
+
+                ></CheckBox>
+
+            <DatePicker
+                android:id="@+id/calendario"
+                android:layout_width="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/lblBio"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:minDate="@string/minDate"
+                android:maxDate=""
+                app:layout_constraintTop_toBottomOf="@id/lblFechaNacimiento"
+                app:layout_constraintStart_toStartOf="@id/lblFechaNacimiento"
+                ></DatePicker>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@id/editSurname"
+                app:layout_constraintStart_toStartOf="@id/editSurname"
+                ></TextView>
+
+
+
+
+
+            <TextView
+                android:id="@+id/lblBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bio"
+                android:textSize="15dp"
+                android:gravity="end"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calendario"
+                app:layout_constraintEnd_toEndOf="@id/lblFechaNacimiento"
+                ></TextView>
+
+
+            <EditText
+                android:id="@+id/editBio"
+                android:text=""
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_constraintStart_toStartOf="@id/lblBio"
+                app:layout_constraintTop_toBottomOf="@id/lblBio"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:background="@drawable/roundedrectangleshape"
+                ></EditText>
+
+
+            <TextView
+                android:id="@+id/txtViewContactoEmergencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/txtContactoEmergencia"
+                app:layout_constraintStart_toStartOf="@id/lblFechaNacimiento"
+                app:layout_constraintTop_toBottomOf="@id/editBio"
+                ></TextView>
+            <Spinner
+                android:id="@+id/spinner_contactos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+
+                app:layout_constraintStart_toStartOf="@id/txtViewContactoEmergencia"
+                app:layout_constraintTop_toBottomOf="@id/txtViewContactoEmergencia"
+                ></Spinner>
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:background="@drawable/roundedrectangleshape"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_contactos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_margin="15dp"
+
+                ></Button>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
