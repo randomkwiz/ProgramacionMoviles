@@ -33,7 +33,7 @@ public interface ContactDAO {
 
     //TODO arreglar esta mierda
     //con nombre || ' ' || apellidos no funciona
-    
+
     @Query("SELECT * FROM CONTACTOS " +
             " WHERE nombre = :texto " +
             " LIMIT 1 "

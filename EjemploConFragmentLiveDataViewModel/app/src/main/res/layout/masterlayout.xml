@@ -11,7 +11,7 @@
         android:id="@+id/searchButton"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:src="@drawable/search"
+        android:background="@drawable/search"
         app:layout_constraintTop_toTopOf="@id/autoCompleteMainActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/autoCompleteMainActivity"
