@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.GregorianCalendar;
 
@@ -94,6 +95,10 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
 
         //actualizar view model
         viewModel.cargarListaContactos();
+
+        Toast toast = Toast.makeText(getContext(), "Contacto añadido", Toast.LENGTH_SHORT);
+        toast.show();
+
 
     }
 }
