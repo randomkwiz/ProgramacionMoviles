@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Amorometro</string>
+    <string name="lovemeterthis">Amorometreame esta</string>
+    <string name="fName">Primer nombre</string>
+    <string name="sName">Segundo nombre</string>
+    <string name="error">Rellena los campos</string>
+</resources>

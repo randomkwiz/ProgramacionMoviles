@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LoveMeter</string>
+    <string name="lovemeterthis">Lovemeter this!</string>
+    <string name="fName">First Name</string>
+    <string name="sName">Second Name</string>
+    <string name="error">Don\'t let empty fields</string>
+</resources>
