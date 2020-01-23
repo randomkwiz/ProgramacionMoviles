@@ -15,4 +15,12 @@ public interface APILoveMeter {
     @GET("/getPercentage")
     Call<JSONObjectLoveM> getResultadoLoveMeter(@Query("fname") String fname,
                                                 @Query("sname") String sname);
+
+
+    @GET("/getPercentage")
+    Call<String> getResultado(@Query("fname") String fname,
+                                                @Query("sname") String sname);
+
+
+
 }

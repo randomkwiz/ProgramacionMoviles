@@ -13,7 +13,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainViewModel extends ViewModel {
     MutableLiveData<Boolean> isReqReady;
@@ -90,39 +92,46 @@ public class MainViewModel extends ViewModel {
                     .create();
             retrofit = new Retrofit.Builder()
                     .baseUrl("https://love-calculator.p.rapidapi.com/")
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
 
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
 
             APILoveMeter apiInterface = retrofit.create(APILoveMeter.class);
 
-            Call<JSONObjectLoveM> call = apiInterface
-                    .getResultadoLoveMeter(this.fName.getValue(), this.sName.getValue());
 
-            call.enqueue(new Callback<JSONObjectLoveM>() {
-                @Override
-                public void onResponse(Call<JSONObjectLoveM> call, Response<JSONObjectLoveM> response) {
 
-                    if(response.isSuccessful()){
 
-                        setResult(response.body().getResult());
 
-                        setIsReqReady(true);
 
-                    }else{
-                        response.code();
-                        response.body();
-                        response.errorBody();
-                        response.headers();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<JSONObjectLoveM> call, Throwable t) {
-                    t.getStackTrace();
-
-                }
-            });
+//            Call<JSONObjectLoveM> call = apiInterface
+//                    .getResultadoLoveMeter(this.fName.getValue(), this.sName.getValue());
+//
+//            call.enqueue(new Callback<JSONObjectLoveM>() {
+//                @Override
+//                public void onResponse(Call<JSONObjectLoveM> call, Response<JSONObjectLoveM> response) {
+//
+//                    if(response.isSuccessful()){
+//
+//                        setResult(response.body().getResult());
+//
+//                        setIsReqReady(true);
+//
+//                    }else{
+//                        response.code();
+//                        response.body();
+//                        response.errorBody();
+//                        response.headers();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<JSONObjectLoveM> call, Throwable t) {
+//                    t.getStackTrace();
+//
+//                }
+//            });
         }
     }
 }
