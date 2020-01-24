@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "490546603270-gonqpe4dkka3ivkp77gidnflvga9k5td.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.iesnervion.avazquez.puntokus",
+            "certificate_hash": "b72201a2a10d1e4976f263a1490774c1413b6f93"
+          }
+        },
+        {
           "client_id": "490546603270-p1969ee2h2d2rhm8c0mpo5brerkbslf6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
