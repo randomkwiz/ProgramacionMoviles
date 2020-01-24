@@ -2,6 +2,7 @@ package es.iesnervion.avazquez.puntokus.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import es.iesnervion.avazquez.puntokus.R;
 import es.iesnervion.avazquez.puntokus.activities.MainActivity;
+import es.iesnervion.avazquez.puntokus.activities.SecondMainActivity;
 import es.iesnervion.avazquez.puntokus.viewModels.ViewModelRegistro;
 
 /**
@@ -39,6 +41,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public LoginFragment() {
         // Required empty public constructor
     }
+
+
+
 
     //Hago los binding con butter knife
     @BindView(R.id.input_email)
@@ -52,6 +57,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     ViewModelRegistro viewModel;
     ProgressDialog progressDialog;
+
+
+    @Override
+    public void onPause() { //para que se borren las credenciales
+        super.onPause();
+        email.setText("");
+        password.setText("");
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,23 +92,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         viewModel.setEmail(email.getText().toString().trim());
         viewModel.setPassword(password.getText().toString().trim());
-        if(!viewModel.getEmail().equals("") && !viewModel.getPassword().equals("") ){
-
-            switch (v.getId()){
-                case R.id.btn_login:
+        switch (v.getId()){
+            case R.id.btn_login:
+                if(!viewModel.getEmail().equals("") && !viewModel.getPassword().equals("") ){
                     iniciarSesion(email.getText().toString().trim(), password.getText().toString().trim());
-
-                    break;
-                case R.id.link_signup:
-                    registrarse(email.getText().toString().trim(), password.getText().toString().trim());
-
-                    break;
-            }
-
-
-        }else{
-            Toast.makeText(getContext(), R.string.fillFields, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(), R.string.fillFields, Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.link_signup:
+                registrarse();
+                break;
         }
+
+
 
 
 
@@ -103,33 +114,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     /*
     * Registra un usuario
     * */
-    private void registrarse(String email, String password) {
+    private void registrarse() {
 
-        progressDialog.setMessage("Registrando usuario");
-        progressDialog.show();
-
-        //creating a new user
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {    //pa saber cuando acaba la tarea e informar al usuario
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
-                        if(task.isSuccessful()){
-
-                            Toast.makeText(getContext(),"Se ha registrado el usuario con el email: "+ viewModel.getEmail(),Toast.LENGTH_LONG).show();
-                        }else{
-
-                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {//si ya existe
-                                Toast.makeText(getContext(), "Ese usuario ya existe ", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getContext(), "No se pudo registrar el usuario ", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        progressDialog.dismiss();
-                    }
-                });
-
-
+        viewModel.setGoToSignUp(true);
     }
 
     /*
@@ -147,6 +134,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         //checking if success
                         if (task.isSuccessful()) {
                             Toast.makeText(getContext(), "Bienvenido", Toast.LENGTH_LONG).show();
+                            //TODO aquí haces que se vaya a la siguiente pantalla.
+                            //TODO por aquí y sólo por aquí puede avanzar a la siguiente pantalla!!
+
+                            viewModel.setIsCorrectLogin(true);
                         } else {
                             Toast.makeText(getContext(), "Esa combinación no existe", Toast.LENGTH_LONG).show();
 

@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel;
 public class ViewModelRegistro extends ViewModel {
 
     private MutableLiveData<Boolean> goToSignUp;
+    private MutableLiveData<Boolean> goToLogIn;
+    private MutableLiveData<Boolean> isCorrectLogin;
     private String email;
     private String password;
 
@@ -14,8 +16,23 @@ public class ViewModelRegistro extends ViewModel {
     public ViewModelRegistro() {
 
         this.goToSignUp = new MutableLiveData<>();
+        this.goToLogIn = new MutableLiveData<>();
+        this.isCorrectLogin = new MutableLiveData<>();
         this.email = "";
         this.password = "";
+    }
+
+
+    public LiveData<Boolean> getIsCorrectLogin() {
+        return isCorrectLogin;
+    }
+
+    public void setIsCorrectLogin(boolean isCorrectLogin) {
+        if(isCorrectLogin){
+            this.isCorrectLogin.setValue(isCorrectLogin);
+            this.isCorrectLogin.setValue(false);
+        }
+
     }
 
     public String getEmail() {
@@ -34,7 +51,16 @@ public class ViewModelRegistro extends ViewModel {
         this.password = password;
     }
 
+    public LiveData<Boolean> getGoToLogIn() {
+        return goToLogIn;
+    }
 
+    public void setGoToLogIn(boolean goToLogIn) {
+        if(goToLogIn){
+            this.goToLogIn.setValue(goToLogIn);
+            this.goToLogIn.setValue(false);
+        }
+    }
 
     public LiveData<Boolean> getGoToSignUp() {
         return goToSignUp;

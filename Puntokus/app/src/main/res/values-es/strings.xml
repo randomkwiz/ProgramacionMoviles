@@ -5,4 +5,8 @@
     <string name="linkSignUp">¿No tienes una cuenta? Créate una</string>
     <string name="login">Iniciar sesión</string>
     <string name="signup">Registrarme</string>
+    <string name="linkLogin">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string name="menu_account">Cuenta</string>
+    <string name="menu_play">Jugar</string>
+    <string name="menu_ranking">Clasificación</string>
 </resources>
