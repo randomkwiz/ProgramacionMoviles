@@ -11,10 +11,11 @@ public class ViewModelRegistro extends ViewModel {
     private MutableLiveData<Boolean> isCorrectLogin;
     private String email;
     private String password;
+    private String nickname;
 
 
     public ViewModelRegistro() {
-
+        this.nickname = "";
         this.goToSignUp = new MutableLiveData<>();
         this.goToLogIn = new MutableLiveData<>();
         this.isCorrectLogin = new MutableLiveData<>();
@@ -22,6 +23,13 @@ public class ViewModelRegistro extends ViewModel {
         this.password = "";
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public LiveData<Boolean> getIsCorrectLogin() {
         return isCorrectLogin;

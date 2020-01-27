@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Puntokus</string>
+    <string name="app_name">Puntokus</string>
     <string name="title_activity_main2" translatable="false">Main2Activity</string>
     <string name="linkSignUp">No account yet? Create one</string>
     <string name="linkLogin">Already have an account? Log in</string>
@@ -9,5 +9,6 @@
     <string name="menu_account">Account</string>
     <string name="menu_play">Play</string>
     <string name="menu_ranking">Ranking</string>
+    <string name="invalidPassword">Password must have  more than six characters at</string>
 
 </resources>
