@@ -4,32 +4,26 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import es.iesnervion.avazquez.puntokus.entities.User;
+
 public class ViewModelRegistro extends ViewModel {
 
     private MutableLiveData<Boolean> goToSignUp;
     private MutableLiveData<Boolean> goToLogIn;
     private MutableLiveData<Boolean> isCorrectLogin;
-    private String email;
-    private String password;
-    private String nickname;
+    private MutableLiveData<User> user;
 
 
     public ViewModelRegistro() {
-        this.nickname = "";
+
         this.goToSignUp = new MutableLiveData<>();
         this.goToLogIn = new MutableLiveData<>();
         this.isCorrectLogin = new MutableLiveData<>();
-        this.email = "";
-        this.password = "";
+        this.user = new MutableLiveData<>();
+        this.user.setValue(new User());
     }
 
-    public String getNickname() {
-        return nickname;
-    }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 
     public LiveData<Boolean> getIsCorrectLogin() {
         return isCorrectLogin;
@@ -43,20 +37,12 @@ public class ViewModelRegistro extends ViewModel {
 
     }
 
-    public String getEmail() {
-        return email;
+    public LiveData<User> getUser() {
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser(User user) {
+        this.user.setValue(user);
     }
 
     public LiveData<Boolean> getGoToLogIn() {

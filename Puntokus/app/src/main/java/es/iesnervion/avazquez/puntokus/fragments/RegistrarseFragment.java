@@ -24,9 +24,13 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import es.iesnervion.avazquez.puntokus.R;
+import es.iesnervion.avazquez.puntokus.entities.User;
 import es.iesnervion.avazquez.puntokus.viewModels.ViewModelRegistro;
 
 /**
@@ -59,6 +63,9 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
         email.setText("");
         password.setText("");
         email.setText("");
+        viewModel.getUser().getValue().setEmail("");
+        viewModel.getUser().getValue().setPassword("");
+        viewModel.getUser().getValue().setNickname("");
     }
 
     @Override
@@ -89,23 +96,24 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        viewModel.setEmail(email.getText().toString().trim());
-        viewModel.setPassword(password.getText().toString().trim());
-        viewModel.setEmail(nickname.getText().toString().trim());
+        viewModel.getUser().getValue().setEmail(email.getText().toString().trim());
+        viewModel.getUser().getValue().setPassword(password.getText().toString().trim());
+        viewModel.getUser().getValue().setNickname(nickname.getText().toString().trim());
 
         switch (v.getId()){
             case R.id.btn_signup:
-                if(!viewModel.getEmail().isEmpty() && !viewModel.getPassword().isEmpty()
-                && !viewModel.getNickname().isEmpty()
+                if(!viewModel.getUser().getValue().getEmail().isEmpty() || !viewModel.getUser().getValue().getPassword().isEmpty()
+                || !viewModel.getUser().getValue().getNickname().isEmpty()
                 ){
-                    if(viewModel.getPassword().length() < 6){   //lo pide firebase
+                    if(viewModel.getUser().getValue().getPassword().length() < 6){   //lo pide firebase
                         Toast.makeText(getContext(), R.string.invalidPassword, Toast.LENGTH_SHORT).show();
 
                     }else{
                         //TODO por aqué aquí envío los datos tal cual si los tengo en el view model!!
-                        registrarse(email.getText().toString().trim(), password.getText().toString().trim());
+                        registrarse(viewModel.getUser().getValue().getEmail(), viewModel.getUser().getValue().getPassword());
                     }
-                       }else{
+
+                }else{
                     Toast.makeText(getContext(), R.string.fillFields, Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -121,6 +129,9 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
 
     }
 
+    /*
+     * Metodo que pone el atributo de go to login a true
+     *  */
     private void iniciarSesion() {
         viewModel.setGoToLogIn(true);
     }
@@ -140,17 +151,43 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
                         if(task.isSuccessful()){
 
                             Toast.makeText(getContext(),
-                                    "Se ha registrado el usuario con el email: "+ viewModel.getEmail(),Toast.LENGTH_LONG).show();
+                                    "Se ha registrado el usuario con el email: "
+                                            + viewModel.getUser().getValue().getEmail(),
+                                    Toast.LENGTH_LONG).show();
 
                             //Aqui vamos a guardar los datos del usuario en la BBDD Realtime DB
                             //TODO esto
 
                             //Debemos obtener el ID que nos proporciona Firebase
-                            String id = firebaseAuth.getCurrentUser().getUid();
+                            User usuarioActual = new User(firebaseAuth.getCurrentUser().getUid(),
+                                    viewModel.getUser().getValue().getNickname(),
+                                    viewModel.getUser().getValue().getEmail(),
+                                    viewModel.getUser().getValue().getPassword());
 
-                            databaseReference.child("Users").child(id).setValue();
+                            viewModel.setUser(usuarioActual);
 
-                            //TODO continua 14:02
+//                            Map<String, Object> map = new HashMap<>();
+//                            map.put("nickname", viewModel.getUser().getValue().getNickname());
+//                            map.put("email", viewModel.getUser().getValue().getEmail());
+//                            map.put("password", viewModel.getUser().getValue().getPassword());
+
+
+                            databaseReference.child("Users").
+                                    child(usuarioActual.getId()).
+                                    setValue(viewModel.getUser()).
+                                    addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task2) {
+                                    if(task2.isSuccessful()){
+                                        Toast.makeText(getContext(),
+                                                "Se han guardado los datos en la BBDD",
+                                                Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+                            });
+
+
                             //https://www.youtube.com/watch?v=xwhEHb_AZ6k&t=171s
                             //mas info aqui: https://firebase.google.com/docs/database/admin/save-data
 
