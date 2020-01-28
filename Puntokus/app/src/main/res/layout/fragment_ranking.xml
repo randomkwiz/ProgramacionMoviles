@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.RankingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listView_ranking"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="50dp"
-        android:text="@string/menu_ranking" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
