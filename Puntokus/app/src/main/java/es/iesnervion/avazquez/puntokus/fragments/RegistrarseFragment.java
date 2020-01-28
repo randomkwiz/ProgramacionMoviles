@@ -60,7 +60,7 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
     @Override
     public void onPause() { //para que se borren las credenciales
         super.onPause();
-        email.setText("");
+        nickname.setText("");
         password.setText("");
         email.setText("");
         viewModel.getUser().getValue().setEmail("");
@@ -150,10 +150,10 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
                         //checking if success
                         if(task.isSuccessful()){
 
-                            Toast.makeText(getContext(),
-                                    "Se ha registrado el usuario con el email: "
-                                            + viewModel.getUser().getValue().getEmail(),
-                                    Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(),
+//                                    "Se ha registrado el usuario con el email: "
+//                                            + viewModel.getUser().getValue().getEmail(),
+//                                    Toast.LENGTH_LONG).show();
 
                             //Aqui vamos a guardar los datos del usuario en la BBDD Realtime DB
                             //TODO esto
@@ -166,21 +166,22 @@ public class RegistrarseFragment extends Fragment implements View.OnClickListene
 
                             viewModel.setUser(usuarioActual);
 
-//                            Map<String, Object> map = new HashMap<>();
-//                            map.put("nickname", viewModel.getUser().getValue().getNickname());
-//                            map.put("email", viewModel.getUser().getValue().getEmail());
-//                            map.put("password", viewModel.getUser().getValue().getPassword());
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("id", viewModel.getUser().getValue().getId());
+                            map.put("nickname", viewModel.getUser().getValue().getNickname());
+                            map.put("email", viewModel.getUser().getValue().getEmail());
+                            //map.put("password", viewModel.getUser().getValue().getPassword()); //no debe guardarse la password
 
 
                             databaseReference.child("Users").
                                     child(usuarioActual.getId()).
-                                    setValue(viewModel.getUser()).
+                                    setValue(map).
                                     addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task2) {
                                     if(task2.isSuccessful()){
                                         Toast.makeText(getContext(),
-                                                "Se han guardado los datos en la BBDD",
+                                                "Se han registrado los datos",
                                                 Toast.LENGTH_SHORT).show();
 
                                     }
