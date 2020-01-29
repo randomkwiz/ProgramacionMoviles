@@ -21,10 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import es.iesnervion.avazquez.puntokus.R;
+import es.iesnervion.avazquez.puntokus.adapter.GamesAdapter;
 import es.iesnervion.avazquez.puntokus.entities.Game;
 import es.iesnervion.avazquez.puntokus.entities.User;
 
@@ -43,7 +46,7 @@ public class RankingFragment extends Fragment {
     ListView listViewRanking;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
-    ArrayList<String> listaPartidas;
+    ArrayList<Game> listaPartidas;
     Game partida;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,35 +56,43 @@ public class RankingFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         listaPartidas = new ArrayList<>();
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1,
-                        listaPartidas);
+       GamesAdapter adapter =
+                new GamesAdapter(listaPartidas,getActivity());
 
         databaseReference.child("Games").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     for(DataSnapshot ds: dataSnapshot.getChildren()){
-                        partida = new Game();
+
                         for(DataSnapshot hijo: ds.getChildren()){
-
-                            switch (hijo.getValue().toString().trim()){
-                                case "email":
-                                    partida.setEmail(hijo.child("email").getValue().toString());
-                                    break;
-                                case "level":
-                                    partida.setLevel(hijo.child("level").getValue().toString());
-                                    break;
-                                case "timeInMilis":
-                                    partida.setTimeInMilis(Long.parseLong(hijo.child("timeInMilis").getValue().toString()));
-                                    break;
-
-                            }
+                            partida = new Game();
+                            partida.setNickname(hijo.child("nickname").getValue().toString());
+                            partida.setEmail(hijo.child("email").getValue().toString());
+                            partida.setLevel(hijo.child("level").getValue().toString());
+                            partida.setTimeInMilis(Long.parseLong(hijo.child("timeInMilis").getValue().toString()));
+//                            switch (hijo.getValue().toString().trim()){
+//                                case "email":
+//
+//                                    break;
+//                                case "level":
+//
+//                                    break;
+//                                case "timeInMilis":
+//
+//                                    break;
+//
+//                            }
+                            listaPartidas.add(partida);
                         }
-                        listaPartidas.add(partida.toString());
+
                     }
 
+                    Collections.sort(listaPartidas);
+                    if(listaPartidas.size() >= 150){
+                        listaPartidas.subList(149, listaPartidas.size()).clear();   //elimina los elementos a partir de la posicion 149
+                        //Es para que el ranking tenga max 150 partidas
+                    }
                 listViewRanking.setAdapter(adapter);
                 }
             }

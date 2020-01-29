@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if(aBoolean){
+                    intent.putExtra("nickname", viewModel.getUser().getValue().getNickname());
                     startActivity(intent);
                 }
 
