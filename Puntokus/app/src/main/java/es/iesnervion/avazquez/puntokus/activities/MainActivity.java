@@ -43,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                 if(aBoolean){
-                    ft.replace(R.id.fragment, registro).commit();   //no pongo el add to back stack porque no me interesa aqui
+                    ft.replace(R.id.fragment, registro).
+                            addToBackStack(null)
+                            .commit();
+                    //no pongo el add to back stack porque no me interesa aqui
                 }
 
             }
