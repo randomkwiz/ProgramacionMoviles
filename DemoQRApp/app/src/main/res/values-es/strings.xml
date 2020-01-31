@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DemoQRApp</string>
+    <string name="checkBtn">¡Comprobar!</string>
+    <string name="correctAnswer">¡Correcto!</string>
+    <string name="scanagain">Seguir escaneando</string>
+    <string name="wrongAnswer">¡INCORRECTO!</string>
+</resources>

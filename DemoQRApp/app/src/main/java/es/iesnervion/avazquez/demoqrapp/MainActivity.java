@@ -1,7 +1,9 @@
 package es.iesnervion.avazquez.demoqrapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 
 import android.Manifest;
 import android.content.Intent;
@@ -15,6 +17,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.TextView;
 
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             */
     private CameraSource cameraSource;
     private SurfaceView cameraView;
-    private TextView txtQR;
+
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     private String token = "";
     private String tokenanterior = "";
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         cameraView = (SurfaceView) findViewById(R.id.camera_view);
-        txtQR = (TextView) findViewById(R.id.txtQR);
+
         initQR();
     }
 
@@ -70,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 // verifico si el usuario dio los permisos para la camara
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
-
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         // verificamos la version de ANdroid que sea al menos la M para mostrar
                         // el dialog de la solicitud de la camara
@@ -79,15 +81,19 @@ public class MainActivity extends AppCompatActivity {
                         requestPermissions(new String[]{Manifest.permission.CAMERA},
                                 MY_PERMISSIONS_REQUEST_CAMERA);
                     }
-                    return;
                 } else {
                     try {
+
                         cameraSource.start(cameraView.getHolder());
                     } catch (IOException ie) {
                         Log.e("CAMERA SOURCE", ie.getMessage());
                     }
                 }
+
             }
+
+
+
 
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -99,11 +105,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         // preparo el detector de QR
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
             }
+
+
 
 
             @Override
@@ -122,35 +132,22 @@ public class MainActivity extends AppCompatActivity {
                         // guardamos el ultimo token proceado
                         tokenanterior = token;
                         Log.i("token", token);
-
-                        txtQR.setText("Prueba");
-                        txtQR.setText(token);
-
-
-//                        if (URLUtil.isValidUrl(token)) {
-//                            // si es una URL valida abre el navegador
-//                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(token));
-//                            startActivity(browserIntent);
-//                        } else {
-//                            // comparte en otras apps
-//                            Intent shareIntent = new Intent();
-//                            shareIntent.setAction(Intent.ACTION_SEND);
-//                            shareIntent.putExtra(Intent.EXTRA_TEXT, token);
-//                            shareIntent.setType("text/plain");
-//                            startActivity(shareIntent);
-//                        }
+                        Intent intent = new Intent(getBaseContext(), EventoActivity.class);
+                        intent.putExtra(Intent.EXTRA_TEXT, token);
+                        startActivity(intent);
 
                         new Thread(new Runnable() {
                             public void run() {
                                 try {
                                     synchronized (this) {
-                                        wait(5000);
+                                        wait(10000);
                                         // limpiamos el token
                                         tokenanterior = "";
+
                                     }
                                 } catch (InterruptedException e) {
                                     // TODO Auto-generated catch block
-                                    Log.e("Error", "Waiting didnt work!!");
+                                    //Log.e("Error", "Waiting didnt work!!");
                                     e.printStackTrace();
                                 }
                             }
@@ -161,5 +158,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            try {
+
+                cameraSource.start(cameraView.getHolder());
+            } catch (IOException ie) {
+                Log.e("CAMERA SOURCE", ie.getMessage());
+            }
+        }
     }
 }

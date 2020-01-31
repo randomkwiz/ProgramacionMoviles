@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "115828595121",
+    "firebase_url": "https://qrapp-5df67.firebaseio.com",
+    "project_id": "qrapp-5df67",
+    "storage_bucket": "qrapp-5df67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115828595121:android:c19ab2bd8295cd64688590",
+        "android_client_info": {
+          "package_name": "es.iesnervion.avazquez.demoqrapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115828595121-nve20t7ts5hd7cr5aqouilp2pvcgko8d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.iesnervion.avazquez.demoqrapp",
+            "certificate_hash": "f10faae83eae6907b30d3a04cb2df5dd9d7f1bf0"
+          }
+        },
+        {
+          "client_id": "115828595121-04u70032a1ekc02bel2f9nnjqlpf2vk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0t47G5pKiyIfuyF943kStoIpchFZwd98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115828595121-04u70032a1ekc02bel2f9nnjqlpf2vk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DemoQRApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="checkBtn">Check!</string>
+    <string name="scanagain">Scan again!</string>
+    <string name="correctAnswer">Correct!</string>
+    <string name="wrongAnswer">FAIL!</string>
 </resources>
