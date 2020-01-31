@@ -1,0 +1,20 @@
+basic implementations
+
+    def lifecycle_version = "2.1.0"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    //Mobile Vision Google
+    implementation 'com.google.android.gms:play-services-vision:19.0.0'
+    //Butterknife
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    //Anotaciones
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+
+
+//Esto es para Butterknife
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
