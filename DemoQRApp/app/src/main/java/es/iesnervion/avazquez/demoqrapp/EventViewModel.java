@@ -9,6 +9,7 @@ import es.iesnervion.avazquez.demoqrapp.entities.BasicQA;
 public class EventViewModel extends ViewModel {
     private MutableLiveData<String> txtQR;
     private MutableLiveData<BasicQA> preguntaBasica;
+    private MutableLiveData<BasicQA> preguntaImagenes;
     private MutableLiveData<Boolean> goToResults;
 
 
@@ -16,9 +17,11 @@ public class EventViewModel extends ViewModel {
         this.txtQR = new MutableLiveData<>();
         this.preguntaBasica = new MutableLiveData<>();
         this.goToResults = new MutableLiveData<>();
+        this.preguntaImagenes = new MutableLiveData<>();
         this.goToResults.setValue(false);
 
         this.preguntaBasica.setValue(new BasicQA());
+        this.preguntaImagenes.setValue(new BasicQA());
 
         this.setTxtQR("");
     }
@@ -36,6 +39,15 @@ public class EventViewModel extends ViewModel {
 
     }
 
+    public LiveData<BasicQA> getPreguntaImagenes() {
+        return preguntaImagenes;
+    }
+
+    public void setPreguntaImagenes(BasicQA preguntaImagenes) {
+        this.preguntaImagenes.setValue(preguntaImagenes);
+    }
+
+
     public LiveData<BasicQA> getPreguntaBasica() {
         return preguntaBasica;
     }
@@ -43,6 +55,7 @@ public class EventViewModel extends ViewModel {
     public void setPreguntaBasica(BasicQA preguntaBasica) {
         this.preguntaBasica.setValue(preguntaBasica);
     }
+
 
     public LiveData<String> getTxtQR() {
         return txtQR;

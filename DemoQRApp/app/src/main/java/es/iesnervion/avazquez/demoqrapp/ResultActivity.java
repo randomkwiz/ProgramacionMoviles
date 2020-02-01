@@ -41,6 +41,15 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         resultados.append("Preguntas de respuesta única falladas: ");
         resultados.append(String.valueOf(sharedPreferences.getInt("basicQA_failed", 0)));
 
+
+        resultados.append("\n");
+
+        resultados.append("Preguntas de respuesta única con imágenes acertadas: ");
+        resultados.append(String.valueOf(sharedPreferences.getInt("imgQA_correct", 0)));
+        resultados.append("\n");
+        resultados.append("Preguntas de respuesta única con imágenes  falladas: ");
+        resultados.append(String.valueOf(sharedPreferences.getInt("imgQA_failed", 0)));
+
         scanBtn.setOnClickListener(this);
 
     }

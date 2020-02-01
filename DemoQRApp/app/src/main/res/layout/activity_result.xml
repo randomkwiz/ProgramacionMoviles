@@ -7,6 +7,9 @@
     tools:context=".ResultActivity">
 
     <TextView
+
+        android:layout_margin="25dp"
+        android:textSize="15dp"
         android:id="@+id/resultados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

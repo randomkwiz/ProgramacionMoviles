@@ -21,12 +21,14 @@ import butterknife.BindView;
 import es.iesnervion.avazquez.demoqrapp.entities.BasicQA;
 import es.iesnervion.avazquez.demoqrapp.entities.Pregunta;
 import es.iesnervion.avazquez.demoqrapp.fragments.BasicQAFragment;
+import es.iesnervion.avazquez.demoqrapp.fragments.ImgQAFragment;
 
 public class EventoActivity extends AppCompatActivity {
 
 
     EventViewModel viewModel;
     BasicQAFragment basicQAFragment;
+    ImgQAFragment imgQAFragment;
     FirebaseFirestore firebaseFirestore;
     SharedPreferences sharedPreferences;
     @Override
@@ -39,14 +41,15 @@ public class EventoActivity extends AppCompatActivity {
         viewModel.setTxtQR(txt);
         firebaseFirestore = FirebaseFirestore.getInstance();
         basicQAFragment = new BasicQAFragment();
+        imgQAFragment = new ImgQAFragment();
         obtenerPregunta();
 
         sharedPreferences = getSharedPreferences("ResultadosPreguntas", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("basicQA_correct", 0);
         editor.putInt("basicQA_failed", 0);
-        editor.putInt("complexQA_correct", 0);
-        editor.putInt("complexQA_failed", 0);
+        editor.putInt("imgQA_correct", 0);
+        editor.putInt("imgQA_correct", 0);
 
 
 
@@ -96,6 +99,26 @@ public class EventoActivity extends AppCompatActivity {
                             getSupportFragmentManager().beginTransaction()
                                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                     .replace(R.id.fragment, basicQAFragment)
+                                    .commit();
+                            break;
+
+
+                        case "imgQA":
+                            BasicQA basicQAimg = new BasicQA();
+                            basicQAimg.setTipo(documentSnapshot.getString("type"));
+                            basicQAimg.setTitulo(documentSnapshot.getString("question"));
+                            basicQAimg.setRespuestaCorrecta(documentSnapshot.getString("correctAnswer"));
+                            String[] arrayRespuestasImg = {
+                                    documentSnapshot.getString("answer1"),
+                                    documentSnapshot.getString("answer2"),
+                                    documentSnapshot.getString("answer3"),
+                                    documentSnapshot.getString("answer4")};
+                            basicQAimg.setRespuestas(arrayRespuestasImg);
+
+                            viewModel.setPreguntaImagenes(basicQAimg);
+                            getSupportFragmentManager().beginTransaction()
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .replace(R.id.fragment, imgQAFragment)
                                     .commit();
                             break;
 
