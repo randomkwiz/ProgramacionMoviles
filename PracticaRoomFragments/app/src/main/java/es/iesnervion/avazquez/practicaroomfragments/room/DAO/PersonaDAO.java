@@ -29,7 +29,12 @@ public interface PersonaDAO {
     public Persona getPersonaPorID(int idPersona);
 
     @Query("SELECT * FROM Persona")
-    public List<Persona> getPersonas();
+    public List<Persona> getAllPersonas();
+
+
+    @Query("SELECT * FROM Persona")
+    public LiveData<List<Persona>> getAllPersonasLD();
+
 
     //Uso el POJO aqui para que me traiga directamente todas las personas con toda la lista de sus redes sociales
     @Query("SELECT * FROM Persona")
