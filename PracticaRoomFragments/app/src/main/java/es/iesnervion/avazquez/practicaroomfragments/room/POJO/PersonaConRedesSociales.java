@@ -1,6 +1,7 @@
 package es.iesnervion.avazquez.practicaroomfragments.room.POJO;
 
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 import androidx.room.Relation;
 
 import java.util.List;
@@ -19,9 +20,21 @@ public class PersonaConRedesSociales {
     private List<CuentaRedSocial> redesSociales;
 
 
+    /*APUNTES RELATION:
+    * Propiedades de @Relation:
+            parentColumn: atributo identificador en objeto padre
+            entityColumn: atributo de objeto relacionado (hijo) que se
+                            corresponde con parentColumn
+            entity: objeto relacionado (subordinado al objeto padre)
+            projection: obtener solo algunos atributos del objeto relacionado
+
+    * */
+
+
     public PersonaConRedesSociales() {
     }
 
+    @Ignore
     public PersonaConRedesSociales(Persona persona) {
         this.persona = persona;
     }

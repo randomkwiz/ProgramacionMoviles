@@ -6,11 +6,9 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.Mascota;
-import es.iesnervion.avazquez.practicaroomfragments.room.entities.Persona;
 
 @Dao
 public interface MascotaDAO {

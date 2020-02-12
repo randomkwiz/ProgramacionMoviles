@@ -1,16 +1,15 @@
 package es.iesnervion.avazquez.practicaroomfragments.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+
 import java.util.GregorianCalendar;
 import java.util.List;
 
 import es.iesnervion.avazquez.practicaroomfragments.R;
 import es.iesnervion.avazquez.practicaroomfragments.room.AppDatabase;
-import es.iesnervion.avazquez.practicaroomfragments.room.DAO.PersonaDAO;
 import es.iesnervion.avazquez.practicaroomfragments.room.POJO.PersonaConRedesSociales;
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.CuentaRedSocial;
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.Mascota;
@@ -28,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         //DATABASE
         AppDatabase database = AppDatabase.getDatabase(this);
 
+
+
+
         /*Prueba: CRUD Persona*/
 
         Persona personaPrueba = new Persona("Angela", new GregorianCalendar(1997,6,23));
-
         Persona personaPrueba2 = new Persona("Angel", new GregorianCalendar(1992,0,12));
 
 
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
         database.personaConMascotaDAO().getPersonaConMascotaPorIDMascota(mascota1.getId());
 
+
+
+
+
         //Hasta aqui tambien bien. Inserta una mascota y la relaciona con dos personas
 
         CuentaRedSocial instagram = new CuentaRedSocial(personaPrueba.getId(), "Instagram");
@@ -81,9 +86,29 @@ public class MainActivity extends AppCompatActivity {
         PersonaConRedesSociales personaConRedesSociales = database
                 .personaDAO()
                 .getPersonaConRedesSociales(personaPrueba.getId());
+
         //Funciona hasta aqui, te trae la persona con to sus RRSS
 
 
+        //El live data debe ser observado!! asi como esta aqui puesto no funciona
+//        LiveData<PersonaConRedesSociales> personaConRedesSocialesLD = database
+//                .personaDAO()
+//                .getPersonaConRedesSocialesLD(personaPrueba.getId());
+
+
+        database.personaDAO().getPersonaConRedesSocialesLD(personaPrueba.getId()).observe(this, new Observer<PersonaConRedesSociales>() {
+            @Override
+            public void onChanged(PersonaConRedesSociales personaConRedesSociales) {
+                int prueba = 0;
+                //Aqui no entra :(
+            }
+        });
+
+
+        CuentaRedSocial whatsapp = new CuentaRedSocial(personaPrueba.getId(), "Whatsapp");
+        whatsapp.setId(3);
+
+        database.cuentaRedSocialDAO().insertarCuentaRedSocial(whatsapp);
 
     }
 }
