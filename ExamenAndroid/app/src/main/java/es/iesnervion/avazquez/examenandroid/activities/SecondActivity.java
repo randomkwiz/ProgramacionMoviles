@@ -46,7 +46,7 @@ public class SecondActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
 
-        Utilidad utilidad = new Utilidad();
+        final Utilidad utilidad = new Utilidad();
         Intent intent = getIntent();
         viewModel = ViewModelProviders.of(this).get(SecondViewModel.class);
 
@@ -77,7 +77,7 @@ public class SecondActivity extends AppCompatActivity implements
                 //Actualizar la UI
                 lista.invalidate(); //Se tiene que poner esto
                 ProductosAdapter productosAdapter2 = new ProductosAdapter(getApplicationContext(),
-                        listaElementos);
+                        viewModel.getListaProductos().getValue());
                 lista.setAdapter(productosAdapter2);
 
             }
@@ -173,20 +173,32 @@ public class SecondActivity extends AppCompatActivity implements
                 break;
         }
 
-        switch (radioGroupFiltrarCPU.getCheckedRadioButtonId()){
-            case R.id.RBtodos:
-                viewModel.cargarProductos();
-                break;
-            case R.id.RBintel:
 
-                viewModel.setListaProductos(utilidad.eliminarAMD(viewModel.getListaProductos().getValue()));
 
-                break;
-            case R.id.RBamd:
-                viewModel.setListaProductos(utilidad.eliminarINTEL(viewModel.getListaProductos().getValue()));
+        radioGroupFiltrarCPU.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                switch (radioGroupFiltrarCPU.getCheckedRadioButtonId()){
+                    case R.id.RBtodos:
+                        viewModel.cargarProductos();
+                        break;
+                    case R.id.RBintel:
 
-                break;
-        }
+                        viewModel.setListaProductos(utilidad.eliminarAMD(viewModel.getListaProductos().getValue()));
+
+                        break;
+                    case R.id.RBamd:
+                        viewModel.setListaProductos(utilidad.eliminarINTEL(viewModel.getListaProductos().getValue()));
+
+                        break;
+                }
+            }
+        });
+
+
+
         btnGuardar.setOnClickListener(this);
         btnAnterior.setOnClickListener(this);
         btnSiguiente.setOnClickListener(this);
