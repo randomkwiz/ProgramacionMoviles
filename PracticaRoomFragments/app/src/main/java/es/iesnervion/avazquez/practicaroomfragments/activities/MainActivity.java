@@ -11,6 +11,8 @@ import java.util.List;
 import es.iesnervion.avazquez.practicaroomfragments.R;
 import es.iesnervion.avazquez.practicaroomfragments.room.AppDatabase;
 import es.iesnervion.avazquez.practicaroomfragments.room.DAO.PersonaDAO;
+import es.iesnervion.avazquez.practicaroomfragments.room.POJO.PersonaConRedesSociales;
+import es.iesnervion.avazquez.practicaroomfragments.room.entities.CuentaRedSocial;
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.Mascota;
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.Persona;
 import es.iesnervion.avazquez.practicaroomfragments.room.entities.PersonaConMascota;
@@ -65,6 +67,22 @@ public class MainActivity extends AppCompatActivity {
         database.personaConMascotaDAO().getPersonaConMascotaPorIDMascota(mascota1.getId());
 
         //Hasta aqui tambien bien. Inserta una mascota y la relaciona con dos personas
+
+        CuentaRedSocial instagram = new CuentaRedSocial(personaPrueba.getId(), "Instagram");
+        instagram.setId(1);
+        CuentaRedSocial facebook = new CuentaRedSocial(personaPrueba.getId(), "Facebook");
+        facebook.setId(2);
+        CuentaRedSocial twitter = new CuentaRedSocial(personaPrueba.getId(), "Twitter");
+        facebook.setId(3);
+
+        database.cuentaRedSocialDAO().insertarCuentaRedSocial(instagram, facebook, twitter);
+
+
+        PersonaConRedesSociales personaConRedesSociales = database
+                .personaDAO()
+                .getPersonaConRedesSociales(personaPrueba.getId());
+        //Funciona hasta aqui, te trae la persona con to sus RRSS
+
 
 
     }

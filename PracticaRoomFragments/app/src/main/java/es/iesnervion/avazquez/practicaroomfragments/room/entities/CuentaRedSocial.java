@@ -35,8 +35,8 @@ public class CuentaRedSocial {
         this.id = id;
     }
 
-    public CuentaRedSocial(int id, String nombreRedSocial) {
-        this.idPersona = id;
+    public CuentaRedSocial(int idPersona, String nombreRedSocial) {
+        this.idPersona = idPersona;
         this.nombreRedSocial = nombreRedSocial;
     }
 
