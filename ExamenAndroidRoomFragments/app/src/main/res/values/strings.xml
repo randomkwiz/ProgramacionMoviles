@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ExamenAndroidRoomFragments</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list">List</string>
+    <string name="insert">Insert</string>
+    <string name="lblNombreAtleta">Name</string>
+    <string name="lblApellidoAtleta">Last name</string>
+    <string name="lblObservaciones">Observaciones</string>
+    <string name="fillFields">Fill fields</string>
+</resources>
