@@ -1,0 +1,286 @@
+[
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_info.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_info.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_alert.mp3.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/alert.mp3"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-land_fragment_ranking.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-land/fragment_ranking.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_solvedexample.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable-xhdpi/solvedexample.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_game.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_game.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-sw600dp-land_fragment_ranking.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-sw600dp-land/fragment_ranking.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_podium.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_podium.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_border_shape.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/border_shape.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_puntokus1.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_puntokus1.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_first.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_first.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_ranking.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_ranking.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-land_fragment_game.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-land/fragment_game.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_infocolumn.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/infocolumn.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_tap.flac.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/tap.flac"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_inforow.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable-xhdpi/inforow.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_registrarse.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_registrarse.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_mec_switch.wav.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/mec_switch.wav"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_dots.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_dots.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_question.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_question.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_lounge_david_renda.mp3.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/lounge_david_renda.mp3"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-sw600dp-land_fragment_game.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-sw600dp-land/fragment_game.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_correct2.mp3.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/correct2.mp3"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_incorrect.mp3.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/incorrect.mp3"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_home_black_24dp.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_inforow.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_inforow.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_solvedexample.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/solvedexample.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_roundedrectangleshape.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/roundedrectangleshape.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-sw300dp-port_fragment_game.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-sw300dp-port/fragment_game.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_launcher_bk_web2.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_launcher_bk_web2.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_bkground.jpg.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable-xhdpi/bkground.jpg"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_play.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_play.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_bkground.jpg.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/bkground.jpg"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/color_bottom_nav_color.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/color/bottom_nav_color.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout-sw450dp-port_fragment_game.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout-sw450dp-port/fragment_game.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_correct.mp3.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/correct.mp3"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_roundedrectangleshape2.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/roundedrectangleshape2.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_selecteditem.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/selecteditem.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_play.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_play.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_ranking_game_row.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/ranking_game_row.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_second.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_second.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_third.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_third.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_infocolumn.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable-xhdpi/infocolumn.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_account.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_account.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_inforow.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/inforow.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_no_thc.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_no_thc.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_podiumcoloured.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_podiumcoloured.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/raw_duck_quack.wav.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/raw/duck_quack.wav"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_info_dialog.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_info_dialog.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_fragment_login.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/fragment_login.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_infocolumn.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_infocolumn.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/layout_activity_second_main.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/layout/activity_second_main.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_ic_user.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/ic_user.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/drawable_nonselecteditem.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/drawable/nonselecteditem.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/menu_main_menu.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/menu/main_menu.xml"
+    },
+    {
+        "merged": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

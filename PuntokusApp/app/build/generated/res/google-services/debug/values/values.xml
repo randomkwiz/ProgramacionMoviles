@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">490546603270-afsce1nqbdl9r353gh8ucnahv7839hht.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://puntokus.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">490546603270</string>
+    <string name="google_api_key" translatable="false">AIzaSyBT2UBPUcFV81xrWSnZKAK7ohXaGeigKkc</string>
+    <string name="google_app_id" translatable="false">1:490546603270:android:9168c0d4e24299d88f2a87</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBT2UBPUcFV81xrWSnZKAK7ohXaGeigKkc</string>
+    <string name="google_storage_bucket" translatable="false">puntokus.appspot.com</string>
+    <string name="project_id" translatable="false">puntokus</string>
+</resources>

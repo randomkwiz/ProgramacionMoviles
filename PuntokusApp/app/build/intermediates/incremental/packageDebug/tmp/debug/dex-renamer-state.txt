@@ -1,0 +1,4 @@
+#Thu Mar 12 09:48:58 CET 2020
+base.0=/home/avazquez/Documentos/GIT/ProgramacionMoviles/PuntokusApp/app/build/intermediates/dex/debug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
